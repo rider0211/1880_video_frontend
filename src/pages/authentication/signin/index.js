@@ -19,11 +19,11 @@
 
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 
-import BasicLayout from "pages/authentication/components/BasicLayout";
 import GradientBorder from "examples/GradientBorder";
 import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
+import LoginLayout from "pages/authentication/components/LoginLayout";
 import Stack from "@mui/material/Stack";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
@@ -68,7 +68,7 @@ function Basic() {
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   return (
-    <BasicLayout
+    <LoginLayout
       title="Welcome!"
       description="Use these awesome forms to login or create new account in your project for free."
       image={bgBasic}
@@ -261,7 +261,7 @@ function Basic() {
               Don't have an account?{" "}
               <VuiTypography
                 component={Link}
-                to="/authentication/sign-up/basic"
+                to="/register"
                 variant="button"
                 color="white"
                 fontWeight="medium"
@@ -272,7 +272,7 @@ function Basic() {
           </VuiBox>
         </VuiBox>
       </GradientBorder>
-    </BasicLayout>
+    </LoginLayout>
   );
 }
 

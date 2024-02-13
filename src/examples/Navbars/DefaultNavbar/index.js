@@ -1,20 +1,3 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
 import { useEffect, useState } from "react";
 
 import ApplicationsMenu from "examples/Navbars/DefaultNavbar/Menus/ApplicationsMenu";
@@ -33,6 +16,7 @@ import VuiTypography from "components/VuiTypography";
 import borders from "assets/theme/base/borders";
 import breakpoints from "assets/theme/base/breakpoints";
 import colors from "assets/theme/base/colors";
+import config from "config";
 
 // react-router components
 
@@ -148,7 +132,7 @@ function DefaultNavbar({ routes, transparent, light, action }) {
               margin: "0 auto",
             }}
           >
-            VISION UI PRO
+            {config.appname}
           </VuiTypography>
         </VuiBox>
         <VuiBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>

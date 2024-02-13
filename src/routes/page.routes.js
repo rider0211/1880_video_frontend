@@ -44,32 +44,16 @@ import SinginBasic from "pages/authentication/signin";
 
 const pageRoutes = [
   {
-    type: "collapse",
-    name: "Dashboard",
-    key: "dashboard",
-    icon: <IoHome size="15px" color="inherit" />,
-    route: "/dashboard",
-    component: Default,
-    noCollapse: true,
-  },
-  { type: "title", title: "Pages", key: "title-pages" },
-  {
-    type: "collapse",
-    name: "Authentication",
-    key: "authentications",
-    icon: <IoDocument size="15px" color="inherit" />,
+    name: "Dashboards",
+    key: "dashboards",
+    icon: <IoHome size="16px" color="white" />,
     collapse: [
       {
-        name: "Singin",
-        key: "signin",
-        route: "/singin",
-        component: SinginBasic,
-      },{
-        name: "Singup",
-        key: "signup",
-        route: "/singup",
-        component: SignupBasic,
+        name: "Default",
+        key: "default",
+        route: "/dashboards/default",
       },
+      { name: "CRM", key: "crm", route: "/dashboards/crm" },
     ],
   },
 ];

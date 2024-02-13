@@ -39,7 +39,7 @@ import pageRoutes from "routes/page.routes";
 
 // Vision UI Dashboard PRO React page layout routes
 
-function BasicLayout({ title, description, image, children }) {
+function LoginLayout({ title, description, image, children }) {
   return (
     <PageLayout>
       <DefaultNavbar
@@ -94,7 +94,14 @@ function BasicLayout({ title, description, image, children }) {
             </VuiBox>
           </Grid>
         </Grid>
-        {children}
+        <VuiBox
+          display="flex"
+          justifyContent="center"
+          mx={{ xs: "auto", lg: "auto" }}
+          maxWidth={{ xs: "90%", md: "436px" }}
+        >
+          {children}
+        </VuiBox>
       </VuiBox>
       <Footer full />
     </PageLayout>
@@ -102,17 +109,17 @@ function BasicLayout({ title, description, image, children }) {
 }
 
 // Setting default values for the props of BasicLayout
-BasicLayout.defaultProps = {
+LoginLayout.defaultProps = {
   title: "",
   description: "",
 };
 
 // Typechecking props for the BasicLayout
-BasicLayout.propTypes = {
+LoginLayout.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default BasicLayout;
+export default LoginLayout;

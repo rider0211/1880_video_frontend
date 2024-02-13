@@ -1,55 +1,23 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
-// Plugins custom css
-
 import "assets/theme/base/plugins.css";
 
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { setMiniSidenav, setOpenConfigurator, useVisionUIController } from "context";
 import { useEffect, useState } from "react";
 
+import BasicSignin from "pages/authentication/signin";
+import BasicSignup from "pages/authentication/signup";
 import Configurator from "layouts/Configurator";
 import CssBaseline from "@mui/material/CssBaseline";
+import Dashboard from "pages/dashboard";
+import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import Icon from "@mui/material/Icon";
 import Sidenav from "layouts/Sidenav";
 import { ThemeProvider } from "@mui/material/styles";
 import VuiBox from "components/VuiBox";
+import pageRoutes from "routes/page.routes";
 import routes from "routes/routes";
 import theme from "assets/theme";
-
-// react-router components
-
-// Vision UI Dashboard PRO React contexts
-
-
-
-
-
-
-// Vision UI Dashboard PRO React example components
-
-// @mui material components
-
-// Vision UI Dashboard PRO React components
-
-// Vision UI Dashboard PRO React routes
-
-// Vision UI Dashboard PRO React themes
-
+import { useSelector } from "react-redux";
 
 export default function App() {
   const [controller, dispatch] = useVisionUIController();
@@ -124,6 +92,9 @@ export default function App() {
     </VuiBox>
   );
 
+  const auth = useSelector(state => state.auth);
+  const role = auth.userData?.role;
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -140,10 +111,48 @@ export default function App() {
           {configsButton}
         </>
       )}
-      {layout === "vr" && <Configurator />}
-      <Switch>
-        {getRoutes(routes)}
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={
+          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
+        }/>
+        <Route exact path="/login" element={
+          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
+        } />
+        <Route exact path="/register" element={
+          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignup />
+        } />
+        <Route
+          path=""
+          element={
+            (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Dashboard /> : <Navigate to="/login" replace />
+          }
+        >
+          {
+            role && (role === 'admin' ? <>
+              <Route path="advisors" element={<Advisors />} />
+              <Route path="advisor/view/:id" element={<AdvisorView />} />
+              <Route path="advisor/edit/:id" element={<AdvisorEdit />} />
+              <Route path="settings" element={<Settings />} />
+            </> : <>
+              <Route path="portfolio" element={<Portfolio />} />
+              <Route exact path="portfolio/graph" element={<PortfolioGraph />} />
+              <Route path="clients" element={<Clients />} />
+              <Route path="chat" element={<Chat />} />
+              <Route path="calendar" element={<Calendar />} />
+              <Route path="email" element={<Email />}>
+                <Route exact index element={<EmailInbox />} />
+                <Route exact path="sent" element={<EmailSent />} />
+                <Route exact path="draft" element={<EmailDraft />} />
+                <Route exact path="trash" element={<EmailTrash />} />
+                {/* <Route exact path="setting" element={<EmailSetting />}/> */}
+                <Route exact path="view/:id" element={<EmailView />} />
+                <Route exact path="compose" element={<EmailCompose />} />
+              </Route>
+            </>)
+          }
+          <Route path="profile" element={<Dashboard />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 }

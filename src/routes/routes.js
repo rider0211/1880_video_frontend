@@ -53,7 +53,7 @@ const routes = [
     route: "/dashboard",
     component: Default,
     noCollapse: true,
-    secure_type: true,
+    access_type: 'public',
   },
   { type: "title", title: "Pages", key: "title-pages" },
   {

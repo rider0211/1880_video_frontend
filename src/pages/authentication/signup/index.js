@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-
+* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,289 +15,164 @@
 
 */
 
-// Icons
+// formik components
+import { Form, Formik } from "formik";
 
-import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
-
+import Address from "pages/authentication/signup/components/Address";
 import BasicLayout from "pages/authentication/components/BasicLayout";
-import GradientBorder from "examples/GradientBorder";
-import Icon from "@mui/material/Icon";
-import IconButton from "@mui/material/IconButton";
+import Card from "@mui/material/Card";
+// Vision UI Dashboard PRO React example components
+// @mui material components
+import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
-import Stack from "@mui/material/Stack";
+import Profile from "pages/authentication/signup/components/Profile";
+import Socials from "pages/authentication/signup/components/Socials";
+import Step from "@mui/material/Step";
+import StepLabel from "@mui/material/StepLabel";
+import Stepper from "@mui/material/Stepper";
+// NewUser page components
+import UserInfo from "pages/authentication/signup/components/UserInfo";
+// Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
-import VuiInput from "components/VuiInput";
-import VuiSwitch from "components/VuiSwitch";
 import VuiTypography from "components/VuiTypography";
 import bgBasic from "assets/images/background-basic-auth.png";
-import borders from "assets/theme/base/borders";
-import palette from "assets/theme/base/colors";
-import radialGradient from "assets/theme/functions/radialGradient";
-import rgba from "assets/theme/functions/rgba";
+import form from "pages/authentication/signup/schemas/form";
+import initialValues from "pages/authentication/signup/schemas/initialValues";
 import { useState } from "react";
+// NewUser layout schemas for form and form feilds
+import validations from "pages/authentication/signup/schemas/validations";
 
-// Authentication layout components
+function getSteps() {
+  return ["User Info", "Address", "Social", "Profile"];
+}
 
-// Vision UI Dashboard components
+function getStepContent(stepIndex, formData) {
+  switch (stepIndex) {
+    case 0:
+      return <UserInfo formData={formData} />;
+    case 1:
+      return <Address formData={formData} />;
+    case 2:
+      return <Socials formData={formData} />;
+    case 3:
+      return <Profile formData={formData} />;
+    default:
+      return null;
+  }
+}
 
-// @mui material components
+function NewUser() {
+  const [activeStep, setActiveStep] = useState(0);
+  const steps = getSteps();
+  const { formId, formField } = form;
+  const currentValidation = validations[activeStep];
+  const isLastStep = activeStep === steps.length - 1;
 
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const handleBack = () => setActiveStep(activeStep - 1);
 
-// react-router-dom components
+  const submitForm = async (values, actions) => {
+    await sleep(1000);
 
+    // eslint-disable-next-line no-alert
+    alert(JSON.stringify(values, null, 2));
 
-// Vision UI Dashboard PRO React components
+    actions.setSubmitting(false);
+    actions.resetForm();
 
+    setActiveStep(0);
+  };
 
-
-
-
-// Images
-
-
-
-// Vision UI Dashboard assets
-
-
-
-
-function Basic() {
-  const [rememberMe, setRememberMe] = useState(false);
-
-  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const handleSubmit = (values, actions) => {
+    if (isLastStep) {
+      submitForm(values, actions);
+    } else {
+      setActiveStep(activeStep + 1);
+      actions.setTouched({});
+      actions.setSubmitting(false);
+    }
+  };
 
   return (
     <BasicLayout
       title="Welcome!"
-      description="Use these awesome forms to login or create new account in your project for free."
+      description="create new account for free."
       image={bgBasic}
     >
-      <GradientBorder borderRadius={borders.borderRadius.form} minWidth="100%" maxWidth="100%">
-        <VuiBox
-          component="form"
-          role="form"
-          borderRadius="inherit"
-          p="45px"
-          sx={({ palette: { secondary } }) => ({
-            backgroundColor: secondary.main,
-          })}
-        >
-          <VuiTypography
-            color="white"
-            fontWeight="bold"
-            textAlign="center"
-            mb="24px"
-            sx={({ typography: { size } }) => ({
-              fontSize: size.lg,
-            })}
-          >
-            Register with
-          </VuiTypography>
-          <Stack mb="25px" justifyContent="center" alignItems="center" direction="row" spacing={2}>
-            <GradientBorder borderRadius="xl">
-              <a href="#">
-                <IconButton
-                  transition="all .25s ease"
-                  justify="center"
-                  align="center"
-                  bg="rgb(19,21,54)"
-                  borderRadius="15px"
-                  sx={({ palette: { secondary }, borders: { borderRadius } }) => ({
-                    borderRadius: borderRadius.xl,
-                    padding: "25px",
-                    backgroundColor: secondary.focus,
-                    "&:hover": {
-                      backgroundColor: rgba(secondary.focus, 0.9),
-                    },
-                  })}
+      <VuiBox py={3} mb={20}>
+        <Grid container justifyContent="center" sx={{ height: "100%" }}>
+          <Grid item xs={12} lg={8}>
+            <Stepper activeStep={activeStep} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={currentValidation}
+              onSubmit={handleSubmit}
+            >
+              {({ values, errors, touched, isSubmitting }) => (
+                <Form id={formId} autoComplete="off">
+                  <Card sx={{ height: "100%" }}>
+                    <VuiBox>
+                      <VuiBox>
+                        {getStepContent(activeStep, {
+                          values,
+                          touched,
+                          formField,
+                          errors,
+                        })}
+                        <VuiBox mt={2} width="100%" display="flex" justifyContent="space-between">
+                          {activeStep === 0 ? (
+                            <VuiBox />
+                          ) : (
+                            <VuiButton
+                              variant="gradient"
+                              sx={{ minWidth: "100px" }}
+                              color="light"
+                              onClick={handleBack}
+                            >
+                              prev
+                            </VuiButton>
+                          )}
+                          <VuiButton
+                            disabled={isSubmitting}
+                            type="submit"
+                            sx={{ minWidth: "100px" }}
+                            color="info"
+                          >
+                            {isLastStep ? "send" : "next"}
+                          </VuiButton>
+                        </VuiBox>
+                      </VuiBox>
+                    </VuiBox>
+                  </Card>
+                </Form>
+              )}
+            </Formik>
+            <VuiBox mt={3} textAlign="center">
+              <VuiTypography variant="button" color="text" fontWeight="regular">
+                Already have an account?{" "}
+                <VuiTypography
+                  component={Link}
+                  to="/login"
+                  variant="button"
+                  color="white"
+                  fontWeight="medium"
                 >
-                  <Icon
-                    as={FaFacebook}
-                    w="30px"
-                    h="30px"
-                    sx={({ palette: { white } }) => ({
-                      color: white.focus,
-                    })}
-                  />
-                </IconButton>
-              </a>
-            </GradientBorder>
-            <GradientBorder borderRadius="xl">
-              <a href="#">
-                <IconButton
-                  transition="all .25s ease"
-                  justify="center"
-                  align="center"
-                  bg="rgb(19,21,54)"
-                  borderRadius="15px"
-                  sx={({ palette: { secondary }, borders: { borderRadius } }) => ({
-                    borderRadius: borderRadius.xl,
-                    padding: "25px",
-                    backgroundColor: secondary.focus,
-                    "&:hover": {
-                      backgroundColor: rgba(secondary.focus, 0.9),
-                    },
-                  })}
-                >
-                  <Icon
-                    as={FaApple}
-                    w="30px"
-                    h="30px"
-                    sx={({ palette: { white } }) => ({
-                      color: white.focus,
-                    })}
-                  />
-                </IconButton>
-              </a>
-            </GradientBorder>
-            <GradientBorder borderRadius="xl">
-              <a href="#">
-                <IconButton
-                  transition="all .25s ease"
-                  justify="center"
-                  align="center"
-                  bg="rgb(19,21,54)"
-                  borderRadius="15px"
-                  sx={({ palette: { secondary }, borders: { borderRadius } }) => ({
-                    borderRadius: borderRadius.xl,
-                    padding: "25px",
-                    backgroundColor: secondary.focus,
-                    "&:hover": {
-                      backgroundColor: rgba(secondary.focus, 0.9),
-                    },
-                  })}
-                >
-                  <Icon
-                    as={FaGoogle}
-                    w="30px"
-                    h="30px"
-                    sx={({ palette: { white } }) => ({
-                      color: white.focus,
-                    })}
-                  />
-                </IconButton>
-              </a>
-            </GradientBorder>
-          </Stack>
-          <VuiTypography
-            color="text"
-            fontWeight="bold"
-            textAlign="center"
-            mb="14px"
-            sx={({ typography: { size } }) => ({ fontSize: size.lg })}
-          >
-            or
-          </VuiTypography>
-          <VuiBox mb={2}>
-            <VuiBox mb={1} ml={0.5}>
-              <VuiTypography component="label" variant="button" color="white" fontWeight="medium">
-                Name
+                  Sign in
+                </VuiTypography>
               </VuiTypography>
             </VuiBox>
-            <GradientBorder
-              minWidth="100%"
-              borderRadius={borders.borderRadius.lg}
-              padding="1px"
-              backgroundImage={radialGradient(
-                palette.gradients.borderLight.main,
-                palette.gradients.borderLight.state,
-                palette.gradients.borderLight.angle
-              )}
-            >
-              <VuiInput
-                placeholder="Your name..."
-                sx={({ typography: { size } }) => ({
-                  fontSize: size.sm,
-                })}
-              />
-            </GradientBorder>
-          </VuiBox>
-          <VuiBox mb={2}>
-            <VuiBox mb={1} ml={0.5}>
-              <VuiTypography component="label" variant="button" color="white" fontWeight="medium">
-                Email
-              </VuiTypography>
-            </VuiBox>
-            <GradientBorder
-              minWidth="100%"
-              borderRadius={borders.borderRadius.lg}
-              padding="1px"
-              backgroundImage={radialGradient(
-                palette.gradients.borderLight.main,
-                palette.gradients.borderLight.state,
-                palette.gradients.borderLight.angle
-              )}
-            >
-              <VuiInput
-                type="email"
-                placeholder="Your email..."
-                sx={({ typography: { size } }) => ({
-                  fontSize: size.sm,
-                })}
-              />
-            </GradientBorder>
-          </VuiBox>
-          <VuiBox mb={2}>
-            <VuiBox mb={1} ml={0.5}>
-              <VuiTypography component="label" variant="button" color="white" fontWeight="medium">
-                Password
-              </VuiTypography>
-            </VuiBox>
-            <GradientBorder
-              minWidth="100%"
-              borderRadius={borders.borderRadius.lg}
-              padding="1px"
-              backgroundImage={radialGradient(
-                palette.gradients.borderLight.main,
-                palette.gradients.borderLight.state,
-                palette.gradients.borderLight.angle
-              )}
-            >
-              <VuiInput
-                type="password"
-                placeholder="Your password..."
-                sx={({ typography: { size } }) => ({
-                  fontSize: size.sm,
-                })}
-              />
-            </GradientBorder>
-          </VuiBox>
-          <VuiBox display="flex" alignItems="center">
-            <VuiSwitch color="info" checked={rememberMe} onChange={handleSetRememberMe} />
-            <VuiTypography
-              variant="caption"
-              color="white"
-              fontWeight="medium"
-              onClick={handleSetRememberMe}
-              sx={{ cursor: "pointer", userSelect: "none" }}
-            >
-              &nbsp;&nbsp;&nbsp;&nbsp;Remember me
-            </VuiTypography>
-          </VuiBox>
-          <VuiBox mt={4} mb={1}>
-            <VuiButton color="info" fullWidth>
-              SIGN UP
-            </VuiButton>
-          </VuiBox>
-          <VuiBox mt={3} textAlign="center">
-            <VuiTypography variant="button" color="text" fontWeight="regular">
-              Already have an account?{" "}
-              <VuiTypography
-                component={Link}
-                to="/authentication/sign-in/basic"
-                variant="button"
-                color="white"
-                fontWeight="medium"
-              >
-                Sign in
-              </VuiTypography>
-            </VuiTypography>
-          </VuiBox>
-        </VuiBox>
-      </GradientBorder>
+          </Grid>
+        </Grid>
+      </VuiBox>
     </BasicLayout>
   );
 }
 
-export default Basic;
+export default NewUser;
