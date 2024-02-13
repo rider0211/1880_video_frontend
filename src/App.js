@@ -131,8 +131,6 @@ export default function App() {
       )}
       {layout === "vr" && <Configurator />}
       <Switch>
-        <Route exact path="/singin" component={SigninBasic} key="singin" />
-        <Route exact path="/singup" component={SingupBasic} key="singup" />
         {getRoutes(routes)}
       </Switch>
     </ThemeProvider>
