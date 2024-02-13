@@ -19,23 +19,17 @@
 import FormField from "pages/authentication/signup/components/FormField";
 // @mui material components
 import Grid from "@mui/material/Grid";
-import MenuItem from "@mui/material/MenuItem";
 // prop-type is a library for typechecking of props
 import PropTypes from "prop-types";
-import Select from "@mui/material/Select";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
-import { useState } from "react";
 
 function Address({ formData }) {
-  const [state, setState] = useState("...");
   const { formField, values, errors, touched } = formData;
-  const { address1, address2, city, zip } = formField;
-  const { address1: address1V, address2: address2V, city: cityV, zip: zipV } = values;
-
-  const handleSetState = (event) => setState(event.target.value);
+  const { address1, country, city, state, zip } = formField;
+  const { address1: address1V, country: countryV, city: cityV, state: stateV, zip: zipV } = values;
 
   return (
     <VuiBox>
@@ -45,6 +39,18 @@ function Address({ formData }) {
       <VuiBox mt={3}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
+              <VuiBox mt={-1.625}>
+                <FormField
+                  label={country.label}
+                  name={country.name}
+                  value={countryV}
+                  placeholder={country.placeholder}
+                  error={errors.country && touched.country}
+                  success={countryV.length > 0 && !errors.countryV}
+                />
+              </VuiBox>
+          </Grid>
+          <Grid item xs={12}>
             <FormField
               label={address1.label}
               name={address1.name}
@@ -53,16 +59,6 @@ function Address({ formData }) {
               error={errors.address1 && touched.address1}
               success={address1V.length > 0 && !errors.address1}
             />
-          </Grid>
-          <Grid item xs={12}>
-            <VuiBox mt={-1.625}>
-              <FormField
-                label={address2.label}
-                name={address2.name}
-                value={address2V}
-                placeholder={address2.placeholder}
-              />
-            </VuiBox>
           </Grid>
         </Grid>
         <Grid container spacing={3}>
@@ -77,22 +73,14 @@ function Address({ formData }) {
             />
           </Grid>
           <Grid item xs={6} sm={3}>
-            <VuiBox mb={1} ml={0.5} lineHeight={0} display="inline-block">
-              <VuiTypography
-                component="label"
-                variant="caption"
-                fontWeight="bold"
-                textTransform="capitalize"
-              >
-                State
-              </VuiTypography>
-            </VuiBox>
-            <Select input={<VuiInput />} value={state} onChange={handleSetState}>
-              <MenuItem value="...">...</MenuItem>
-              <MenuItem value="10">Hello 10</MenuItem>
-              <MenuItem value="11">Hello 11</MenuItem>
-              <MenuItem value="12">Hello 12</MenuItem>
-            </Select>
+            <FormField
+                label={state.label}
+                name={state.name}
+                value={stateV}
+                placeholder={state.placeholder}
+                error={errors.state && touched.state}
+                success={stateV.length > 0 && !errors.state}
+              />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormField

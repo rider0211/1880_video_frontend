@@ -20,7 +20,7 @@ import * as Yup from "yup";
 import checkout from "pages/authentication/signup/schemas/form";
 
 const {
-  formField: { firstName, lastName, email, password, repeatPassword, address1, city, zip, twitter },
+  formField: { firstName, lastName, email, password, repeatPassword, address1, country, city, zip, state, contactname, contactemail, contactphonenumber },
 } = checkout;
 
 export default [
@@ -37,9 +37,13 @@ export default [
   Yup.object().shape({
     [address1.name]: Yup.string().required(address1.errorMsg),
     [city.name]: Yup.string().required(city.errorMsg),
+    [country.name]: Yup.string().required(country.errorMsg),
+    [state.name]: Yup.string().required(state.errorMsg),
     [zip.name]: Yup.string().required(zip.errorMsg).min(6, zip.invalidMsg),
   }),
   Yup.object().shape({
-    [twitter.name]: Yup.string().required(twitter.errorMsg),
+    [contactname.name]: Yup.string().required(contactname.errorMsg),
+    [contactemail.name]: Yup.string().required(contactemail.errorMsg).email(email.invalidMsg),
+    [contactphonenumber.name]: Yup.string().required(contactphonenumber.errorMsg)
   }),
 ];

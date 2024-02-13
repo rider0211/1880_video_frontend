@@ -27,11 +27,11 @@ import VuiTypography from "components/VuiTypography";
 
 function UserInfo({ formData }) {
   const { formField, values, errors, touched } = formData;
-  const { firstName, lastName, company, email, password, repeatPassword } = formField;
+  const { firstName, lastName, phonenumber, email, password, repeatPassword } = formField;
   const {
     firstName: firstNameV,
     lastName: lastNameV,
-    company: companyV,
+    phonenumber: phonenumberV,
     email: emailV,
     password: passwordV,
     repeatPassword: repeatPasswordV,
@@ -75,11 +75,11 @@ function UserInfo({ formData }) {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormField
-              label={company.label}
-              name={company.name}
-              type={company.type}
-              value={companyV}
-              placeholder={company.placeholder}
+              label={phonenumber.label}
+              name={phonenumber.name}
+              type={phonenumber.type}
+              value={phonenumberV}
+              placeholder={phonenumber.placeholder}
             />
           </Grid>
           <Grid item xs={12} sm={6}>

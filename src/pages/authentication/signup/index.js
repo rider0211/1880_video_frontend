@@ -21,12 +21,11 @@ import { Form, Formik } from "formik";
 import Address from "pages/authentication/signup/components/Address";
 import BasicLayout from "pages/authentication/components/BasicLayout";
 import Card from "@mui/material/Card";
+import ContactInfo from "pages/authentication/signup/components/ContactInfo";
 // Vision UI Dashboard PRO React example components
 // @mui material components
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
-import Profile from "pages/authentication/signup/components/Profile";
-import Socials from "pages/authentication/signup/components/Socials";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
@@ -44,7 +43,7 @@ import { useState } from "react";
 import validations from "pages/authentication/signup/schemas/validations";
 
 function getSteps() {
-  return ["User Info", "Address", "Social", "Profile"];
+  return ["User Info", "Address", "Contact Info"];
 }
 
 function getStepContent(stepIndex, formData) {
@@ -54,9 +53,7 @@ function getStepContent(stepIndex, formData) {
     case 1:
       return <Address formData={formData} />;
     case 2:
-      return <Socials formData={formData} />;
-    case 3:
-      return <Profile formData={formData} />;
+      return <ContactInfo formData={formData} />;
     default:
       return null;
   }

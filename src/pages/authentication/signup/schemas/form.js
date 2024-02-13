@@ -32,9 +32,9 @@ export default {
       placeholder: "eg. Prior",
       errorMsg: "Last name is required.",
     },
-    company: {
-      name: "company",
-      label: "company",
+    phonenumber: {
+      name: "phonenumber",
+      label: "phonenumber",
       type: "text",
       placeholder: "eg. Creative Tim",
     },
@@ -69,11 +69,12 @@ export default {
       placeholder: "eg. Street 111",
       errorMsg: "Address is required.",
     },
-    address2: {
-      name: "address2",
-      label: "address 2",
+    country: {
+      name: "country",
+      label: "country",
       type: "text",
-      placeholder: "eg. Street 221",
+      placeholder: "eg. Canada",
+      errorMsg: "Country is required.",
     },
     city: {
       name: "city",
@@ -90,24 +91,35 @@ export default {
       errorMsg: "Zip is required.",
       invalidMsg: "Zipcode is not valie (e.g. 70000).",
     },
-    twitter: {
-      name: "twitter",
-      label: "twitter handle",
+    state: {
+      name: "state",
+      label: "state",
       type: "text",
-      placeholder: "@vision",
-      errorMsg: "Twitter profile is required.",
+      placeholder: "eg. Ontario",
+      errorMsg: "State is required.",
+      invalidMsg: "State is not valid",
     },
-    facebook: {
-      name: "facebook",
-      label: "facebook account",
+    contactname: {
+      name: "contactname",
+      label: "Contact Name",
       type: "text",
-      placeholder: "https://...",
+      placeholder: "Steven",
+      errorMsg: "Contact Name is required.",
     },
-    instagram: {
-      name: "instagram",
-      label: "instagram account",
+    contactemail: {
+      name: "contactemail",
+      label: "Contact Email",
+      type: "email",
+      placeholder: "test@test.com",
+      errorMsg: "Contact email is required.",
+      invalidMsg: "Your email address is invalid",
+    },
+    contactphonenumber: {
+      name: "contactphonenumber",
+      label: "Contact Phone Number",
       type: "text",
-      placeholder: "https://...",
+      placeholder: "+123456789",
+      errorMsg: "Contact phone number is required.",
     },
     publicEmail: {
       name: "publicEmail",

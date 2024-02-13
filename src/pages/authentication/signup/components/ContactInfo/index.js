@@ -25,42 +25,46 @@ import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 
-function Socials({ formData }) {
+function ContactInfo({ formData }) {
   const { formField, values, errors, touched } = formData;
-  const { twitter, facebook, instagram } = formField;
-  const { twitter: twitterV, facebook: facebookV, instagram: instagramV } = values;
+  const { contactname, contactemail, contactphonenumber } = formField;
+  const { contactname: contactnameV, contactemail: contactemailV, contactphonenumber: contactphonenumberV } = values;
 
   return (
     <VuiBox>
       <VuiTypography variant="lg" color="white" fontWeight="bold">
-        Socials
+        Contact Info
       </VuiTypography>
       <VuiBox mt={3}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <FormField
-              label={twitter.label}
-              name={twitter.name}
-              value={twitterV}
-              placeholder={twitter.placeholder}
-              error={errors.twitter && touched.twitter}
-              success={twitterV.length > 0 && !errors.twitter}
+              label={contactname.label}
+              name={contactname.name}
+              value={contactnameV}
+              placeholder={contactname.placeholder}
+              error={errors.contactname && touched.contactname}
+              success={contactnameV.length > 0 && !errors.contactname}
             />
           </Grid>
           <Grid item xs={12}>
             <FormField
-              label={facebook.label}
-              name={facebook.name}
-              value={facebookV}
-              placeholder={facebook.placeholder}
+              label={contactemail.label}
+              name={contactemail.name}
+              value={contactemailV}
+              placeholder={contactemail.placeholder}
+              error={errors.contactemail && touched.contactemail}
+              success={contactemailV.length > 0 && !errors.contactemail}
             />
           </Grid>
           <Grid item xs={12}>
             <FormField
-              label={instagram.label}
-              name={instagram.name}
-              value={instagramV}
-              placeholder={instagram.placeholder}
+              label={contactphonenumber.label}
+              name={contactphonenumber.name}
+              value={contactphonenumberV}
+              placeholder={contactphonenumber.placeholder}
+              error={errors.contactphonenumber && touched.contactphonenumber}
+              success={contactphonenumberV.length > 0 && !errors.contactphonenumber}
             />
           </Grid>
         </Grid>
@@ -68,10 +72,9 @@ function Socials({ formData }) {
     </VuiBox>
   );
 }
-
 // typechecking props for Socials
-Socials.propTypes = {
+ContactInfo.propTypes = {
   formData: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
 };
 
-export default Socials;
+export default ContactInfo;
