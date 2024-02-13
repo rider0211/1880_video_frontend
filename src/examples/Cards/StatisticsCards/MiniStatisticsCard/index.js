@@ -19,11 +19,11 @@
 // @mui material components
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import colors from "assets/theme/base/colors";
+import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import PropTypes from "prop-types";
+import colors from "assets/theme/base/colors";
 
 function MiniStatisticsCard({ bgColor, title, count, percentage, icon, direction }) {
   const { info } = colors;
@@ -161,7 +161,6 @@ MiniStatisticsCard.propTypes = {
   }),
   icon: PropTypes.shape({
     color: PropTypes.oneOf(["primary", "secondary", "info", "success", "warning", "error", "dark"]),
-    component: PropTypes.node.isRequired,
   }).isRequired,
   direction: PropTypes.oneOf(["right", "left"]),
 };

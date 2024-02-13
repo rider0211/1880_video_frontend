@@ -138,7 +138,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	// Render all the routes from the routes.js (All the visible items on the Sidenav)
 	const renderRoutes = routes.map(({ type, name, icon, title, collapse, noCollapse, key, href, route }) => {
 		let returnValue;
-		console.log(noCollapse)
 		if (type === 'collapse') {
 			returnValue = href ? (
 				<Link href={href} key={key} target='_blank' rel='noreferrer' sx={{ textDecoration: 'none' }}>
@@ -244,7 +243,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 								<VuiTypography
 									variant='button'
 									textGradient={true}
-									color='logo'
+									color='inherit'
 									fontSize={14}
 									letterSpacing={2}
 									fontWeight='medium'

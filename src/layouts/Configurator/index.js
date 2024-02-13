@@ -265,17 +265,6 @@ function Configurator() {
             view documentation
           </VuiButton>
         </VuiBox>
-        <VuiBox display="flex" justifyContent="center">
-          <GitHubButton
-            href="https://github.com/creativetimofficial/vision-ui-dashboard-pro-react"
-            data-icon="octicon-star"
-            data-size="large"
-            data-show-count="true"
-            aria-label="Star creativetimofficial/vision-ui-dashboard-pro-react on GitHub"
-          >
-            Star
-          </GitHubButton>
-        </VuiBox>
         <VuiBox mt={3} textAlign="center">
           <VuiBox mb={0.5}>
             <VuiTypography variant="h6" color="white">
