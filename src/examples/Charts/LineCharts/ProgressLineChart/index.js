@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,21 +15,28 @@
 
 */
 
-import { useMemo, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+import BasicLineChart from "../BasicLineChart";
+import Card from "@mui/material/Card";
+import PropTypes from "prop-types";
+import VuiBox from "components/VuiBox";
+import VuiProgress from "components/VuiProgress";
+import VuiTypography from "components/VuiTypography";
 
 // porp-types is a library for typechecking of props
-import PropTypes from "prop-types";
+
 
 // @mui material components
-import Card from "@mui/material/Card";
+
 
 // Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
-import VuiTypography from "components/VuiTypography";
-import VuiProgress from "components/VuiProgress";
+
+
+
 
 // LineChart apex-chart
-import BasicLineChart from "../BasicLineChart";
+
 
 function ProgressLineChart({ color, icon, title, count, progress, data, options }) {
   const [chartData, setChartData] = useState([...data]);

@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,29 +15,38 @@
 
 */
 
+import ApplicationsMenu from "examples/Navbars/DefaultNavbar/Menus/ApplicationsMenu";
+import AuthenticationMenu from "examples/Navbars/DefaultNavbar/Menus/AuthenticationMenu";
+import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
+import EcommerceMenu from "examples/Navbars/DefaultNavbar/Menus/EcommerceMenu";
+import Menu from "@mui/material/Menu";
+import PagesMenu from "examples/Navbars/DefaultNavbar/Menus/PagesMenu";
+import PropTypes from "prop-types";
+import VuiBox from "components/VuiBox";
+import colors from "assets/theme/base/colors";
 import { useState } from "react";
 
 // prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
+
 
 // @mui material components
-import Menu from "@mui/material/Menu";
+
 // import Grid from "@mui/material/Grid";
 
 // Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
+
 
 // Vision UI Dashboard PRO React example components
-import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
+
 
 // Vision UI Dashboard PRO React base styles
-import colors from "assets/theme/base/colors";
+
 
 // DefaultNavbar dropdown menus
-import PagesMenu from "examples/Navbars/DefaultNavbar/Menus/PagesMenu";
-import AuthenticationMenu from "examples/Navbars/DefaultNavbar/Menus/AuthenticationMenu";
-import ApplicationsMenu from "examples/Navbars/DefaultNavbar/Menus/ApplicationsMenu";
-import EcommerceMenu from "examples/Navbars/DefaultNavbar/Menus/EcommerceMenu";
+
+
+
+
 
 function DefaultNavbarMobile({ routes, open, close }) {
   const { white } = colors;

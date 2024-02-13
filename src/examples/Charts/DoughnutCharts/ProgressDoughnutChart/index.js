@@ -2,7 +2,7 @@
 =========================================================
 * Vision UI PRO React - v1.0.0
 =========================================================
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 * Design and Coded by Simmmple & Creative Tim
 =========================================================
@@ -10,17 +10,23 @@
 */
 
 // @mui material components
+
 import Card from '@mui/material/Card';
 import CircularProgress from '@mui/material/CircularProgress';
+import PropTypes from 'prop-types';
 import VuiBadgeDot from 'components/VuiBadgeDot';
-// Vision UI Dashboard PRO React components
 import VuiBox from 'components/VuiBox';
 import VuiTypography from 'components/VuiTypography';
+import breakpoints from 'assets/theme/base/breakpoints';
+
+// Vision UI Dashboard PRO React components
+
+
 // porp-types is a library for typechecking of props
-import PropTypes from 'prop-types';
+
 
 // breakpoints
-import breakpoints from 'assets/theme/base/breakpoints';
+
 
 function ProgressDoughnutChart({ color, icon, title, count }) {
 	const { values } = breakpoints;

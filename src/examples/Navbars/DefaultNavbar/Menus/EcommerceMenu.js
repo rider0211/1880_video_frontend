@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,25 +15,33 @@
 
 */
 
-import { Fragment } from "react";
-
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// react-router components
-import { Link } from "react-router-dom";
-
-// @mui material components
-import Grid from "@mui/material/Grid";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-
-// Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
-
-// Vision UI Dashboard PRO React example components
 import DefaultNavbarCategory from "examples/Navbars/DefaultNavbar/DefaultNavbarCategory";
 import DefaultNavbarMenu from "examples/Navbars/DefaultNavbar/DefaultNavbarMenu";
+import Divider from "@mui/material/Divider";
+import { Fragment } from "react";
+import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
+import MenuItem from "@mui/material/MenuItem";
+import PropTypes from "prop-types";
+import VuiBox from "components/VuiBox";
+
+// prop-types is a library for typechecking of props.
+
+
+// react-router components
+
+
+// @mui material components
+
+
+
+
+// Vision UI Dashboard PRO React components
+
+
+// Vision UI Dashboard PRO React example components
+
+
 
 function EcommerceMenu({ routes, open, close, mobileMenu }) {
   const renderEcommerceMenuRoute = (routeName) =>

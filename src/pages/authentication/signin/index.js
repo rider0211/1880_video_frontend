@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,32 +16,51 @@
 */
 
 // Icons
+
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 
-// Authentication layout components
 import BasicLayout from "pages/authentication/components/BasicLayout";
-// Vision UI Dashboard components
 import GradientBorder from "examples/GradientBorder";
-// @mui material components
 import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
-// react-router-dom components
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
-// Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import VuiInput from "components/VuiInput";
 import VuiSwitch from "components/VuiSwitch";
 import VuiTypography from "components/VuiTypography";
-// Images
 import bgBasic from "assets/images/background-basic-auth.png";
 import borders from "assets/theme/base/borders";
 import palette from "assets/theme/base/colors";
-// Vision UI Dashboard assets
 import radialGradient from "assets/theme/functions/radialGradient";
 import rgba from "assets/theme/functions/rgba";
 import { useState } from "react";
+
+// Authentication layout components
+
+// Vision UI Dashboard components
+
+// @mui material components
+
+
+// react-router-dom components
+
+
+// Vision UI Dashboard PRO React components
+
+
+
+
+
+// Images
+
+
+
+// Vision UI Dashboard assets
+
+
+
 
 function Basic() {
   const [rememberMe, setRememberMe] = useState(false);

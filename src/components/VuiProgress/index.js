@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,16 +15,13 @@
 
 */
 
-import { forwardRef } from "react";
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
-// Vision UI Dashboard PRO React components
-import VuiTypography from "components/VuiTypography";
-
 // Custom styles for VuiProgress
 import VuiProgressRoot from "components/VuiProgress/VuiProgressRoot";
+// Vision UI Dashboard PRO React components
+import VuiTypography from "components/VuiTypography";
+import { forwardRef } from "react";
 
 const VuiProgress = forwardRef(({ variant, color, value, label, ...rest }, ref) => (
   <>

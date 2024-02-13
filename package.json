@@ -5,14 +5,6 @@
 	"author": "Creative Tim",
 	"license": "See license in https://www.creative-tim.com/license",
 	"description": "React version of Vision UI Dashboard PRO by Creative Tim",
-	"homepage": "https://demos.creative-tim.com/vision-ui-dashboard-pro-react/#/dashboards/default",
-	"bugs": {
-		"url": "https://github.com/creativetimofficial/ct-vision-ui-dashboard-pro-react/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/creativetimofficial/ct-vision-ui-dashboard-pro-react.git"
-	},
 	"engines": {
 		"node": "14 || 15 || 16",
 		"npm": ">=6"

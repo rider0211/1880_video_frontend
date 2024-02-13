@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,23 +15,18 @@
 
 */
 
-import { useMemo } from "react";
-
-// porp-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
 // react-apex chart
 import BarChart from "examples/Charts/BarCharts/BasicBarChart";
-
 // @mui material components
 import Card from "@mui/material/Card";
-
+// porp-types is a library for typechecking of props
+import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-
 // Vision UI Dashboard PRO React base styles
 import colors from "assets/theme/base/colors";
+import { useMemo } from "react";
 
 function VerticalBarChart({ title, description, data, options }) {
   const renderChart = (

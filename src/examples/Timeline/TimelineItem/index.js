@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,21 +16,29 @@
 */
 
 // prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
 
-// @mui material components
+import { timelineItem, timelineItemIcon } from "examples/Timeline/TimelineItem/styles";
+
 import Icon from "@mui/material/Icon";
-
-// Vision UI Dashboard PRO React components
+import PropTypes from "prop-types";
+import VuiBadge from "components/VuiBadge";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import VuiBadge from "components/VuiBadge";
-
-// Timeline context
 import { useTimeline } from "examples/Timeline/context";
 
+// @mui material components
+
+
+// Vision UI Dashboard PRO React components
+
+
+
+
+// Timeline context
+
+
 // Custom styles for the TimelineItem
-import { timelineItem, timelineItemIcon } from "examples/Timeline/TimelineItem/styles";
+
 
 function TimelineItem({ color, icon, title, dateTime, description, badges, isWidgets, lastItem }) {
   const isDark = useTimeline();

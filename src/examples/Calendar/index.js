@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,24 +15,20 @@
 
 */
 
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// @fullcalendar components
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
-
+// Custom styles for Calendar
+import CalendarRoot from "examples/Calendar/CalendarRoot";
 // @mui material components
 import Card from "@mui/material/Card";
-
+// @fullcalendar components
+import FullCalendar from "@fullcalendar/react";
+// prop-types is a library for typechecking of props.
+import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-
-// Custom styles for Calendar
-import CalendarRoot from "examples/Calendar/CalendarRoot";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import timeGridPlugin from "@fullcalendar/timegrid";
 
 function Calendar({ header, isWidgets, ...rest }) {
   const validClassNames = [

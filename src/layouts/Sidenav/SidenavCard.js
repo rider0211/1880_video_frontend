@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,23 +16,35 @@
 */
 
 // Custom styles for the SidenavCard
+
 import { card, cardContent, cardIcon, cardIconBox } from "layouts/Sidenav/styles/sidenavCard";
 
 import { AiFillStar } from "react-icons/ai";
 import Button from "@mui/material/Button";
-// @mui material components
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import HelpIcon from "@mui/icons-material/Help";
 import Icon from "@mui/material/Icon";
 import Link from "@mui/material/Link";
 import VuiBox from "components/VuiBox";
-// Vision UI Dashboard PRO React components
 import VuiButton from "components/VuiButton";
 import VuiTypography from "components/VuiTypography";
 import colors from "assets/theme/base/colors";
-// Vision UI Dashboard PRO React context
 import { useVisionUIController } from "context";
+
+// @mui material components
+
+
+
+
+
+
+// Vision UI Dashboard PRO React components
+
+
+
+// Vision UI Dashboard PRO React context
+
 
 function SidenavCard() {
   const [controller] = useVisionUIController();

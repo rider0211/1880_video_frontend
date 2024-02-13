@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,12 +16,14 @@
 */
 
 // Vision UI Dashboard PRO React Base Styles
-import colors from "assets/theme/base/colors";
-import typography from "assets/theme/base/typography";
+
 import borders from "assets/theme/base/borders";
+import colors from "assets/theme/base/colors";
+import pxToRem from "assets/theme/functions/pxToRem";
+import typography from "assets/theme/base/typography";
 
 // Vision UI Dashboard PRO helper functions
-import pxToRem from "assets/theme/functions/pxToRem";
+
 
 const { dark, white, grey, inputColors } = colors;
 const { size, fontWeightRegular } = typography;

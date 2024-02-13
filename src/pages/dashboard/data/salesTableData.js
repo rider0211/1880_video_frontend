@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,11 +15,11 @@
 
 */
 
-// Countries flags
-import US from "assets/images/icons/flags/US.png";
+import BR from "assets/images/icons/flags/BR.png";
 import DE from "assets/images/icons/flags/DE.png";
 import GB from "assets/images/icons/flags/GB.png";
-import BR from "assets/images/icons/flags/BR.png";
+// Countries flags
+import US from "assets/images/icons/flags/US.png";
 
 export default [
   {

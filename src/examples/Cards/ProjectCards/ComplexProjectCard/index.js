@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,18 +15,16 @@
 
 */
 
-// prop-types is library for typechecking of props
-import PropTypes from "prop-types";
-
 // @mui material components
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
 import Icon from "@mui/material/Icon";
-
+// prop-types is library for typechecking of props
+import PropTypes from "prop-types";
+import VuiAvatar from "components/VuiAvatar";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import VuiAvatar from "components/VuiAvatar";
 
 // Custom styles for ComplexProjectCard
 function ComplexProjectCard({ color, icon, title, dateTime, description, members, dropdown }) {

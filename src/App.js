@@ -4,7 +4,6 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,29 +15,41 @@
 */
 
 // Plugins custom css
+
 import "assets/theme/base/plugins.css";
 
-// react-router components
 import { Route, Switch, useLocation } from "react-router-dom";
-// Vision UI Dashboard PRO React contexts
 import { setMiniSidenav, setOpenConfigurator, useVisionUIController } from "context";
 import { useEffect, useState } from "react";
 
 import Configurator from "layouts/Configurator";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
-// Vision UI Dashboard PRO React example components
 import Sidenav from "layouts/Sidenav";
-import SigninBasic from "pages/authentication/signin";
-import SingupBasic from "pages/authentication/signup";
-// @mui material components
 import { ThemeProvider } from "@mui/material/styles";
-// Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
-// Vision UI Dashboard PRO React routes
 import routes from "routes/routes";
-// Vision UI Dashboard PRO React themes
 import theme from "assets/theme";
+
+// react-router components
+
+// Vision UI Dashboard PRO React contexts
+
+
+
+
+
+
+// Vision UI Dashboard PRO React example components
+
+// @mui material components
+
+// Vision UI Dashboard PRO React components
+
+// Vision UI Dashboard PRO React routes
+
+// Vision UI Dashboard PRO React themes
+
 
 export default function App() {
   const [controller, dispatch] = useVisionUIController();

@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,19 +16,26 @@
 */
 
 // react-router-dom components
+
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import Tooltip from "@mui/material/Tooltip";
+import VuiAvatar from "components/VuiAvatar";
+import VuiBox from "components/VuiBox";
+import VuiButton from "components/VuiButton";
+import VuiTypography from "components/VuiTypography";
 
 // prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
+
 
 // @mui material components
-import Tooltip from "@mui/material/Tooltip";
+
 
 // Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
-import VuiTypography from "components/VuiTypography";
-import VuiButton from "components/VuiButton";
-import VuiAvatar from "components/VuiAvatar";
+
+
+
+
 
 function DefaultProjectCard({ image, label, title, description, action, authors }) {
   const renderAuthors = authors.map(({ image: media, name }) => (

@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,24 +15,20 @@
 
 */
 
-import { useMemo } from "react";
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
+// Vision UI Dashboard PRO React example components
+import SalesTableCell from "examples/Tables/SalesTable/SalesTableCell";
 // @mui material components
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-
+import VuiBox from "components/VuiBox";
 // Vision UI Dashboard PRO React components
 import VuiTypography from "components/VuiTypography";
-import VuiBox from "components/VuiBox";
-
-// Vision UI Dashboard PRO React example components
-import SalesTableCell from "examples/Tables/SalesTable/SalesTableCell";
+import { useMemo } from "react";
 
 function SalesTable({ title, rows }) {
   const renderTableCells = rows.map((row, key) => {

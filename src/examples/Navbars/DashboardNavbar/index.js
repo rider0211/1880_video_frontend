@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,51 +15,44 @@
 
 */
 
-import { useState, useEffect } from "react";
-
 // react-router components
-import { useLocation, Link } from "react-router-dom";
-
-// prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
-
-// @material-ui core components
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import Icon from "@mui/material/Icon";
-
-// Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
-import VuiTypography from "components/VuiTypography";
-import VuiInput from "components/VuiInput";
-
-// Vision UI Dashboard PRO React example components
-import Breadcrumbs from "examples/Breadcrumbs";
-import NotificationItem from "examples/Items/NotificationItem";
-
+import { Link, useLocation } from "react-router-dom";
 // Custom styles for DashboardNavbar
 import {
   navbar,
   navbarContainer,
-  navbarRow,
-  navbarIconButton,
   navbarDesktopMenu,
+  navbarIconButton,
   navbarMobileMenu,
+  navbarRow,
 } from "examples/Navbars/DashboardNavbar/styles";
-
 // Vision UI Dashboard PRO React context
 import {
-  useVisionUIController,
-  setTransparentNavbar,
   setMiniSidenav,
   setOpenConfigurator,
+  setTransparentNavbar,
+  useVisionUIController,
 } from "context";
+import { useEffect, useState } from "react";
 
+// @material-ui core components
+import AppBar from "@mui/material/AppBar";
+// Vision UI Dashboard PRO React example components
+import Breadcrumbs from "examples/Breadcrumbs";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import NotificationItem from "examples/Items/NotificationItem";
+// prop-types is a library for typechecking of props.
+import PropTypes from "prop-types";
+import Toolbar from "@mui/material/Toolbar";
+// Vision UI Dashboard PRO React components
+import VuiBox from "components/VuiBox";
+import VuiInput from "components/VuiInput";
+import VuiTypography from "components/VuiTypography";
+import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 // Images
 import team2 from "assets/images/team-2.jpg";
-import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();

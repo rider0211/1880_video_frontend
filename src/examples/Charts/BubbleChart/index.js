@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,16 +15,17 @@
 
 */
 
-import { useMemo, useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+// react-apex components
+import BasicBubbleChart from "examples/Charts/BubbleChart/BasicBubbleChart";
 // @mui material components
 import Card from "@mui/material/Card";
+// porp-types is a library for typechecking of props
+import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-// react-apex components
-import BasicBubbleChart from "examples/Charts/BubbleChart/BasicBubbleChart";
-// porp-types is a library for typechecking of props
-import PropTypes from "prop-types";
 
 function BubbleChart({ title, description, data, options }) {
   const [chartData, setChartData] = useState([...data]);

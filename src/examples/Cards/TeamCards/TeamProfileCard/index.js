@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,20 +15,18 @@
 
 */
 
-// prop-types is library for typechecking of props
-import PropTypes from "prop-types";
-
 // @mui material components
 import Card from "@mui/material/Card";
 import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
 import Icon from "@mui/material/Icon";
-
+// prop-types is library for typechecking of props
+import PropTypes from "prop-types";
+import Tooltip from "@mui/material/Tooltip";
+import VuiAvatar from "components/VuiAvatar";
+import VuiBadge from "components/VuiBadge";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import VuiBadge from "components/VuiBadge";
-import VuiAvatar from "components/VuiAvatar";
 
 function TeamProfileCard({ color, title, description, industry, rating, members, dropdown }) {
   const ratings = {

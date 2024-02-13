@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,17 +15,15 @@
 
 */
 
-import { forwardRef } from "react";
+import "@pathofdev/react-tag-input/build/index.css";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
 // react-tag-input components
 import ReactTagInput from "@pathofdev/react-tag-input";
-import "@pathofdev/react-tag-input/build/index.css";
-
 // Custom styles for VuiTagInput
 import VuiTagInputRoot from "components/VuiTagInput/VuiTagInputRoot";
+import { forwardRef } from "react";
 
 const VuiTagInput = forwardRef(({ size, error, success, ...rest }, ref) => (
   <VuiTagInputRoot ownerState={{ size, error, success }}>

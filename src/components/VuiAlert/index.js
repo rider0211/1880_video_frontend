@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,20 +15,16 @@
 
 */
 
-import { useState } from "react";
-
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
 // @mui material components
 import Fade from "@mui/material/Fade";
-
-// Vision UI Dashboard PRO React components
-import VuiBox from "components/VuiBox";
-
+// prop-types is a library for typechecking of props
+import PropTypes from "prop-types";
+import VuiAlertCloseIcon from "components/VuiAlert/VuiAlertCloseIcon";
 // Custom styles for the VuiAlert
 import VuiAlertRoot from "components/VuiAlert/VuiAlertRoot";
-import VuiAlertCloseIcon from "components/VuiAlert/VuiAlertCloseIcon";
+// Vision UI Dashboard PRO React components
+import VuiBox from "components/VuiBox";
+import { useState } from "react";
 
 function VuiAlert({ color, dismissible, children, ...rest }) {
   const [alertStatus, setAlertStatus] = useState("mount");

@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,30 +15,25 @@
 
 */
 
-import { useMemo } from "react";
-
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
-// uuid is a library for generating unique id
-import { v4 as uuidv4 } from "uuid";
-
+import Card from "@mui/material/Card";
 // @mui material components
 import { Table as MuiTable } from "@mui/material";
+// prop-types is a library for typechecking of props
+import PropTypes from "prop-types";
 import TableBody from "@mui/material/TableBody";
-import Card from "@mui/material/Card";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
-
+import VuiAvatar from "components/VuiAvatar";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
-import VuiAvatar from "components/VuiAvatar";
 import VuiTypography from "components/VuiTypography";
-
+import borders from "assets/theme/base/borders";
 // Vision UI Dashboard PRO React base styles
 import colors from "assets/theme/base/colors";
 import typography from "assets/theme/base/typography";
-import borders from "assets/theme/base/borders";
+import { useMemo } from "react";
+// uuid is a library for generating unique id
+import { v4 as uuidv4 } from "uuid";
 
 function Table({ columns, rows }) {
   const { light, grey } = colors;

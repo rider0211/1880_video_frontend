@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -17,13 +17,11 @@
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
-
 // @mui material components
 import TableCell from "@mui/material/TableCell";
-
+import VuiBox from "components/VuiBox";
 // Vision UI Dashboard PRO React components
 import VuiTypography from "components/VuiTypography";
-import VuiBox from "components/VuiBox";
 
 function SalesTableCell({ title, content, image, noBorder, ...rest }) {
   let template;

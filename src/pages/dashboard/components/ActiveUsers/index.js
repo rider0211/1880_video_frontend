@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,19 +16,31 @@
 */
 
 import { Card, Stack } from "@mui/material";
+import { FaShoppingCart, FaWallet } from "react-icons/fa";
+import { barChartDataDashboard, barChartOptionsDashboard } from "../../data/barChart";
+
+import BarChart from "examples/Charts/BarCharts/BasicBarChart/index";
 import Grid from "@mui/material/Grid";
-// Data
-import colors from "assets/theme/base/colors";
-import linearGradient from "assets/theme/functions/linearGradient";
-// Vision UI Dashboard React components
+import { IoBuild } from "react-icons/io5";
+import { IoIosRocket } from "react-icons/io";
 import VuiBox from "components/VuiBox";
 import VuiProgress from "components/VuiProgress";
 import VuiTypography from "components/VuiTypography";
-import BarChart from "examples/Charts/BarCharts/BasicBarChart/index";
-import { FaShoppingCart, FaWallet } from "react-icons/fa";
-import { IoIosRocket } from "react-icons/io";
-import { IoBuild } from "react-icons/io5";
-import { barChartDataDashboard, barChartOptionsDashboard } from "../../data/barChart";
+import colors from "assets/theme/base/colors";
+import linearGradient from "assets/theme/functions/linearGradient";
+
+// Data
+
+
+// Vision UI Dashboard React components
+
+
+
+
+
+
+
+
 
 const ActiveUsers = () => {
   const { gradients } = colors;

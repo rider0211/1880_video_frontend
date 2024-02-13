@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,12 +15,13 @@
 
 */
 
+import { lineChartDataDashboard, lineChartOptionsDashboard } from "../../data/lineChart";
+
+import BasicLineChart from "examples/Charts/LineCharts/BasicLineChart";
 import { Card } from "@mui/material";
 // Vision UI Dashboard React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import BasicLineChart from "examples/Charts/LineCharts/BasicLineChart";
-import { lineChartDataDashboard, lineChartOptionsDashboard } from "../../data/lineChart";
 
 const SalesOverview = () => {
   return (

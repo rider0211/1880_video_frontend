@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,13 +15,15 @@
 
 */
 
+import PropTypes from "prop-types";
+import VuiBoxRoot from "components/VuiBox/VuiBoxRoot";
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
+
 
 // Custom styles for VuiBox
-import VuiBoxRoot from "components/VuiBox/VuiBoxRoot";
+
 
 const VuiBox = forwardRef(
   ({ variant, bgColor, color, opacity, borderRadius, shadow, ...rest }, ref) => (

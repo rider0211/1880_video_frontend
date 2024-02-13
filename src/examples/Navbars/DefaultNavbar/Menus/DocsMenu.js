@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,19 +16,26 @@
 */
 
 // prop-types is a library for typechecking of props.
-import PropTypes from "prop-types";
 
-// @mui material components
-import MenuItem from "@mui/material/MenuItem";
+import DefaultNavbarMenu from "examples/Navbars/DefaultNavbar/DefaultNavbarMenu";
 import Icon from "@mui/material/Icon";
 import Link from "@mui/material/Link";
-
-// Vision UI Dashboard PRO React components
+import MenuItem from "@mui/material/MenuItem";
+import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 
+// @mui material components
+
+
+
+
+// Vision UI Dashboard PRO React components
+
+
+
 // Vision UI Dashboard PRO React example components
-import DefaultNavbarMenu from "examples/Navbars/DefaultNavbar/DefaultNavbarMenu";
+
 
 function DocsMenu({ routes, open, close, mobileMenu }) {
   const renderDocsMenuRoute = (routeName) =>

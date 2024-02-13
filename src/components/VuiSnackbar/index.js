@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -16,24 +16,34 @@
 */
 
 // prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
 
-// @mui material components
-import Snackbar from "@mui/material/Snackbar";
-import IconButton from "@mui/material/IconButton";
-import Icon from "@mui/material/Icon";
 import Divider from "@mui/material/Divider";
 import Fade from "@mui/material/Fade";
-
-// Vision UI Dashboard PRO React components
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import PropTypes from "prop-types";
+import Snackbar from "@mui/material/Snackbar";
 import VuiBox from "components/VuiBox";
+import VuiSnackbarIconRoot from "components/VuiSnackbar/VuiSnackbarIconRoot";
 import VuiTypography from "components/VuiTypography";
-
-// Vision UI Dashboard PRO React base styles
 import typography from "assets/theme/base/typography";
 
+// @mui material components
+
+
+
+
+
+
+// Vision UI Dashboard PRO React components
+
+
+
+// Vision UI Dashboard PRO React base styles
+
+
 // Custom styles for the VuiSnackbar
-import VuiSnackbarIconRoot from "components/VuiSnackbar/VuiSnackbarIconRoot";
+
 
 function VuiSnackbar({ color, icon, title, dateTime, content, close, ...rest }) {
   const { size } = typography;

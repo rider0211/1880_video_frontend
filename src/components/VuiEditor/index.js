@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,12 +15,11 @@
 
 */
 
-// react-quill components
-import ReactQuill from "react-quill";
-
 // react-quill styles
 import "react-quill/dist/quill.snow.css";
 
+// react-quill components
+import ReactQuill from "react-quill";
 // Custom styles for the VuiEditor
 import VuiEditorRoot from "components/VuiEditor/VuiEditorRoot";
 

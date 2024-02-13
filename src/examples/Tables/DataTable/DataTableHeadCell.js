@@ -4,7 +4,7 @@
 * Vision UI PRO React - v1.0.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
+
 * Copyright 2021 Creative Tim (https://www.creative-tim.com/)
 
 * Design and Coded by Simmmple & Creative Tim
@@ -15,19 +15,16 @@
 
 */
 
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
 // @mui material components
 import Icon from "@mui/material/Icon";
-
+// prop-types is a library for typechecking of props
+import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
-
+import borders from "assets/theme/base/borders";
 // Vision UI Dashboard PRO React base styles
 import colors from "assets/theme/base/colors";
 import typography from "assets/theme/base/typography";
-import borders from "assets/theme/base/borders";
 
 function DataTableHeadCell({ width, children, sorted, align, ...rest }) {
   const { light, secondary, grey } = colors;
