@@ -1,7 +1,4 @@
-// Example action creator for register
-// src/redux/actions.js
-
-import axios from 'axios';
+import { action_type } from 'redux/action_type';
 import useJwt from 'utils/jwt/useJwt';
 
 export const register = (param) => async (dispatch) => {
@@ -9,22 +6,16 @@ export const register = (param) => async (dispatch) => {
         useJwt
         .register(param)
         .then(res => {
-            console.log(res);
-        //   if (res.data.ResponseCode === 0) {
-            // const data = res.data.ResponseResult
-            // dispatch(handleLogin(data))
-        //   } else {
-        //   }
+          if (res.status) {
+            dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'success', snack_bar_text: 'Register completed successfully'});
+          } else {
+            dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: res.data.msg});
+          }
         })
         .catch(err => {
-        //   setSnackBarMsg(err.message);
-        //   setSnackBarOpen(true);
-        console.log(err);
+            dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});
       })
-        // dispatch({ type: 'LOGIN_SUCCESS', payload: response.data.user });
-        // You might want to save the token here
     } catch (error) {
-        console.log(error);
-        // dispatch({ type: 'LOGIN_FAILURE', payload: error.response.data });
+        dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});
     }
 };

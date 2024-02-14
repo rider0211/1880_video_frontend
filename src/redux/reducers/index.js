@@ -1,6 +1,7 @@
 // reducer import
 
 import selectReducer from './select';
+import snackbar from './snackbar';
 import useJwt from 'utils/jwt/useJwt';
 
 const config = useJwt.jwtConfig;
@@ -33,7 +34,8 @@ const authReducer = (state = initialState, action) => {
 
 const reducer = {
     auth: authReducer,
-    selected_user_type: selectReducer
+    selected_user_type: selectReducer,
+    snackbar: snackbar
 };
 
 export default reducer;

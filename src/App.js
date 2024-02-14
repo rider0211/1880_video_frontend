@@ -14,9 +14,12 @@ import Icon from "@mui/material/Icon";
 import Sidenav from "layouts/Sidenav";
 import { ThemeProvider } from "@mui/material/styles";
 import VuiBox from "components/VuiBox";
+import VuiSnackbar from "components/VuiSnackbar";
+import { action_type } from "redux/action_type";
 import pageRoutes from "routes/page.routes";
 import routes from "routes/routes";
 import theme from "assets/theme";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 export default function App() {
@@ -24,7 +27,7 @@ export default function App() {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
-
+  const default_dispatch = useDispatch();
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
@@ -93,7 +96,10 @@ export default function App() {
   );
 
   const auth = useSelector(state => state.auth);
+  const snack_bar = useSelector(state => state.snackbar);
   const role = auth.userData?.role;
+  const toggleSnackbar = () => default_dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: !snack_bar.snack_bar_open, snack_bar_text: '' });
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -114,7 +120,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={
           (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
-        }/>
+        } />
         <Route exact path="/login" element={
           (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
         } />
@@ -153,6 +159,15 @@ export default function App() {
           <Route path="profile" element={<Dashboard />} />
         </Route>
       </Routes>
+      <VuiSnackbar
+        color={snack_bar.snack_bar_type}
+        icon="notifications"
+        title="1880 Town Notification"
+        content={snack_bar.snack_bar_text}
+        dateTime=""
+        open={snack_bar.snack_bar_open}
+        close={toggleSnackbar}
+      />
     </ThemeProvider>
   );
 }

@@ -36,6 +36,7 @@ import UserInfo from "pages/authentication/signup/components/UserInfo";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import VuiTypography from "components/VuiTypography";
+import { action_type } from "redux/action_type";
 import bgBasic from "assets/images/background-basic-auth.png";
 import form from "pages/authentication/signup/schemas/form";
 import initialValues from "pages/authentication/signup/schemas/initialValues";

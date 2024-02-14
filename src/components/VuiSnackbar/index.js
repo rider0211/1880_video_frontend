@@ -27,6 +27,7 @@ import VuiBox from "components/VuiBox";
 import VuiSnackbarIconRoot from "components/VuiSnackbar/VuiSnackbarIconRoot";
 import VuiTypography from "components/VuiTypography";
 import typography from "assets/theme/base/typography";
+import { useState } from "react";
 
 // @mui material components
 
@@ -50,15 +51,15 @@ function VuiSnackbar({ color, icon, title, dateTime, content, close, ...rest }) 
   let titleColor = "white";
   let dateTimeColor = "white";
   let dividerColor = true;
-
   return (
     <Snackbar
       TransitionComponent={Fade}
-      autoHideDuration={5000}
+      autoHideDuration={3000}
       anchorOrigin={{
-        vertical: "bottom",
+        vertical: "top",
         horizontal: "right",
       }}
+      onClose={close}
       {...rest}
       action={
         <IconButton size="small" aria-label="close" color="inherit" onClick={close}>
