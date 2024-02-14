@@ -1,41 +1,30 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
-// NewUser page components
 import FormField from "pages/authentication/signup/components/FormField";
 // @mui material components
 import Grid from "@mui/material/Grid";
+import MenuItem from "@mui/material/MenuItem";
 // prop-type is a library for typechecking of props
 import PropTypes from "prop-types";
+import Select from "@mui/material/Select";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
+import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
+// NewUser page components
+import { useState } from "react";
 
 function UserInfo({ formData }) {
+  const [usertype, setUsertype] = useState("1");
   const { formField, values, errors, touched } = formData;
-  const { firstName, lastName, phonenumber, email, password, repeatPassword } = formField;
+  const { username, phonenumber, email, password, confirm_password } = formField;
   const {
-    firstName: firstNameV,
-    lastName: lastNameV,
+    username: usernameV,
     phonenumber: phonenumberV,
     email: emailV,
     password: passwordV,
-    repeatPassword: repeatPasswordV,
+    confirm_password: confirm_passwordV,
   } = values;
+
+  const handleSetState = (event) => setUsertype(event.target.value);
 
   return (
     <VuiBox>
@@ -51,37 +40,34 @@ function UserInfo({ formData }) {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormField
-              label={firstName.label}
-              name={firstName.name}
-              type={firstName.type}
-              value={firstNameV}
-              placeholder={firstName.placeholder}
-              error={errors.firstName && touched.firstName}
-              success={firstNameV.length > 0 && !errors.firstName}
+              label={username.label}
+              name={username.name}
+              type={username.type}
+              value={usernameV}
+              placeholder={username.placeholder}
+              error={errors.username && touched.username}
+              success={usernameV.length > 0 && !errors.username}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <FormField
-              label={lastName.label}
-              name={lastName.name}
-              value={lastNameV}
-              type={lastName.type}
-              placeholder={lastName.placeholder}
-              error={errors.lastName && touched.lastName}
-              success={lastNameV.length > 0 && !errors.lastName}
-            />
+            <VuiBox mb={1} ml={0.5} lineHeight={0} display="inline-block">
+              <VuiTypography
+                component="label"
+                variant="caption"
+                fontWeight="bold"
+                textTransform="capitalize"
+              >
+                User Type
+              </VuiTypography>
+            </VuiBox>
+            <Select input={<VuiInput />} value={usertype} onChange={handleSetState}>
+              <MenuItem value='1'>Customer</MenuItem>
+              <MenuItem value='2'>Clerk</MenuItem>
+              <MenuItem value='3'>client</MenuItem>
+            </Select>
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <FormField
-              label={phonenumber.label}
-              name={phonenumber.name}
-              type={phonenumber.type}
-              value={phonenumberV}
-              placeholder={phonenumber.placeholder}
-            />
-          </Grid>
           <Grid item xs={12} sm={6}>
             <FormField
               label={email.label}
@@ -91,6 +77,15 @@ function UserInfo({ formData }) {
               placeholder={email.placeholder}
               error={errors.email && touched.email}
               success={emailV.length > 0 && !errors.email}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <FormField
+              label={phonenumber.label}
+              name={phonenumber.name}
+              type={phonenumber.type}
+              value={phonenumberV}
+              placeholder={phonenumber.placeholder}
             />
           </Grid>
         </Grid>
@@ -109,13 +104,13 @@ function UserInfo({ formData }) {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormField
-              label={repeatPassword.label}
-              name={repeatPassword.name}
-              type={repeatPassword.type}
-              value={repeatPasswordV}
-              placeholder={repeatPassword.placeholder}
-              error={errors.repeatPassword && touched.repeatPassword}
-              success={repeatPasswordV.length > 0 && !errors.repeatPassword}
+              label={confirm_password.label}
+              name={confirm_password.name}
+              type={confirm_password.type}
+              value={confirm_passwordV}
+              placeholder={confirm_password.placeholder}
+              error={errors.confirm_password && touched.confirm_password}
+              success={confirm_passwordV.length > 0 && !errors.confirm_password}
               inputProps={{ autoComplete: "" }}
             />
           </Grid>

@@ -20,30 +20,29 @@ import * as Yup from "yup";
 import checkout from "pages/authentication/signup/schemas/form";
 
 const {
-  formField: { firstName, lastName, email, password, repeatPassword, address1, country, city, zip, state, contactname, contactemail, contactphonenumber },
+  formField: { username, email, password, confirm_password, street, country, city, zip, state, contact_name, contact_email, contact_phone_number },
 } = checkout;
 
 export default [
   Yup.object().shape({
-    [firstName.name]: Yup.string().required(firstName.errorMsg),
-    [lastName.name]: Yup.string().required(lastName.errorMsg),
+    [username.name]: Yup.string().required(username.errorMsg),
     [email.name]: Yup.string().required(email.errorMsg).email(email.invalidMsg),
     [password.name]: Yup.string().required(password.errorMsg).min(6, password.invalidMsg),
     [password.name]: Yup.string().required(password.errorMsg).min(6, password.invalidMsg),
-    [repeatPassword.name]: Yup.string()
-      .required(repeatPassword.errorMsg)
-      .oneOf([Yup.ref("password"), null], repeatPassword.invalidMsg),
+    [confirm_password.name]: Yup.string()
+      .required(confirm_password.errorMsg)
+      .oneOf([Yup.ref("password"), null], confirm_password.invalidMsg),
   }),
   Yup.object().shape({
-    [address1.name]: Yup.string().required(address1.errorMsg),
+    [street.name]: Yup.string().required(street.errorMsg),
     [city.name]: Yup.string().required(city.errorMsg),
     [country.name]: Yup.string().required(country.errorMsg),
     [state.name]: Yup.string().required(state.errorMsg),
     [zip.name]: Yup.string().required(zip.errorMsg).min(6, zip.invalidMsg),
   }),
   Yup.object().shape({
-    [contactname.name]: Yup.string().required(contactname.errorMsg),
-    [contactemail.name]: Yup.string().required(contactemail.errorMsg).email(email.invalidMsg),
-    [contactphonenumber.name]: Yup.string().required(contactphonenumber.errorMsg)
+    [contact_name.name]: Yup.string().required(contact_name.errorMsg),
+    [contact_email.name]: Yup.string().required(contact_email.errorMsg).email(email.invalidMsg),
+    [contact_phone_number.name]: Yup.string().required(contact_phone_number.errorMsg)
   }),
 ];

@@ -17,6 +17,7 @@
 
 // formik components
 import { Form, Formik } from "formik";
+import { useDispatch, useSelector } from 'react-redux'
 
 import Address from "pages/authentication/signup/components/Address";
 import BasicLayout from "pages/authentication/components/BasicLayout";
@@ -38,6 +39,7 @@ import VuiTypography from "components/VuiTypography";
 import bgBasic from "assets/images/background-basic-auth.png";
 import form from "pages/authentication/signup/schemas/form";
 import initialValues from "pages/authentication/signup/schemas/initialValues";
+import { register } from "redux/actions/register";
 import { useState } from "react";
 // NewUser layout schemas for form and form feilds
 import validations from "pages/authentication/signup/schemas/validations";
@@ -65,20 +67,18 @@ function NewUser() {
   const { formId, formField } = form;
   const currentValidation = validations[activeStep];
   const isLastStep = activeStep === steps.length - 1;
+  const dispatch = useDispatch()
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleBack = () => setActiveStep(activeStep - 1);
 
   const submitForm = async (values, actions) => {
-    await sleep(1000);
-
     // eslint-disable-next-line no-alert
-    alert(JSON.stringify(values, null, 2));
-
+    dispatch(register(values));
     actions.setSubmitting(false);
-    actions.resetForm();
+    // actions.resetForm();
 
-    setActiveStep(0);
+    // setActiveStep(0);
   };
 
   const handleSubmit = (values, actions) => {
@@ -90,7 +90,6 @@ function NewUser() {
       actions.setSubmitting(false);
     }
   };
-
   return (
     <BasicLayout
       title="Welcome!"

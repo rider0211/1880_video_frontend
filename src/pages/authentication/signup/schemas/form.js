@@ -18,25 +18,18 @@
 export default {
   formId: "new-user-form",
   formField: {
-    firstName: {
-      name: "firstName",
-      label: "first name",
+    username: {
+      name: "username",
+      label: "User Name",
       type: "text",
-      placeholder: "eg. Micheal",
-      errorMsg: "First name is required.",
-    },
-    lastName: {
-      name: "lastName",
-      label: "last name",
-      type: "text",
-      placeholder: "eg. Prior",
-      errorMsg: "Last name is required.",
+      placeholder: "eg. Steve Stence",
+      errorMsg: "Full Name is required.",
     },
     phonenumber: {
-      name: "phonenumber",
+      name: "phone_number",
       label: "phonenumber",
       type: "text",
-      placeholder: "eg. Creative Tim",
+      placeholder: "eg. +123456789",
     },
     email: {
       name: "email",
@@ -54,17 +47,17 @@ export default {
       errorMsg: "Password is required.",
       invalidMsg: "Your password should be more than 6 characters.",
     },
-    repeatPassword: {
-      name: "repeatPassword",
-      label: "repeat password",
+    confirm_password: {
+      name: "confirm_password",
+      label: "Confirm password",
       type: "password",
       placeholder: "******",
-      errorMsg: "Password is required.",
+      errorMsg: "Confirm Password is required.",
       invalidMsg: "Your password doesn't match.",
     },
-    address1: {
-      name: "address1",
-      label: "address 1",
+    street: {
+      name: "street",
+      label: "street",
       type: "text",
       placeholder: "eg. Street 111",
       errorMsg: "Address is required.",
@@ -99,23 +92,23 @@ export default {
       errorMsg: "State is required.",
       invalidMsg: "State is not valid",
     },
-    contactname: {
-      name: "contactname",
+    contact_name: {
+      name: "contact_name",
       label: "Contact Name",
       type: "text",
       placeholder: "Steven",
       errorMsg: "Contact Name is required.",
     },
-    contactemail: {
-      name: "contactemail",
+    contact_email: {
+      name: "contact_email",
       label: "Contact Email",
       type: "email",
       placeholder: "test@test.com",
       errorMsg: "Contact email is required.",
       invalidMsg: "Your email address is invalid",
     },
-    contactphonenumber: {
-      name: "contactphonenumber",
+    contact_phone_number: {
+      name: "contact_phone_number",
       label: "Contact Phone Number",
       type: "text",
       placeholder: "+123456789",

@@ -27,8 +27,8 @@ import VuiTypography from "components/VuiTypography";
 
 function ContactInfo({ formData }) {
   const { formField, values, errors, touched } = formData;
-  const { contactname, contactemail, contactphonenumber } = formField;
-  const { contactname: contactnameV, contactemail: contactemailV, contactphonenumber: contactphonenumberV } = values;
+  const { contact_name, contact_email, contact_phone_number } = formField;
+  const { contact_name: contact_nameV, contact_email: contact_emailV, contact_phone_number: contact_phone_numberV } = values;
 
   return (
     <VuiBox>
@@ -39,32 +39,32 @@ function ContactInfo({ formData }) {
         <Grid container spacing={1}>
           <Grid item xs={12}>
             <FormField
-              label={contactname.label}
-              name={contactname.name}
-              value={contactnameV}
-              placeholder={contactname.placeholder}
-              error={errors.contactname && touched.contactname}
-              success={contactnameV.length > 0 && !errors.contactname}
+              label={contact_name.label}
+              name={contact_name.name}
+              value={contact_nameV}
+              placeholder={contact_name.placeholder}
+              error={errors.contact_name && touched.contact_name}
+              success={contact_nameV.length > 0 && !errors.contact_name}
             />
           </Grid>
           <Grid item xs={12}>
             <FormField
-              label={contactemail.label}
-              name={contactemail.name}
-              value={contactemailV}
-              placeholder={contactemail.placeholder}
-              error={errors.contactemail && touched.contactemail}
-              success={contactemailV.length > 0 && !errors.contactemail}
+              label={contact_email.label}
+              name={contact_email.name}
+              value={contact_emailV}
+              placeholder={contact_email.placeholder}
+              error={errors.contact_email && touched.contact_email}
+              success={contact_emailV.length > 0 && !errors.contact_email}
             />
           </Grid>
           <Grid item xs={12}>
             <FormField
-              label={contactphonenumber.label}
-              name={contactphonenumber.name}
-              value={contactphonenumberV}
-              placeholder={contactphonenumber.placeholder}
-              error={errors.contactphonenumber && touched.contactphonenumber}
-              success={contactphonenumberV.length > 0 && !errors.contactphonenumber}
+              label={contact_phone_number.label}
+              name={contact_phone_number.name}
+              value={contact_phone_numberV}
+              placeholder={contact_phone_number.placeholder}
+              error={errors.contact_phone_number && touched.contact_phone_number}
+              success={contact_phone_numberV.length > 0 && !errors.contact_phone_number}
             />
           </Grid>
         </Grid>

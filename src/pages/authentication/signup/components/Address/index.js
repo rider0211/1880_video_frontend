@@ -23,13 +23,12 @@ import Grid from "@mui/material/Grid";
 import PropTypes from "prop-types";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
-import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
 
 function Address({ formData }) {
   const { formField, values, errors, touched } = formData;
-  const { address1, country, city, state, zip } = formField;
-  const { address1: address1V, country: countryV, city: cityV, state: stateV, zip: zipV } = values;
+  const { street, country, city, state, zip } = formField;
+  const { street: streetV, country: countryV, city: cityV, state: stateV, zip: zipV } = values;
 
   return (
     <VuiBox>
@@ -52,12 +51,12 @@ function Address({ formData }) {
           </Grid>
           <Grid item xs={12}>
             <FormField
-              label={address1.label}
-              name={address1.name}
-              value={address1V}
-              placeholder={address1.placeholder}
-              error={errors.address1 && touched.address1}
-              success={address1V.length > 0 && !errors.address1}
+              label={street.label}
+              name={street.name}
+              value={streetV}
+              placeholder={street.placeholder}
+              error={errors.street && touched.street}
+              success={streetV.length > 0 && !errors.street}
             />
           </Grid>
         </Grid>
