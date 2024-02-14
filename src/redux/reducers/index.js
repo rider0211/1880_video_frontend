@@ -35,7 +35,7 @@ const authReducer = (state = initialState, action) => {
 const reducer = {
     auth: authReducer,
     selected_user_type: selectReducer,
-    snackbar: snackbar
+    snackbar: snackbar,
 };
 
 export default reducer;

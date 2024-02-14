@@ -77,7 +77,7 @@ function NewUser() {
     // eslint-disable-next-line no-alert
     values.user_type = user_type;
     dispatch(register(values));
-    actions.setSubmitting(true);
+    actions.setSubmitting(false);
     actions.resetForm();
     setActiveStep(0);
   };

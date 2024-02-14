@@ -9,7 +9,6 @@ import BasicSignup from "pages/authentication/signup";
 import Configurator from "layouts/Configurator";
 import CssBaseline from "@mui/material/CssBaseline";
 import Dashboard from "pages/dashboard";
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import Icon from "@mui/material/Icon";
 import Sidenav from "layouts/Sidenav";
 import { ThemeProvider } from "@mui/material/styles";
