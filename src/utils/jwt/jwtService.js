@@ -66,7 +66,6 @@ export default class JwtService {
   }
 
   searchUsers(...args) {
-    //console.log('...args', ...args)
     return axios.get(this.jwtConfig.searchUsersEndpoint, ...args)
   }
 }

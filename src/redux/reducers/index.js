@@ -1,5 +1,6 @@
 // reducer import
 
+import selectReducer from './select';
 import useJwt from 'utils/jwt/useJwt';
 
 const config = useJwt.jwtConfig;
@@ -32,6 +33,7 @@ const authReducer = (state = initialState, action) => {
 
 const reducer = {
     auth: authReducer,
+    selected_user_type: selectReducer
 };
 
 export default reducer;

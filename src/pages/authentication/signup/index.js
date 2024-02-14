@@ -71,14 +71,14 @@ function NewUser() {
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleBack = () => setActiveStep(activeStep - 1);
-
+  const user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const submitForm = async (values, actions) => {
     // eslint-disable-next-line no-alert
+    values.user_type = user_type;
     dispatch(register(values));
-    actions.setSubmitting(false);
-    // actions.resetForm();
-
-    // setActiveStep(0);
+    actions.setSubmitting(true);
+    actions.resetForm();
+    setActiveStep(0);
   };
 
   const handleSubmit = (values, actions) => {

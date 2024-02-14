@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import FormField from "pages/authentication/signup/components/FormField";
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -9,13 +11,16 @@ import Select from "@mui/material/Select";
 import VuiBox from "components/VuiBox";
 import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
+import { action_type } from 'redux/action_type';
+
 // NewUser page components
-import { useState } from "react";
 
 function UserInfo({ formData }) {
-  const [usertype, setUsertype] = useState("1");
+
+  const dispatch = useDispatch();
   const { formField, values, errors, touched } = formData;
   const { username, phonenumber, email, password, confirm_password } = formField;
+  const selected_user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const {
     username: usernameV,
     phonenumber: phonenumberV,
@@ -24,8 +29,10 @@ function UserInfo({ formData }) {
     confirm_password: confirm_passwordV,
   } = values;
 
-  const handleSetState = (event) => setUsertype(event.target.value);
-
+  const handleOnChange = (event) =>{
+    dispatch({type: action_type.SELECTED_USER_TYPE, data: event.target.value});
+  }
+  
   return (
     <VuiBox>
       <VuiBox lineHeight={0} display="flex" flexDirection="column">
@@ -60,7 +67,7 @@ function UserInfo({ formData }) {
                 User Type
               </VuiTypography>
             </VuiBox>
-            <Select input={<VuiInput />} value={usertype} onChange={handleSetState}>
+            <Select input={<VuiInput />} value={selected_user_type} onChange={handleOnChange}>
               <MenuItem value='1'>Customer</MenuItem>
               <MenuItem value='2'>Clerk</MenuItem>
               <MenuItem value='3'>client</MenuItem>
