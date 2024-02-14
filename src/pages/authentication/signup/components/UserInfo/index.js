@@ -68,9 +68,9 @@ function UserInfo({ formData }) {
               </VuiTypography>
             </VuiBox>
             <Select input={<VuiInput />} value={selected_user_type} onChange={handleOnChange}>
-              <MenuItem value='1'>Customer</MenuItem>
-              <MenuItem value='2'>Clerk</MenuItem>
-              <MenuItem value='3'>client</MenuItem>
+              <MenuItem value='2'>Customer</MenuItem>
+              <MenuItem value='3'>Clerk</MenuItem>
+              <MenuItem value='4'>client</MenuItem>
             </Select>
           </Grid>
         </Grid>

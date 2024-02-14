@@ -76,12 +76,12 @@ export default {
       placeholder: "eg. Tokyo",
       errorMsg: "City is required.",
     },
-    zip: {
-      name: "zip",
-      label: "zip",
+    zipcode: {
+      name: "zipcode",
+      label: "zipcode",
       type: "number",
       placeholder: "7 letters",
-      errorMsg: "Zip is required.",
+      errorMsg: "zipcode is required.",
       invalidMsg: "Zipcode is not valie (e.g. 70000).",
     },
     state: {

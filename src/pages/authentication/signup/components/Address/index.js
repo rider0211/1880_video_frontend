@@ -27,8 +27,8 @@ import VuiTypography from "components/VuiTypography";
 
 function Address({ formData }) {
   const { formField, values, errors, touched } = formData;
-  const { street, country, city, state, zip } = formField;
-  const { street: streetV, country: countryV, city: cityV, state: stateV, zip: zipV } = values;
+  const { street, country, city, state, zipcode } = formField;
+  const { street: streetV, country: countryV, city: cityV, state: stateV, zipcode: zipcodeV } = values;
 
   return (
     <VuiBox>
@@ -83,12 +83,12 @@ function Address({ formData }) {
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormField
-              label={zip.label}
-              name={zip.name}
-              value={zipV}
-              placeholder={zip.placeholder}
-              error={errors.zip && touched.zip}
-              success={zipV.length > 0 && !errors.zip}
+              label={zipcode.label}
+              name={zipcode.name}
+              value={zipcodeV}
+              placeholder={zipcode.placeholder}
+              error={errors.zipcode && touched.zipcode}
+              success={zipcodeV.length > 0 && !errors.zipcode}
             />
           </Grid>
         </Grid>
