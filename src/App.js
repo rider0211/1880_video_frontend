@@ -74,7 +74,6 @@ export default function App() {
 
       return null;
     });
-
   const configsButton = (
     <VuiBox
       display="flex"
@@ -98,12 +97,10 @@ export default function App() {
       </Icon>
     </VuiBox>
   );
-
   const auth = useSelector(state => state.auth);
   const snack_bar = useSelector(state => state.snackbar);
   const role = auth.userData?.user_type;
   const toggleSnackbar = () => default_dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: !snack_bar.snack_bar_open, snack_bar_text: '' });
-  console.log(role);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

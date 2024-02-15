@@ -38,6 +38,7 @@
 */
 
 import Default from "pages/dashboard";
+import Header from "pages/header";
 // React icons
 import { IoHome } from "react-icons/io5";
 // Vision UI Dashboard PRO React layouts
@@ -54,6 +55,16 @@ const routes = [
     access_type: true,
   },
   { type: "title", title: "Pages", key: "title-pages" },
+  {
+    type: "collapse",
+    name: "Header",
+    key: "header",
+    icon: <IoHome size="15px" color="inherit" />,
+    route: "/header",
+    component: <Header />,
+    noCollapse: true,
+    access_type: true,
+  },
 ];
 
 export default routes;
