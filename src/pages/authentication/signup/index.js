@@ -1,21 +1,3 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
-// formik components
 import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -36,7 +18,6 @@ import UserInfo from "pages/authentication/signup/components/UserInfo";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import VuiTypography from "components/VuiTypography";
-import { action_type } from "redux/action_type";
 import bgBasic from "assets/images/background-basic-auth.png";
 import form from "pages/authentication/signup/schemas/form";
 import initialValues from "pages/authentication/signup/schemas/initialValues";
