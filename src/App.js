@@ -64,7 +64,12 @@ export default function App() {
       }
 
       if (route.route) {
-        return <Route exact path={route.route} component={route.component} key={route.key} />;
+        return <Route 
+                  exact 
+                  path={route.route} 
+                  element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? route.component : <BasicSignin />}
+                  key={route.key}
+                ></Route>
       }
 
       return null;
@@ -96,10 +101,9 @@ export default function App() {
 
   const auth = useSelector(state => state.auth);
   const snack_bar = useSelector(state => state.snackbar);
-  const role = auth.userData?.role;
+  const role = auth.userData?.user_type;
   const toggleSnackbar = () => default_dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: !snack_bar.snack_bar_open, snack_bar_text: '' });
-
-
+  console.log(role);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -117,46 +121,10 @@ export default function App() {
         </>
       )}
       <Routes>
-        <Route exact path="/" element={
-          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
-        } />
-        <Route exact path="/login" element={
-          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignin />
-        } />
-        <Route exact path="/register" element={
-          (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role === 'admin' ? "/dashboard" : "/portfolio"} replace /> : <BasicSignup />
-        } />
-        <Route
-          path=""
-          element={
-            (auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Dashboard /> : <Navigate to="/login" replace />
-          }
-        >
-          {
-            role && (role === 'admin' ? <>
-              <Route path="advisors" element={<Advisors />} />
-              <Route path="advisor/view/:id" element={<AdvisorView />} />
-              <Route path="advisor/edit/:id" element={<AdvisorEdit />} />
-              <Route path="settings" element={<Settings />} />
-            </> : <>
-              <Route path="portfolio" element={<Portfolio />} />
-              <Route exact path="portfolio/graph" element={<PortfolioGraph />} />
-              <Route path="clients" element={<Clients />} />
-              <Route path="chat" element={<Chat />} />
-              <Route path="calendar" element={<Calendar />} />
-              <Route path="email" element={<Email />}>
-                <Route exact index element={<EmailInbox />} />
-                <Route exact path="sent" element={<EmailSent />} />
-                <Route exact path="draft" element={<EmailDraft />} />
-                <Route exact path="trash" element={<EmailTrash />} />
-                {/* <Route exact path="setting" element={<EmailSetting />}/> */}
-                <Route exact path="view/:id" element={<EmailView />} />
-                <Route exact path="compose" element={<EmailCompose />} />
-              </Route>
-            </>)
-          }
-          <Route path="profile" element={<Dashboard />} />
-        </Route>
+        <Route exact path="/" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
+        <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
+        <Route path="/register" element={<BasicSignup />} />
+        {getRoutes(routes)}
       </Routes>
       <VuiSnackbar
         color={snack_bar.snack_bar_type}

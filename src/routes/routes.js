@@ -40,9 +40,7 @@
 import Default from "pages/dashboard";
 // React icons
 import { IoHome } from "react-icons/io5";
-import SignupBasic from "pages/authentication/signup";
 // Vision UI Dashboard PRO React layouts
-import SinginBasic from "pages/authentication/signin";
 
 const routes = [
   {
@@ -51,31 +49,11 @@ const routes = [
     key: "dashboard",
     icon: <IoHome size="15px" color="inherit" />,
     route: "/dashboard",
-    component: Default,
+    component: <Default />,
     noCollapse: true,
-    access_type: 'public',
+    access_type: true,
   },
   { type: "title", title: "Pages", key: "title-pages" },
-  {
-    type: "collapse",
-    name: "Authentication",
-    key: "authentication",
-    icon: <IoHome size="15px" color="inherit" />,
-    collapse: [
-      {
-        name: "SignIn",
-        key: "signin",
-        route: "/signin",
-        component: SinginBasic,
-      },
-      {
-        name: "SignUp",
-        key: "signup",
-        route: "/signup",
-        component: SignupBasic,
-      },
-    ],
-  },
 ];
 
 export default routes;
