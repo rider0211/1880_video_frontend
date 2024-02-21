@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import VuiDropzone from "components/VuiDropzone";
+import { action_type } from 'redux/action_type';
 import { addHeader } from "redux/actions/headerVideo";
+import { handleLogout } from 'redux/actions/login';
 
 const FileDropZone = () => {
 
@@ -19,8 +21,17 @@ const FileDropZone = () => {
               formData.append("video_path", file)
             });
             this.on("complete", function({file, xhr, meta}){
-              const returnData = JSON.parse(xhr.response).data;
-              dispatch(addHeader(returnData));
+              try {
+                if(xhr.status === 401){
+                  dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Session Terminated'});
+                  dispatch(handleLogout());
+                }else{
+                  const returnData = JSON.parse(xhr.response).data;
+                  dispatch(addHeader(returnData));
+                }
+              } catch (error) {
+                dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});
+              }
             })
           },
           headers : {

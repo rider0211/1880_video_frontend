@@ -35,3 +35,15 @@ export const login = (param) => async (dispatch) => {
         dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});
     }
 };
+
+export const handleLogout = () => async (dispatch) => {
+    // ** Remove user, accessToken & refreshToken from localStorage
+    localStorage.removeItem('userData')
+    localStorage.removeItem(config.storageUserIDKeyName)
+    localStorage.removeItem(config.storageTokenKeyName)
+    localStorage.removeItem(config.storageRefreshTokenKeyName)
+
+    setTimeout(function(){
+      dispatch({ type: action_type.LOGOUT, [config.storageTokenKeyName]: null, [config.storageRefreshTokenKeyName]: null })
+    }, 100);
+}
