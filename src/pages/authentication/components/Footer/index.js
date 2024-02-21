@@ -55,30 +55,7 @@ function Footer({ full }) {
             sx={{ textAlign: "center", fontWeight: "400 !important" }}
             color="white"
           >
-            @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by{" "}
-            <VuiTypography
-              component="a"
-              variant="button"
-              href="#"
-              sx={{ textAlign: "center", fontWeight: "500 !important" }}
-              color="white"
-              mr="2px"
-            >
-              Simmmple
-            </VuiTypography>
-            &
-            <VuiTypography
-              ml="2px"
-              mr="2px"
-              component="a"
-              variant="button"
-              href="#"
-              sx={{ textAlign: "center", fontWeight: "500 !important" }}
-              color="white"
-            >
-              Creative Tim
-            </VuiTypography>
-            for a better web
+            @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by 1880 Town
           </VuiTypography>
         </Grid>
         <Grid item xs={full ? 10 : 10} lg={full ? 6 : 10}>

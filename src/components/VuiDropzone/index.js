@@ -24,6 +24,7 @@ import { useEffect, useRef } from "react";
 import Dropzone from "dropzone";
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
+import { ThumbUpAltTwoTone } from "@mui/icons-material";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 // Custom styles for the VuiDropzone
@@ -42,9 +43,8 @@ function VuiDropzone({ options }) {
     function removeDropzone() {
       if (Dropzone.instances.length > 0) Dropzone.instances.forEach((dz) => dz.destroy());
     }
-
+    
     createDropzone();
-
     return () => removeDropzone();
   }, [options]);
 

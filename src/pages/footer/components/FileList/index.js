@@ -2,19 +2,19 @@ import { Container, Grid } from "@mui/material";
 import { useDispatch, useSelector } from 'react-redux'
 
 import MediaPlayer from "../MediaPlayer";
-import { getHeaders } from "redux/actions/headerVideo";
+import { getFooters } from "redux/actions/footerVideo";
 import { useEffect } from "react";
 
 const FileList = () => {
   const dispatch = useDispatch()
   const userdata = useSelector((state) => state.auth.userData);
-  const headerVideo = useSelector((state) => state.headerVideos.header_video);
+  const footerVideo = useSelector((state) => state.footerVideos.footer_video);
 
   useEffect(()=>{
-    dispatch(getHeaders(userdata.access));
+    dispatch(getFooters(userdata.access));
   }, [])
 
-  const headerItem = (videos) => {
+  const footerItem = (videos) => {
     const videocomponents = videos.map((item, index) => {
       return <Grid item xs={2} sm={3} md={3} key={index}> <MediaPlayer props={item}/> </Grid>  
     });
@@ -30,7 +30,7 @@ const FileList = () => {
       scrollbarWidth: 'thin',
     }}>
       <Grid container  spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {headerItem(headerVideo)}
+        {footerItem(footerVideo)}
       </Grid>
     </Container>
   );

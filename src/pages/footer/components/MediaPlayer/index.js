@@ -1,20 +1,3 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/vision-ui-dashboard-pro-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
 import { Box, Modal } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +9,7 @@ import ReactPlayer from "react-player";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
-import { removeHeader } from "redux/actions/headerVideo";
+import { removeFooter } from "redux/actions/footerVideo";
 
 const style = {
   position: 'absolute',
@@ -68,7 +51,7 @@ function MediaPlayer({props}) {
   };
 
   const removeVideo = (id) => {
-    dispatch(removeHeader(id, userdata.access));
+    dispatch(removeFooter(id, userdata.access));
   }
 
   return (

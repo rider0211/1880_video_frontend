@@ -64,19 +64,7 @@ function Footer({ links }) {
             favorite
           </Icon>
         </VuiBox>
-        by
-        <Link href={"https://www.simmmple.com/"} target="_blank">
-          <VuiTypography variant="button" fontWeight="medium" color="white">
-            &nbsp;Simmmple&nbsp;
-          </VuiTypography>
-        </Link>
-        &
-        <Link href={"https://www.creative-tim.com/"} target="_blank">
-          <VuiTypography variant="button" fontWeight="medium" color="white">
-            &nbsp;Creative Tim&nbsp;
-          </VuiTypography>
-        </Link>
-        for a better web.
+        by 1880 Town
       </VuiBox>
       <VuiBox
         component="ul"

@@ -3,6 +3,8 @@ import jwtDefaultConfig from './jwtDefaultConfig'
 
 export default class JwtService {
   // ** jwtConfig <= Will be used by this service
+  
+  // eslint-disable-next-line
   jwtConfig = { ...jwtDefaultConfig }
 
   // ** For Refreshing Token
@@ -67,5 +69,39 @@ export default class JwtService {
 
   searchUsers(...args) {
     return axios.get(this.jwtConfig.searchUsersEndpoint, ...args)
+  }
+
+  getHeaders(token){
+    return axios.get(this.jwtConfig.headerGetEndpoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  deleteHeaders(id, token){
+    return axios.post(this.jwtConfig.headerDeleteEndpoint, { header_id : id}, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getFooters(token){
+    return axios.get(this.jwtConfig.footerGetEndpoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  deleteFooters(id, token){
+    return axios.post(this.jwtConfig.footerDeleteEndpoint, { footer_id : id}, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
   }
 }

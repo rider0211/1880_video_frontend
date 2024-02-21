@@ -74,15 +74,6 @@ function Breadcrumbs({ icon, title, route, light }) {
           {title.replace("-", " ")}
         </VuiTypography>
       </MuiBreadcrumbs>
-      {/* <VuiTypography
-        fontWeight="bold"
-        textTransform="capitalize"
-        variant="h6"
-        color={light ? "white" : "dark"}
-        noWrap
-      >
-        {title.replace("-", " ")}
-      </VuiTypography> */}
     </VuiBox>
   );
 }

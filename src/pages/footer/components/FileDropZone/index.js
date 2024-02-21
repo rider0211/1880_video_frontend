@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import VuiDropzone from "components/VuiDropzone";
-import { addHeader } from "redux/actions/headerVideo";
+import { addFooter } from 'redux/actions/footerVideo';
 
 const FileDropZone = () => {
 
@@ -12,7 +12,7 @@ const FileDropZone = () => {
         <VuiDropzone options={{ 
           addRemoveLinks: true,
           autoProcessQueue : true,
-          url : `${process.env.REACT_APP_BASE_API_URL}/admin/header/add`,
+          url : `${process.env.REACT_APP_BASE_API_URL}/admin/footer/add`,
           init: function() {
             this.on("sending", function(file, xhr, formData) {
               formData.append("user", userdata.user_id);
@@ -20,7 +20,7 @@ const FileDropZone = () => {
             });
             this.on("complete", function({file, xhr, meta}){
               const returnData = JSON.parse(xhr.response).data;
-              dispatch(addHeader(returnData));
+              dispatch(addFooter(returnData));
             })
           },
           headers : {

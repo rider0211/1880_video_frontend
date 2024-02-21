@@ -1,5 +1,7 @@
 // reducer import
 
+import footerVideoReducer from './footerVideo';
+import headerVideoReducer from './headerVideo';
 import selectReducer from './select';
 import snackbar from './snackbar';
 import useJwt from 'utils/jwt/useJwt';
@@ -36,6 +38,8 @@ const reducer = {
     auth: authReducer,
     selected_user_type: selectReducer,
     snackbar: snackbar,
+    headerVideos: headerVideoReducer,
+    footerVideos: footerVideoReducer
 };
 
 export default reducer;

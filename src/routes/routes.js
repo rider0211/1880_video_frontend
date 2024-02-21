@@ -38,9 +38,12 @@
 */
 
 import Default from "pages/dashboard";
+import FooterVideo from "pages/footer";
 import Header from "pages/header";
+import { IoFilmSharp } from "react-icons/io5";
 // React icons
 import { IoHome } from "react-icons/io5";
+import { IoVideocamSharp } from "react-icons/io5";
 // Vision UI Dashboard PRO React layouts
 
 const routes = [
@@ -59,9 +62,19 @@ const routes = [
     type: "collapse",
     name: "Header",
     key: "header",
-    icon: <IoHome size="15px" color="inherit" />,
+    icon: <IoVideocamSharp size="15px" color="inherit" />,
     route: "/header",
     component: <Header />,
+    noCollapse: true,
+    access_type: true,
+  },
+  {
+    type: "collapse",
+    name: "Footer",
+    key: "footer",
+    icon: <IoFilmSharp size="15px" color="inherit" />,
+    route: "/footer",
+    component: <FooterVideo />,
     noCollapse: true,
     access_type: true,
   },
