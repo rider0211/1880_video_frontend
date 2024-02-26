@@ -37,13 +37,14 @@
   10. The `component` key is used to store the component of its route.
 */
 
+// React icons
+import { IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
+
+import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import Default from "pages/dashboard";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
-import { IoFilmSharp } from "react-icons/io5";
-// React icons
-import { IoHome } from "react-icons/io5";
-import { IoVideocamSharp } from "react-icons/io5";
+
 // Vision UI Dashboard PRO React layouts
 
 const routes = [
@@ -60,7 +61,7 @@ const routes = [
   { type: "title", title: "Pages", key: "title-pages" },
   {
     type: "collapse",
-    name: "Header",
+    name: "Header Program",
     key: "header",
     icon: <IoVideocamSharp size="15px" color="inherit" />,
     route: "/header",
@@ -70,7 +71,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Footer",
+    name: "Footer Program",
     key: "footer",
     icon: <IoFilmSharp size="15px" color="inherit" />,
     route: "/footer",
@@ -78,6 +79,16 @@ const routes = [
     noCollapse: true,
     access_type: true,
   },
+  {
+    type: "collapse",
+    name: "Customer Program",
+    key: "customerManagement",
+    icon: <IoPeopleSharp size="15px" color="inherit" />,
+    route: "/customerManagement",
+    component: <CustomerManagement />,
+    noCollapse: true,
+    access_type: true,
+  }
 ];
 
 export default routes;

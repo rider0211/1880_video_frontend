@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { setMiniSidenav, setOpenConfigurator, useVisionUIController } from "context";
 import { useEffect, useState } from "react";
 
+import AddCustomerComponent from "pages/customerProgram/addCustomerPage"
 import BasicSignin from "pages/authentication/signin";
 import BasicSignup from "pages/authentication/signup";
 import Configurator from "layouts/Configurator";
@@ -120,6 +121,8 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
         <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
+        
+        <Route exact path="/customerManagement/add" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <AddCustomerComponent /> : <BasicSignin />}></Route>
         <Route path="/register" element={<BasicSignup />} />
         {getRoutes(routes)}
       </Routes>
