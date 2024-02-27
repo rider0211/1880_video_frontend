@@ -10,6 +10,7 @@ import BasicSignup from "pages/authentication/signup";
 import Configurator from "layouts/Configurator";
 import CssBaseline from "@mui/material/CssBaseline";
 import Dashboard from "pages/dashboard";
+import EditCustomerComponent from "pages/customerProgram/editCustomerPage"
 import Icon from "@mui/material/Icon";
 import Sidenav from "layouts/Sidenav";
 import { ThemeProvider } from "@mui/material/styles";
@@ -123,6 +124,8 @@ export default function App() {
         <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
         
         <Route exact path="/customerManagement/add" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <AddCustomerComponent /> : <BasicSignin />}></Route>
+        <Route exact path="/customerManagement/edit/:user_id" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <EditCustomerComponent /> : <BasicSignin />}></Route>
+
         <Route path="/register" element={<BasicSignup />} />
         {getRoutes(routes)}
       </Routes>

@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
+import { useNavigate } from "react-router-dom";
 
 function ActionComponent(user) {
-  return (
+    const navigate = useNavigate();
+
+    const handleEditChange = () => {
+        return navigate(`/customerManagement/edit/${user.user}`)
+    }
+    return (
     <VuiBox>
         <VuiButton
             component="button"
@@ -18,6 +24,7 @@ function ActionComponent(user) {
             },
             })}
             size= "small"
+            onClick= {handleEditChange}
         >
             Edit
         </VuiButton>
@@ -34,12 +41,15 @@ function ActionComponent(user) {
             },
             })}
             size= "small"
+            onClick= {() => {
+                console.log(user)
+            }}
         >
             Delete
         </VuiButton>
 
     </VuiBox>
-  );
+    );
 }
 
 ActionComponent.propTypes= {

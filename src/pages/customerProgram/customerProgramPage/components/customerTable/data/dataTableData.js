@@ -1,5 +1,3 @@
-import VuiButton from "components/VuiButton";
-
 export default {
   columns: [
     { Header: "User Name", accessor: "username", width: "7%" },
@@ -24,7 +22,7 @@ export default {
       contact_phone_number: "+123456789",
     },
     {
-      user_id: 1,
+      user_id: 2,
       username: "Steven Stence",
       email: "codemaster9428@gmail.com",
       phone_number: "+14798020192",

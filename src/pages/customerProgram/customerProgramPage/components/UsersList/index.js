@@ -11,7 +11,7 @@ import userData from "./userData";
 
 function UsersList() {
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   
   const { borderWidth } = borders;
   const handleAddbutton = () => {
