@@ -24,8 +24,8 @@ export default {
 
   getCustomersEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/users/range`,
   customerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/delete`,
-
-
+  getCustomerByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/user`,
+  customerUpdateEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/update`,
 
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>

@@ -119,4 +119,20 @@ export default class JwtService {
       }
     })
   }
+  getCustomerByID(token, param) {
+    return axios.get(`${this.jwtConfig.getCustomerByIDEndpoint}/${param}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateCustomer(token, ...args){
+    return axios.post(this.jwtConfig.customerUpdateEndpoint, ...args, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+  
 }

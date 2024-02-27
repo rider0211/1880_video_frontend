@@ -4,12 +4,16 @@ import { action_type } from "redux/action_type";
 // **  Initial State
 const initialState = {
     customerData: [],
+    selectedCustomerData: []
   }
   
 const customerReducer = (state = initialState, action) => {
     switch (action.type) {
         case action_type.FETCH_CUSTOMERS:
             return {...state, customerData: action.customerTempData}
+
+        case action_type.FETCH_CUSTOMER_BY_ID:
+            return {...state, selectedCustomerData: action.selectedCustomerData}
 
         case action_type.ADD_CUSTOMER:
             let aCustomers = [...state.customerData];

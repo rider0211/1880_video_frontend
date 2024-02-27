@@ -1,18 +1,27 @@
+import { useDispatch, useSelector } from "react-redux";
+
+import CustomerEditComponent from "./customerForm";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import Grid from "components/VuiBox";
-import UserEditComponent from "./components/UserEditComponent";
-import { useParams } from "react-router-dom";
+import { getCustomerByID } from "redux/actions/customers";
+import { useEffect } from "react";
+import { useParams } from "react-router";
 
 function EditCustomerPage(){
-
-    const user = useParams();
+    const param = useParams();
+    const userdata = useSelector((state) => state.auth.userData);
+    const dispatch = useDispatch();
+    useEffect(()=> {
+        dispatch(getCustomerByID(userdata.access, param.user_id));
+    }, [])
+    
     return (
         <DashboardLayout>
             <DashboardNavbar/>
-                <Grid container justifyContent={"center"} spacing={3} mt="2px">
-                    <UserEditComponent />
+                <Grid container="true" justifyContent={"center"} spacing={3} mt="2px">
+                    <CustomerEditComponent user_id={param.user_id}/>
                 </Grid>
             <Footer/>
         </DashboardLayout>

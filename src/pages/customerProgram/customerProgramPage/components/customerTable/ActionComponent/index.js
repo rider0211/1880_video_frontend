@@ -10,6 +10,7 @@ function ActionComponent(user) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userdata = useSelector((state) => state.auth.userData);
+
     const handleEditChange = () => {
         return navigate(`/customerManagement/edit/${user.user}`)
     }

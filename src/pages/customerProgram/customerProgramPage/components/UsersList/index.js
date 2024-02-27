@@ -18,11 +18,14 @@ const UsersList = () =>{
   
   const { borderWidth } = borders;
 
+  const handleClickChange = (id) => {
+    return navigate(`/customerManagement/edit/${id}`)
+}
   const handleAddbutton = () => {
     return navigate('/customerManagement/add');
   }
-  
-  const renderStories = customers.map(({ user_avatar, username }, key) => (
+
+  const renderStories = customers.map(({ user_avatar, username, id }, key) => (
     <Grid key={key} item xs={4} sm={3} md={2} lg={1} sx={{ flex: "0 0 100%" }}>
       <VuiBox
         borderRadius="50%"
@@ -35,6 +38,7 @@ const UsersList = () =>{
         mx="auto"
         border={`${borderWidth[1]} solid ${colors['info'].main}`}
         sx={{ cursor: "pointer" }}
+        onClick={() => handleClickChange(id)}
       >
         <VuiAvatar src={user_avatar? user_avatar : man_avatar} alt={username} />
       </VuiBox>
