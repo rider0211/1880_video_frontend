@@ -21,6 +21,8 @@ export default {
   footerGetEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer`,
   footerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer/delete`,
   
+
+  getCustomersEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/users/range`,
     
 
 

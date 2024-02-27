@@ -2,9 +2,31 @@ import Card from "@mui/material/Card";
 import DataTable from "./DataTable";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import dataTableData from "./data/dataTableData";
+import { useSelector } from "react-redux";
 
 function CustomerTable() {
+
+  const customers = useSelector((state) => state.customers.customerData);
+
+  const userTableData = {
+    columns: [
+      { Header: "User Name", accessor: "username", width: "7%" },
+      { Header: "Email", accessor: "email", width: "7%" },
+      { Header: "Phone Number", accessor: "phone_number", width: "7%" },
+      { Header: "Address", accessor: "street", width: "15%" },
+      { Header: "Contact Name", accessor: "contact_email" },
+      { Header: "Contact Email", accessor: "contact_name" },
+      { Header: "Contact Phone Number", accessor: "contact_phone_number" },
+      { Header: "Action", accessor: "action", width: "10%" },
+    ],
+    rows:[]
+  };
+
+  userTableData.rows = customers.map((customer) => {
+    customer.street = customer.street.replaceAll('_', ' ');
+    return customer;
+  });
+
   return (
     <VuiBox pt={6} pb={3}>
     <Card>
@@ -13,7 +35,7 @@ function CustomerTable() {
             Customers Table
         </VuiTypography>
         </VuiBox>
-        <DataTable table={dataTableData} canSearch />
+        <DataTable table={userTableData} canSearch />
     </Card>
     </VuiBox>
   );

@@ -1,22 +1,6 @@
-/** 
-
-=========================================================
-* Vision UI PRO React - v1.0.0
-=========================================================
-
-
-* Copyright 2021 Creative Tim (https://www.creative-tim.com/)
-
-* Design and Coded by Simmmple & Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Visionware.
-
-*/
-
 // react-table components
 import { useAsyncDebounce, useGlobalFilter, usePagination, useSortBy, useTable } from "react-table";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 
 import ActionComponent from 'pages/customerProgram/customerProgramPage/components/customerTable/ActionComponent'
@@ -37,6 +21,7 @@ import VuiInput from "components/VuiInput";
 import VuiPagination from "components/VuiPagination";
 import VuiSelect from "components/VuiSelect";
 import VuiTypography from "components/VuiTypography";
+import { getCustomers } from "redux/actions/customers";
 
 function DataTable({
   entriesPerPage,
@@ -47,9 +32,13 @@ function DataTable({
   isSorted,
   noEndBorder,
 }) {
+  const dispatch = useDispatch();
+  const userdata = useSelector((state) => state.auth.userData);
+
   const defaultValue = entriesPerPage.defaultValue ? entriesPerPage.defaultValue : 10;
   const entries = entriesPerPage.entries ? entriesPerPage.entries : [5, 10, 15, 20, 25];
   const columns = useMemo(() => table.columns, [table]);
+  
   const updateddata = table.rows.map((item, key) => {
     return item = {...item, action: 
     <ActionComponent user={item.user_id} />
@@ -83,6 +72,15 @@ function DataTable({
   // Set the default value for the entries per page when component mounts
   useEffect(() => setPageSize(defaultValue || 10), [defaultValue]);
 
+  useEffect(()=>{
+    const start_row_index = pageIndex === 0 ? pageIndex : pageIndex * pageSize -1;
+    const end_row_index = start_row_index + pageSize -1;
+    const param = {
+      start_row_index: start_row_index,
+      end_row_index: end_row_index
+    }
+    dispatch(getCustomers(userdata.access, param));
+  }, [pageSize])
   // Set the entries per page value based on the select value
   const setEntriesPerPage = ({ value }) => setPageSize(value);
 
@@ -145,6 +143,7 @@ function DataTable({
     entriesEnd = pageSize * (pageIndex + 1);
   }
   return (
+
     <TableContainer sx={{ boxShadow: "none" }}>
       {entriesPerPage || canSearch ? (
         <VuiBox

@@ -1,5 +1,6 @@
 // reducer import
 
+import customerReducer from './customers';
 import footerVideoReducer from './footerVideo';
 import headerVideoReducer from './headerVideo';
 import selectReducer from './select';
@@ -39,7 +40,8 @@ const reducer = {
     selected_user_type: selectReducer,
     snackbar: snackbar,
     headerVideos: headerVideoReducer,
-    footerVideos: footerVideoReducer
+    footerVideos: footerVideoReducer,
+    customers: customerReducer
 };
 
 export default reducer;

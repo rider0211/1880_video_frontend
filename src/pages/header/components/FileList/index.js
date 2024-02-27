@@ -9,7 +9,6 @@ const FileList = () => {
   const dispatch = useDispatch()
   const userdata = useSelector((state) => state.auth.userData);
   const headerVideo = useSelector((state) => state.headerVideos.header_video);
-
   useEffect(()=>{
     dispatch(getHeaders(userdata.access));
   }, [])

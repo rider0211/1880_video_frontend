@@ -57,7 +57,7 @@ function NewUser() {
   const user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const submitForm = async (values, actions) => {
     // eslint-disable-next-line no-alert
-    values.user_type = user_type;
+    values.user_type = 2;
     dispatch(register(values));
     actions.setSubmitting(false);
     actions.resetForm();

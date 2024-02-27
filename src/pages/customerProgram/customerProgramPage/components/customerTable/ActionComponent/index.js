@@ -17,7 +17,7 @@ function ActionComponent(user) {
             color="dark"
             sx={({ breakpoints }) => ({
             [breakpoints.up("md")]: {
-                minWidth: "120px",
+                minWidth: "30px",
             },
             [breakpoints.only("lg")]: {
                 minWidth: "auto",
@@ -34,7 +34,7 @@ function ActionComponent(user) {
             color="error"
             sx={({ breakpoints }) => ({
             [breakpoints.up("md")]: {
-                minWidth: "80px",
+                minWidth: "30px",
             },
             [breakpoints.only("lg")]: {
                 minWidth: "auto",

@@ -104,4 +104,11 @@ export default class JwtService {
       }
     })
   }
+  getCustomers(token, params) {
+    return axios.get(`${this.jwtConfig.getCustomersEndpoint}?start_row_index=${params.start_row_index}&end_row_index=${params.end_row_index}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
 }

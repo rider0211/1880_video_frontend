@@ -28,10 +28,10 @@ export default [
     [username.name]: Yup.string().required(username.errorMsg),
     [email.name]: Yup.string().required(email.errorMsg).email(email.invalidMsg),
     [phonenumber.name]: Yup.string().required(phonenumber.errorMsg),
-    // [password.name]: Yup.string().required(password.errorMsg).min(6, password.invalidMsg),
-    // [confirm_password.name]: Yup.string()
-    //   .required(confirm_password.errorMsg)
-    //   .oneOf([Yup.ref("password"), null], confirm_password.invalidMsg),
+    [password.name]: Yup.string().required(password.errorMsg).min(6, password.invalidMsg),
+    [confirm_password.name]: Yup.string()
+      .required(confirm_password.errorMsg)
+      .oneOf([Yup.ref("password"), null], confirm_password.invalidMsg),
   }),
   Yup.object().shape({
     [street.name]: Yup.string().required(street.errorMsg),
