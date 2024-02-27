@@ -111,4 +111,12 @@ export default class JwtService {
       }
     })
   }
+  deleteCustomer(id, token){
+    return axios.post(this.jwtConfig.customerDeleteEndpoint, { user_id : id}, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
 }

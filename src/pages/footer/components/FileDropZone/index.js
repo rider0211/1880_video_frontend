@@ -21,7 +21,6 @@ const FileDropZone = () => {
             });
             this.on("complete", function({file, xhr, meta}){
               try {
-                console.log(xhr.status);
                 if(xhr.status === 401){
                   dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Session Terminated'});
                   dispatch(handleLogout());

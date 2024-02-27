@@ -41,7 +41,7 @@ function DataTable({
   
   const updateddata = table.rows.map((item, key) => {
     return item = {...item, action: 
-    <ActionComponent user={item.user_id} />
+    <ActionComponent user={item.id} />
   }
   })
   const data = useMemo(() => updateddata, [table]);

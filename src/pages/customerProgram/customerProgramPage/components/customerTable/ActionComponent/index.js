@@ -1,13 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
+import { deleteCustomer } from "redux/actions/customers";
 import { useNavigate } from "react-router-dom";
 
 function ActionComponent(user) {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
+    const userdata = useSelector((state) => state.auth.userData);
     const handleEditChange = () => {
         return navigate(`/customerManagement/edit/${user.user}`)
+    }
+    const deleteHandleChange = (user) => {
+        dispatch(deleteCustomer(user.user, userdata.access));
     }
     return (
     <VuiBox>
@@ -42,7 +49,7 @@ function ActionComponent(user) {
             })}
             size= "small"
             onClick= {() => {
-                console.log(user)
+                deleteHandleChange(user);
             }}
         >
             Delete

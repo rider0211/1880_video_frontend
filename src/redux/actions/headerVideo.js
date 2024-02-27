@@ -39,7 +39,6 @@ export const removeHeader = (id, token) => async (dispatch) => {
           }
         })
         .catch(err => {
-            console.log(err);
             dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Session Terminated'});
             if(err.response.status === 401){
               dispatch(handleLogout());

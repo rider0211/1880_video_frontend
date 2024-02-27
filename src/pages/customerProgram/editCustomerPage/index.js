@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 function EditCustomerPage(){
 
     const user = useParams();
-    console.log(user);
     return (
         <DashboardLayout>
             <DashboardNavbar/>

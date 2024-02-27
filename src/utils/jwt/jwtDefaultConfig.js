@@ -23,7 +23,7 @@ export default {
   
 
   getCustomersEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/users/range`,
-    
+  customerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/delete`,
 
 
 
