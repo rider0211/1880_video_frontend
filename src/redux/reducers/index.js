@@ -6,6 +6,7 @@ import headerVideoReducer from './headerVideo';
 import selectReducer from './select';
 import snackbar from './snackbar';
 import useJwt from 'utils/jwt/useJwt';
+import webCamReducer from './webcam';
 
 const config = useJwt.jwtConfig;
 
@@ -41,7 +42,8 @@ const reducer = {
     snackbar: snackbar,
     headerVideos: headerVideoReducer,
     footerVideos: footerVideoReducer,
-    customers: customerReducer
+    customers: customerReducer,
+    webCamReducer: webCamReducer
 };
 
 export default reducer;

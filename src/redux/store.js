@@ -3,6 +3,8 @@ import reducer from './reducers';
 
 // ==============================|| REDUX - MAIN STORE ||============================== //
 
-const store = configureStore({ reducer: reducer })
+const store = configureStore({ 
+    reducer: reducer,
+})
 
 export { store };

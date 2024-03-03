@@ -38,12 +38,13 @@
 */
 
 // React icons
-import { IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
+import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
 
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import Default from "pages/dashboard";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
+import WebCamCapture from 'pages/webCamCapture'
 
 // Vision UI Dashboard PRO React layouts
 
@@ -86,6 +87,16 @@ const routes = [
     icon: <IoPeopleSharp size="15px" color="inherit" />,
     route: "/customerManagement",
     component: <CustomerManagement />,
+    noCollapse: true,
+    access_type: true,
+  },
+  {
+    type: "collapse",
+    name: "WebCam Program",
+    key: "webcamCaptureProgram",
+    icon: <IoCamera size="15px" color="inherit" />,
+    route: "/webcamCaptureProgram",
+    component: <WebCamCapture />,
     noCollapse: true,
     access_type: true,
   }
