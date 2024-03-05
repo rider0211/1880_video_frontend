@@ -26,7 +26,8 @@ export default {
   customerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/delete`,
   getCustomerByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/user`,
   customerUpdateEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/update`,
-
+  
+  addClientEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/client/add_with_photos`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',

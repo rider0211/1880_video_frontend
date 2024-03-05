@@ -37,7 +37,6 @@ function WebCamCameraCompoent() {
     const camera_allow_status = useSelector((state) => state.webCamReducer.camera_allow);
     const selected_camera = useSelector((state) => state.webCamReducer.selected_camera);
     const available_cameras = useSelector((state) => state.webCamReducer.available_cameras);
-    const storePhotos = useSelector((state) => state.webCamReducer.client_photos);
 
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
@@ -125,10 +124,10 @@ function WebCamCameraCompoent() {
                 dy = y;
             });
 
-            if (!take_front && (((100 < dx) && (dx < 300)) && ((80 < dy) && (dy < 150)))) {
+            if (!take_front && (((120 < dx) && (dx < 200)) && ((80 < dy) && (dy < 150)))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
-            else if (((100 < dx) && (dx < 350)) && ((80 < dy) && (dy < 150))) {
+            else if (((80 < dx) && (dx < 400)) && ((80 < dy) && (dy < 150))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
             else {
@@ -218,6 +217,7 @@ function WebCamCameraCompoent() {
         canvas.width = videoRef.current.videoWidth;
         canvas.height = videoRef.current.videoHeight;
         const ctx = canvas.getContext('2d');
+
         ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
         canvas.toBlob(async (blob) => {
             const imageURL = URL.createObjectURL(blob);
@@ -225,7 +225,7 @@ function WebCamCameraCompoent() {
             const storeData = {
                 side: side,
                 key: key,
-                imageURL: imageURL
+                imageURL: imageURL,
             }
             dispatch(setStorePhotos(storeData));
             await localforage.setItem(key, imageURL);
@@ -242,18 +242,18 @@ function WebCamCameraCompoent() {
         if (camera_allow_status) {
             allowCameraFunc();
             loadModels();
+            localforage.clear();
         }
     }, [])
 
     useEffect(() => {
         allowCameraFunc(selected_camera);
     }, [selected_camera])
-    console.log(storePhotos)
     return (
         <VuiBox>
             <VuiBox >
                 <video crossOrigin='anonymous' ref={videoRef} id="video-preview" autoPlay style={{ borderRadius: '20px' }} />
-                <canvas ref={canvasRef} style={{ marginTop: '-480px'}}/>
+                <canvas ref={canvasRef} style={{ marginTop: '-490px', position: 'absolute' }} />
             </VuiBox>
             <Divider light />
             <Grid container direction={'column'} spacing={1} justifyContent={'center'}>
