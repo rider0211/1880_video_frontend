@@ -59,6 +59,10 @@ function WebCamCapture() {
 
   const resetPhotos = () => dispatch({ type: action_type.RESET_CLIENT_PHOTO });
 
+  const reloadPage = async () => {
+    await resetPhotos();
+    window.location.reload();
+  }
   const [tabValue, setTabValue] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);
 
@@ -265,7 +269,7 @@ function WebCamCapture() {
                   size="small"
                   color={'error'}
                   sx={{ width: '100%', marginTop: '10px' }}
-                  onClick={resetPhotos}
+                  onClick={reloadPage}
                 >
                   Reset Photos
                 </VuiButton>

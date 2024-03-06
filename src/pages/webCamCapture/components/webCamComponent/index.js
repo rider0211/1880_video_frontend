@@ -51,6 +51,7 @@ function WebCamCameraCompoent() {
     var take_left = false
     var take_right = false
     var take_front = false
+    var intervalID;
 
     const loadModels = () => {
         Promise.all([
@@ -95,7 +96,7 @@ function WebCamCameraCompoent() {
         }
     }
     const faceDetection = () => {
-        setInterval(async () => {
+        intervalID = setInterval(async () => {
             const ctx = canvasRef.current.getContext('2d');
             const detections = await faceapi.detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
             var rx, ry, face_val, dx, dy;
@@ -111,13 +112,13 @@ function WebCamCameraCompoent() {
                 ry = (eye_left[0] + (eye_right[0] - eye_left[0]) / 2 - nose[0]) / 20;
                 face_val = ry.toFixed(2);
             }
-
-            canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(videoRef.current);
-
-            faceapi.matchDimensions(canvasRef.current, {
-                width: 640,
-                height: 480,
-            })
+            if(videoRef.current)
+                canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(videoRef.current);
+            if(canvasRef.current)
+                faceapi.matchDimensions(canvasRef.current, {
+                    width: 640,
+                    height: 480,
+                })
 
             detections.forEach(detection => {
                 const { x, y } = detection.detection.box;
@@ -246,7 +247,7 @@ function WebCamCameraCompoent() {
             localforage.clear();
         }
         return () => {
-            console.log("destory")
+            clearInterval(intervalID);
         }
     }, [])
 
