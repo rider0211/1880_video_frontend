@@ -43,6 +43,7 @@ import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "r
 import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import Default from "pages/dashboard";
+import { FaPeopleGroup } from "react-icons/fa6";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
 import WebCamCapture from 'pages/webCamCapture'
@@ -105,7 +106,7 @@ const routes = [
     type: "collapse",
     name: "Client Program",
     key: "clientProgram",
-    icon: <IoCamera size="15px" color="inherit" />,
+    icon: <FaPeopleGroup size="15px" color="inherit" />,
     route: "/clientProgram",
     component: <ClientProgram />,
     noCollapse: true,

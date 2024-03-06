@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import VuiDropzone from "components/VuiDropzone";
 import { action_type } from 'redux/action_type';
 import { addHeader } from "redux/actions/headerVideo";
+import { alert_error_from_server } from 'redux/actions/warningMsgFunc';
+import { alert_forbiden_error } from 'redux/actions/warningMsgFunc';
 import { handleLogout } from 'redux/actions/login';
 
 const FileDropZone = () => {
@@ -22,7 +24,7 @@ const FileDropZone = () => {
             });
             this.on("complete", function({file, xhr, meta}){
               try {
-                if(xhr.status === 401){
+                if(xhr.status === 200 || xhr.status === 201){
                   dispatch(alert_session_terminated());
                   dispatch(handleLogout());
                 }else if(xhr.status === 200){
@@ -31,9 +33,11 @@ const FileDropZone = () => {
                 }else if(xhr.status === 403){
                   dispatch(alert_forbiden_error())
                 }else{
+                  console.log(xhr.status)
                   dispatch(alert_error_from_server())
                 }
               } catch (error) {
+                console.log(error);
                 dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});
               }
             })
