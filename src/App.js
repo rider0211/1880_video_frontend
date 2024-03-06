@@ -66,6 +66,7 @@ export default function App() {
       }
 
       if (route.route) {
+
         return <Route 
                   exact 
                   path={route.route} 
@@ -122,10 +123,8 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
         <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
-        
         <Route exact path="/customerManagement/add" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <AddCustomerComponent /> : <BasicSignin />}></Route>
         <Route exact path="/customerManagement/edit/:user_id" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <EditCustomerComponent /> : <BasicSignin />}></Route>
-
         <Route path="/register" element={<BasicSignup />} />
         {getRoutes(routes)}
       </Routes>

@@ -178,4 +178,53 @@ export default class JwtService {
       }
     })
   }
+  getClientByCustomerID(token, params) {
+    return axios.get(`${this.jwtConfig.getClientByCustomerIDEndPoint}?customer_id=${params.customer_id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+  async addChild(token, args){
+    let formData = new FormData();
+    for (let arg in args) {
+      if(arg === 'front_1_file'){
+        await Promise.all([
+          getBlobFromLocalForage(args[arg].key)
+        ]).then(([front_1_file]) => {
+          try {
+            formData.append('front_1_file', front_1_file, 'front_1_file.png');
+          } catch (error) {
+              console.log(error);
+          }
+        })
+      }else if(arg === 'front_2_file'){
+        await Promise.all([
+          getBlobFromLocalForage(args[arg].key)
+        ]).then(([front_2_file]) => {
+          formData.append('front_2_file', front_2_file, 'front_2_file.png');
+        })
+      }else if(arg === 'left_file'){
+        await Promise.all([
+          getBlobFromLocalForage(args[arg].key)
+        ]).then(([left_file]) => {
+          formData.append('left_file', left_file, 'left_file.png');
+        })
+      }else if(arg === 'right_file'){
+        await Promise.all([
+          getBlobFromLocalForage(args[arg].key)
+        ]).then(([right_file]) => {
+          formData.append('right_file', right_file, 'right_file.png');
+        })
+      }else{
+        await formData.append(arg, args[arg]);
+      }
+    }
+    return axios.post(this.jwtConfig.addChildEndPoint, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
 }

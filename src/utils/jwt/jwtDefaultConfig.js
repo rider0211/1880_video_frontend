@@ -28,6 +28,9 @@ export default {
   customerUpdateEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/update`,
   
   addClientEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/client/add_with_photos`,
+  addChildEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/child/add_with_photos`,
+
+  getClientByCustomerIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getallclients`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',

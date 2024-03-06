@@ -1,5 +1,6 @@
 // reducer import
 
+import clientReducer from './client';
 import customerReducer from './customers';
 import footerVideoReducer from './footerVideo';
 import headerVideoReducer from './headerVideo';
@@ -43,7 +44,8 @@ const reducer = {
     headerVideos: headerVideoReducer,
     footerVideos: footerVideoReducer,
     customers: customerReducer,
-    webCamReducer: webCamReducer
+    webCamReducer: webCamReducer,
+    clientReducer: clientReducer
 };
 
 export default reducer;

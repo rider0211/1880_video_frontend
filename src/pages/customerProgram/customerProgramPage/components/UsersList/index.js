@@ -10,17 +10,17 @@ import man_avatar from "assets/images/male-avatar.png";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
-const UsersList = () =>{
+const UsersList = () => {
 
   const navigate = useNavigate();
 
   const customers = useSelector((state) => state.customers.customerData);
-  
+
   const { borderWidth } = borders;
 
   const handleClickChange = (id) => {
     return navigate(`/customerManagement/edit/${id}`)
-}
+  }
   const handleAddbutton = () => {
     return navigate('/customerManagement/add');
   }
@@ -40,7 +40,7 @@ const UsersList = () =>{
         sx={{ cursor: "pointer" }}
         onClick={() => handleClickChange(id)}
       >
-        <VuiAvatar src={user_avatar? user_avatar : man_avatar} alt={username} />
+        <VuiAvatar src={user_avatar ? user_avatar : man_avatar} alt={username} />
       </VuiBox>
       <VuiBox mt={0.75} textAlign="center" lineHeight={1}>
         <VuiTypography fontSize={12} color="text" fontWeight="regular">
@@ -72,7 +72,7 @@ const UsersList = () =>{
               color="white"
               mx="auto"
               sx={{ cursor: "pointer" }}
-              onClick= {handleAddbutton}
+              onClick={handleAddbutton}
             >
               <AiOutlinePlus color="white" size="24px" />
             </VuiBox>

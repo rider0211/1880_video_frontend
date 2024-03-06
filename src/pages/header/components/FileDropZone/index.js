@@ -23,11 +23,15 @@ const FileDropZone = () => {
             this.on("complete", function({file, xhr, meta}){
               try {
                 if(xhr.status === 401){
-                  dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Session Terminated'});
+                  dispatch(alert_session_terminated());
                   dispatch(handleLogout());
-                }else{
+                }else if(xhr.status === 200){
                   const returnData = JSON.parse(xhr.response).data;
                   dispatch(addHeader(returnData));
+                }else if(xhr.status === 403){
+                  dispatch(alert_forbiden_error())
+                }else{
+                  dispatch(alert_error_from_server())
                 }
               } catch (error) {
                 dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Error Occured in server'});

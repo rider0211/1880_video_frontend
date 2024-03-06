@@ -24,6 +24,8 @@ const webCamReducer = (state = initialState, action) => {
                 aClientPhotos.push(action.client_photos);
             }
             return { ...state, client_photos: aClientPhotos }
+        case action_type.RESET_CLIENT_PHOTO:
+            return{...state, client_photos: []}
         case action_type.DELETE_CLIENT_PHOTO:
             const photoID = action.photoID;
             let rPhotos = [...state.client_photos];

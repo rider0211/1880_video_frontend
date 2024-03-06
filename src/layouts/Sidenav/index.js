@@ -28,6 +28,7 @@ import SimmmpleLogo from 'examples/Icons/SimmmpleLogo';
 import VuiBox from 'components/VuiBox';
 import VuiTypography from 'components/VuiTypography';
 import sidenavLogoLabel from 'layouts/Sidenav/styles/sidenav';
+import { useSelector } from 'react-redux';
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	const [ openCollapse, setOpenCollapse ] = useState(false);
@@ -38,7 +39,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	const { pathname } = location;
 	const collapseName = pathname.split('/').slice(1)[0];
 	const itemName = pathname.split('/').slice(1)[1];
-
+    const userdata = useSelector((state) => state.auth.userData);
 	const closeSidenav = () => setMiniSidenav(dispatch, true);
 
 	useEffect(
@@ -119,9 +120,10 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 		});
 
 	// Render all the routes from the routes.js (All the visible items on the Sidenav)
-	const renderRoutes = routes.map(({ type, name, icon, title, collapse, noCollapse, key, href, route }) => {
+	const renderRoutes = routes.map(({ type, name, icon, title, collapse, noCollapse, key, href, route, access_type }) => {
 		let returnValue;
 		if (type === 'collapse') {
+			
 			returnValue = href ? (
 				<Link href={href} key={key} target='_blank' rel='noreferrer' sx={{ textDecoration: 'none' }}>
 					<SidenavCollapse
@@ -133,7 +135,11 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 					/>
 				</Link>
 			) : (
-				noCollapse? (
+				noCollapse? 
+					userdata.user_type !== 1 && access_type ?
+					null
+					:
+				(
 					<NavLink to={route} key={key}>
 						<SidenavCollapse
 							color={color}

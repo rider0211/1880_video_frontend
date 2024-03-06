@@ -33,9 +33,11 @@ import Toolbar from "@mui/material/Toolbar";
 import VuiBox from "components/VuiBox";
 import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
+import { handleLogout } from 'redux/actions/login';
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 // Images
 import team2 from "assets/images/team-2.jpg";
+import { useDispatch } from 'react-redux';
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
@@ -43,7 +45,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
-
+  const defaultDispatch = useDispatch();
   useEffect(() => {
     // Setting the navbar type
     if (fixedNavbar) {
@@ -145,8 +147,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
               />
             </VuiBox>
             <VuiBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in/basic">
-                <IconButton sx={navbarIconButton} size="small">
+                <IconButton sx={navbarIconButton} size="small" onClick={()=>defaultDispatch(handleLogout())}>
                   <Icon
                     sx={({ palette: { dark, white } }) => ({
                       color: white.main,
@@ -154,11 +155,10 @@ function DashboardNavbar({ absolute, light, isMini }) {
                   >
                     account_circle
                   </Icon>
-                  <VuiTypography variant="button" fontWeight="medium" color="white">
-                    Sign in
+                  <VuiTypography variant="button" fontWeight="medium" color="white" >
+                    Sign Out
                   </VuiTypography>
                 </IconButton>
-              </Link>
               <IconButton
                 size="small"
                 color="white"

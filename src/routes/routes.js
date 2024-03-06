@@ -40,6 +40,7 @@
 // React icons
 import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
 
+import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import Default from "pages/dashboard";
 import FooterVideo from "pages/footer";
@@ -57,7 +58,7 @@ const routes = [
     route: "/dashboard",
     component: <Default />,
     noCollapse: true,
-    access_type: true,
+    access_type: false,
   },
   { type: "title", title: "Pages", key: "title-pages" },
   {
@@ -68,7 +69,7 @@ const routes = [
     route: "/header",
     component: <Header />,
     noCollapse: true,
-    access_type: true,
+    access_type: false,
   },
   {
     type: "collapse",
@@ -78,7 +79,7 @@ const routes = [
     route: "/footer",
     component: <FooterVideo />,
     noCollapse: true,
-    access_type: true,
+    access_type: false,
   },
   {
     type: "collapse",
@@ -98,7 +99,17 @@ const routes = [
     route: "/webcamCaptureProgram",
     component: <WebCamCapture />,
     noCollapse: true,
-    access_type: true,
+    access_type: false,
+  },
+  {
+    type: "collapse",
+    name: "Client Program",
+    key: "clientProgram",
+    icon: <IoCamera size="15px" color="inherit" />,
+    route: "/clientProgram",
+    component: <ClientProgram />,
+    noCollapse: true,
+    access_type: false,
   }
 ];
 

@@ -21,7 +21,7 @@ import * as faceapi from "face-api.js";
 
 import { getAvailableCameras, startCamera } from 'utils/camera';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Divider from '@mui/material/Divider';
 import { Grid } from '@mui/material';
@@ -40,6 +40,7 @@ function WebCamCameraCompoent() {
 
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
+
     const dispatch = useDispatch();
 
     const setCameras = (cameras) => dispatch({ type: action_type.ADD_AVAILABLE_CAMERAS, available_cameras: cameras });
@@ -243,6 +244,9 @@ function WebCamCameraCompoent() {
             allowCameraFunc();
             loadModels();
             localforage.clear();
+        }
+        return () => {
+            console.log("destory")
         }
     }, [])
 

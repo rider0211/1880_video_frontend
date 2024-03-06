@@ -8,14 +8,19 @@ import { action_type } from "redux/action_type";
 import { addClient } from "redux/actions/client_manage";
 import form from "./schemas/form";
 import initialValues from "./schemas/initialValues";
+import { useNavigate } from 'react-router-dom';
 import validations from "./schemas/validations";
 
 function ClientAddComponent(props) {
     const { formId, formField } = form;
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const face_alarm = () => dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Please take your all face pictures'});
     const storePhotos = useSelector((state) => state.webCamReducer.client_photos);
     const userdata = useSelector((state) => state.auth.userData);
+    const navigateClientProgram = () => {
+        return navigate('/clientProgram');
+    }
     const handleSubmit = async (values, actions) => {
         if(storePhotos.length < 3){
             face_alarm();
@@ -40,6 +45,7 @@ function ClientAddComponent(props) {
             values.customer_id = userdata.user_id;
             const access_token = userdata.access;
             dispatch(addClient(access_token, values));
+            navigateClientProgram();
         }
     };
     

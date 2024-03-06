@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import AppBar from "@mui/material/AppBar";
+import ChildAddComponent from './components/childAddComponent';
 import ClientAddComponent from './components/clientAddComponent';
 // Vision UI Dashboard PRO React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -48,7 +49,6 @@ function WebCamCapture() {
 
   const camera_allow_status = useSelector((state) => state.webCamReducer.camera_allow);
   const storePhotos = useSelector((state) => state.webCamReducer.client_photos);
-
   const dispatch = useDispatch();
 
   const allowCamera = () => dispatch({ type: action_type.ALLOW_CAMERA, allow_status: true });
@@ -56,6 +56,8 @@ function WebCamCapture() {
 
   const toogleClientModal = () => setModalStatus(!modalStatus);
   const handleSetTabValue = (event, newValue) => setTabValue(newValue);
+
+  const resetPhotos = () => dispatch({ type: action_type.RESET_CLIENT_PHOTO });
 
   const [tabValue, setTabValue] = useState(0);
   const [modalStatus, setModalStatus] = useState(false);
@@ -139,7 +141,7 @@ function WebCamCapture() {
       <DashboardNavbar />
       <VuiBox py={3}>
         <Grid container justifyContent={'center'} spacing={3}>
-          <Modal open={modalStatus} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100 }, closeButton: { display: 'none' } }} onClose={toogleClientModal}>
+          <Modal open={modalStatus} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={toogleClientModal}>
             <Card sx={{ minHeight: "490px" }}>
               <CardHeader component={client_menu_item} />
               <Divider light sx={{ marginTop: 5 }} />
@@ -148,7 +150,7 @@ function WebCamCapture() {
                   <ClientAddComponent toogleModal={toogleClientModal} />
                 </TabPanel>
                 <TabPanel value={tabValue} index={1}>
-                  Item Two
+                  <ChildAddComponent toogleModal={toogleClientModal} />
                 </TabPanel>
               </CardContent>
             </Card>
@@ -258,6 +260,16 @@ function WebCamCapture() {
                   </Grid>
                 </Grid>
                 <Divider light />
+                <VuiButton
+                  variant="outlined"
+                  size="small"
+                  color={'error'}
+                  sx={{ width: '100%', marginTop: '10px' }}
+                  onClick={resetPhotos}
+                >
+                  Reset Photos
+                </VuiButton>
+
                 <VuiButton
                   variant="outlined"
                   size="small"
