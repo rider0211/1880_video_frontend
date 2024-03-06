@@ -266,14 +266,14 @@ function WebCamCameraCompoent() {
                     options={available_cameras.map((item) => { return { value: item.deviceId, label: item.label } })}
                     onChange={onChangeSelect}
                 />
-                <VuiButton
+                {/* <VuiButton
                     variant="outlined"
                     size="small"
                     color={'white'}
                     sx={{ width: '100%', marginTop: '10px' }}
                 >
                     take a picture
-                </VuiButton>
+                </VuiButton> */}
             </Grid>
         </VuiBox>
 

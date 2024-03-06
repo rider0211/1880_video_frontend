@@ -11,7 +11,7 @@ export const alert_login_success = () => async (dispatch)  => dispatch({ type: a
 
 export const alert_error_from_server = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.ERROR_OCCURED_FROM_SERVER });
 export const alert_forbiden_error = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.FORBIDEN });
-export const alert_session_terminated = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.alert_SESSION_TERMINATED });
+export const alert_session_terminated = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.SESSION_TERMINATED });
 export const alert_error_from_client = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.ERROR_OCCURED_FROM_CLIENT });
 export const alert_invalid_login_info = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.INVALID_LOGIN_INFO });
 export const alert_invalid_faces = () => async (dispatch)  => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.INVALID_FACES });
