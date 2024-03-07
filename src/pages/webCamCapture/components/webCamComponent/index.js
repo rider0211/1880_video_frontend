@@ -38,6 +38,8 @@ function WebCamCameraCompoent() {
     const selected_camera = useSelector((state) => state.webCamReducer.selected_camera);
     const available_cameras = useSelector((state) => state.webCamReducer.available_cameras);
 
+    const [manual_capture_key, set_manual_capture_key] = useState(1);
+
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
@@ -99,7 +101,7 @@ function WebCamCameraCompoent() {
         intervalID = setInterval(async () => {
             const ctx = canvasRef.current.getContext('2d');
             const detections = await faceapi.detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-            var rx, ry, face_val, dx, dy;
+            var rx, ry, face_val, dx, dy, d_width, d_height;
 
             for (const face of detections) {
                 var eye_right = getMeanPosition(face.landmarks.getRightEye());
@@ -121,15 +123,18 @@ function WebCamCameraCompoent() {
                 })
 
             detections.forEach(detection => {
-                const { x, y } = detection.detection.box;
+                const { x, y, width, height } = detection.detection.box;
                 dx = x;
                 dy = y;
+                d_width = width;
+                d_height = height;
+        
             });
 
-            if (!take_front && (((120 < dx) && (dx < 200)) && ((80 < dy) && (dy < 150)))) {
+            if (!take_front && (((160 < dx) && (dx < 320) && (d_width < 320)) && ((40 < dy ) && (d_height < 390)))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
-            else if (((80 < dx) && (dx < 400)) && ((80 < dy) && (dy < 150))) {
+            else if (((80 < dx) && (dx < 320) && (d_width < 400)) && ((40 < dy ) && (d_height < 390))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
             else {
@@ -140,21 +145,21 @@ function WebCamCameraCompoent() {
             if (((rx < 90) || (120 < rx)) && rx != undefined)
                 return
 
-            if (face_val < -1.55) {
+            if (ry < -0.9) {
                 if (!take_left) {
                     take_left = true;
                     flashOfLight();
                     takeSelfie(3)
                 }
             }
-            else if (face_val >= 1.55) {
+            else if (ry >= 0.9) {
                 if (!take_right) {
                     take_right = true;
                     flashOfLight();
                     takeSelfie(2)
                 }
             }
-            else if (face_val > -0.2 && face_val < 0.2) {
+            else if (ry > -0.2 && ry < 0.2) {
                 if (!take_front) {
                     take_front = true;
                     flashOfLight();
@@ -254,6 +259,41 @@ function WebCamCameraCompoent() {
     useEffect(() => {
         allowCameraFunc(selected_camera);
     }, [selected_camera])
+
+    const capture_side = [
+        {
+            'side_key_label' : 'Front Face',
+            'side_key_value' : 1
+        },
+        {
+            'side_key_label' : 'Left Face',
+            'side_key_value' : 2
+        },
+        {
+            'side_key_label' : 'Right Face',
+            'side_key_value' : 3
+        }
+    ]
+    const onChangeCaptureSelect = (event) => set_manual_capture_key(event.value);
+    const manualCapture = () => {
+        flashOfLight();
+        takeSelfie(manual_capture_key)
+        switch (manual_capture_key) {
+            case 1:
+                take_front = true;
+                break;
+            case 2:
+                take_left = true;
+                break;
+            case 3:
+                take_right = true;
+                break;
+            default:
+                break;
+        }
+
+    };
+    console.log(manual_capture_key);
     return (
         <VuiBox>
             <VuiBox >
@@ -267,14 +307,22 @@ function WebCamCameraCompoent() {
                     options={available_cameras.map((item) => { return { value: item.deviceId, label: item.label } })}
                     onChange={onChangeSelect}
                 />
-                {/* <VuiButton
+                <Divider light/>
+                <VuiSelect
+                    defaultValue={{ value: capture_side[0].side_key_value, label: capture_side[0].side_key_label }}
+                    options={capture_side.map((item) => { return { value: item.side_key_value, label: item.side_key_label } })}
+                    onChange={onChangeCaptureSelect}
+                />
+                
+                <VuiButton
                     variant="outlined"
                     size="small"
                     color={'white'}
                     sx={{ width: '100%', marginTop: '10px' }}
+                    onClick={manualCapture}
                 >
                     take a picture
-                </VuiButton> */}
+                </VuiButton>
             </Grid>
         </VuiBox>
 
