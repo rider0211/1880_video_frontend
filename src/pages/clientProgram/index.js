@@ -1,15 +1,19 @@
+import { Card, CardContent } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
 import ActionComponent from "./components/action_component";
+import ClientUpdateComponent from "./components/clientUpdateComponent";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
+import { Modal } from 'react-responsive-modal';
 // @mui material components
 // Reports page components
 import Table from "./components";
 import VuiBadgeDot from "components/VuiBadgeDot";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
+import { action_type } from "redux/action_type";
 import { dateFormat } from "utils/common";
 import { getClientByCustomerID } from "redux/actions/client_manage";
 // Data
@@ -30,9 +34,17 @@ function ClientProgram() {
   const dispatch = useDispatch();
 
   const client_data = useSelector((state) => state.clientReducer.clientData);
-
+  const client_update_modal_status = useSelector((state) => state.clientReducer.clientUpdateModalStatus);
+  const selectForUpdateClient = useSelector((state) => state.clientReducer.selectForUpdateClient);
+    
   const userdata = useSelector((state) => state.auth.userData);
 
+  const toogleClientModal = (id) => 
+  {
+    dispatch({type: action_type.SELECT_FOR_UPDATE_CLIENT, status: id});
+    dispatch({type: action_type.CLIENT_UPDATE_MODAL_STATUS, status: !client_update_modal_status});
+  }
+  
   const clientTableData = {
     columns: [
       { name: "client_name", align: "center" },
@@ -94,6 +106,13 @@ function ClientProgram() {
     <DashboardLayout>
       <DashboardNavbar />
       <VuiBox py={3}>
+        <Modal open={client_update_modal_status} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={() => toogleClientModal(-1)}>
+          <Card sx={{ minHeight: "490px" }}>
+            <CardContent sx={{ padding: 0 }}>
+              <ClientUpdateComponent client_id={selectForUpdateClient}/>
+            </CardContent>
+          </Card>
+        </Modal>
         <Table columns={columns} rows={rows} />
       </VuiBox>
       <Footer />

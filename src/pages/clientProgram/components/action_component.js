@@ -3,20 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
+import { action_type } from "redux/action_type";
 import { deleteClient } from "redux/actions/client_manage";
-import { useNavigate } from "react-router-dom";
 
 function ActionComponent(user) {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const userdata = useSelector((state) => state.auth.userData);
+    const client_update_modal_status = useSelector((state) => state.clientReducer.clientUpdateModalStatus);
 
-    const handleEditChange = () => {
-        return navigate(`/customerManagement/edit/${user.user}`)
+    const toogleClientModal = (id) => 
+    {
+      dispatch({type: action_type.SELECT_FOR_UPDATE_CLIENT, client_id: id});
+      dispatch({type: action_type.CLIENT_UPDATE_MODAL_STATUS, status: !client_update_modal_status});
     }
+
     const deleteHandleChange = (user) => {
         dispatch(deleteClient(user.user, userdata.access));
     }
+    
     return (
         <VuiBox>
             <VuiButton
@@ -32,7 +36,7 @@ function ActionComponent(user) {
                     },
                 })}
                 size="small"
-                onClick={handleEditChange}
+                onClick={() => toogleClientModal(user.user)}
             >
                 Edit
             </VuiButton>

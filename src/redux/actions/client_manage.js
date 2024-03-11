@@ -109,3 +109,27 @@ export const deleteClient = (id, token) => async (dispatch) => {
     dispatch(alert_error_from_server());
   }
 };
+
+export const getClientByClientID = (token, param) => async (dispatch) => {
+  try {
+    useJwt
+      .getClientByClientID(token, param)
+      .then(res => {
+        if (res.data.status)
+          dispatch({ type: action_type.SELECTED_CLIEND_DATA, clientData: res.data.data });
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        }else if(err.response.status === 403){
+          dispatch(alert_forbiden_error());
+        } else {
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};

@@ -32,6 +32,7 @@ export default {
 
   getClientByCustomerIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getallclients`,
   clientDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/deleteClient`,
+  getClientByClientIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getclientbyid`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',
