@@ -84,3 +84,28 @@ export const addChild = (token, param) => async (dispatch) => {
     dispatch(alert_error_from_server());
   }
 };
+
+export const deleteClient = (id, token) => async (dispatch) => {
+  try {
+    useJwt
+      .deleteClient(id, token)
+      .then(res => {
+        if (res.data.status) {
+          dispatch({ type: action_type.DELETE_CLIENT, client_id: id });
+          dispatch(alert_delete_success());
+        }
+      })
+      .catch(err => {
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        }else if(err.response.status === 403){
+          dispatch(alert_session_terminated());
+        }else{
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};

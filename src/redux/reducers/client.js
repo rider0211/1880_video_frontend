@@ -22,6 +22,19 @@ const clientReducer = (state = initialState, action) => {
         
         case action_type.SET_SELECT_CLIENT:
             return {...state, selectClient: action.client_id}
+                
+        case action_type.DELETE_CLIENT:
+            const client_id = action.client_id;
+            let rClient = [...state.clientData];
+            for (let i=0; i<rClient.length; i++) {
+            const item = rClient[i];
+            if (item.id == client_id) {
+                rClient.splice(i, 1);
+                break
+            }
+            }
+            return { ...state, clientData: rClient }
+            
         default:
             return state
     }
