@@ -18,49 +18,49 @@ function ActionComponent(user) {
         dispatch(deleteClient(user.user, userdata.access));
     }
     return (
-    <VuiBox>
-        <VuiButton
-            component="button"
-            variant="gradient"
-            color="dark"
-            sx={({ breakpoints }) => ({
-            [breakpoints.up("md")]: {
-                minWidth: "30px",
-            },
-            [breakpoints.only("lg")]: {
-                minWidth: "auto",
-            },
-            })}
-            size= "small"
-            onClick= {handleEditChange}
-        >
-            Edit
-        </VuiButton>
-        <VuiButton
-            component="button"
-            variant="gradient"
-            color="error"
-            sx={({ breakpoints }) => ({
-            [breakpoints.up("md")]: {
-                minWidth: "30px",
-            },
-            [breakpoints.only("lg")]: {
-                minWidth: "auto",
-            },
-            })}
-            size= "small"
-            onClick= {() => {
-                deleteHandleChange(user);
-            }}
-        >
-            Delete
-        </VuiButton>
+        <VuiBox>
+            <VuiButton
+                component="button"
+                variant="gradient"
+                color="dark"
+                sx={({ breakpoints }) => ({
+                    [breakpoints.up("md")]: {
+                        minWidth: "30px",
+                    },
+                    [breakpoints.only("lg")]: {
+                        minWidth: "auto",
+                    },
+                })}
+                size="small"
+                onClick={handleEditChange}
+            >
+                Edit
+            </VuiButton>
+            <VuiButton
+                component="button"
+                variant="gradient"
+                color="error"
+                sx={({ breakpoints }) => ({
+                    [breakpoints.up("md")]: {
+                        minWidth: "30px",
+                    },
+                    [breakpoints.only("lg")]: {
+                        minWidth: "auto",
+                    },
+                })}
+                size="small"
+                onClick={() => {
+                    deleteHandleChange(user);
+                }}
+            >
+                Delete
+            </VuiButton>
 
-    </VuiBox>
+        </VuiBox>
     );
 }
 
-ActionComponent.propTypes= {
+ActionComponent.propTypes = {
     user: PropTypes.number.isRequired
 }
 export default ActionComponent;

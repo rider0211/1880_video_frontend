@@ -17,13 +17,13 @@ import { useEffect } from "react";
 
 // Vision UI Dashboard PRO React components
 const BadgeComponent = (flag) => {
-  return flag ? 
-  <VuiBox ml={-1.325}>
-    <VuiBadgeDot size="xs" badgeContent="Yes" />
-  </VuiBox> :
-  <VuiBox ml={-1.325}>
-    <VuiBadgeDot size="xs" color="error" badgeContent="No" />
-  </VuiBox>
+  return flag ?
+    <VuiBox ml={-1.325}>
+      <VuiBadgeDot size="xs" badgeContent="Yes" />
+    </VuiBox> :
+    <VuiBox ml={-1.325}>
+      <VuiBadgeDot size="xs" color="error" badgeContent="No" />
+    </VuiBox>
 }
 
 function ClientProgram() {
@@ -32,7 +32,7 @@ function ClientProgram() {
   const client_data = useSelector((state) => state.clientReducer.clientData);
 
   const userdata = useSelector((state) => state.auth.userData);
-  
+
   const clientTableData = {
     columns: [
       { name: "client_name", align: "center" },
@@ -45,9 +45,9 @@ function ClientProgram() {
       { name: "be_shown_social_media", align: "center" },
       { name: "date", align: "center" },
       { name: "id", align: "center" },
-      {name: "action", align: "center"},
+      { name: "action", align: "center" },
     ],
-    rows:[]
+    rows: []
   };
 
   clientTableData.rows = client_data.map((item) => {
@@ -58,25 +58,25 @@ function ClientProgram() {
       client_email: item.client_email,
       id: item.id,
       action: (
-        <ActionComponent user={item.id}/>
+        <ActionComponent user={item.id} />
       ),
       get_same_video: (
-        <BadgeComponent flag={item.get_same_video}/>
+        <BadgeComponent flag={item.get_same_video} />
       ),
       appears_in_others_video: (
-        <BadgeComponent flag={item.appears_in_others_video}/>
+        <BadgeComponent flag={item.appears_in_others_video} />
       ),
       voice_can_be_recorded: (
-        <BadgeComponent flag={item.voice_can_be_recorded}/>
+        <BadgeComponent flag={item.voice_can_be_recorded} />
       ),
       be_shown_potential: (
-        <BadgeComponent flag={item.be_shown_potential}/>
+        <BadgeComponent flag={item.be_shown_potential} />
       ),
       be_shown_public_business: (
-        <BadgeComponent flag={item.be_shown_public_business}/>
+        <BadgeComponent flag={item.be_shown_public_business} />
       ),
       be_shown_social_media: (
-        <BadgeComponent flag={item.be_shown_social_media}/>
+        <BadgeComponent flag={item.be_shown_social_media} />
       ),
 
     }
