@@ -5,7 +5,7 @@ import { action_type } from "redux/action_type";
 const initialState = {
     clientData: [],
     selectClient: -1,
-    clientUpdateModalStatus: true,
+    clientUpdateModalStatus: false,
     selectForUpdateClient: -1,
     selectedClientData: [],
 }
@@ -45,7 +45,18 @@ const clientReducer = (state = initialState, action) => {
 
         case action_type.SELECTED_CLIEND_DATA:
             return { ...state, selectedClientData: action.clientData }
-            
+
+        case action_type.UPDATE_CLIENT:
+            let allData = [...state.clientData];
+            for (let i = 0; i < allData.length; i++) {
+                const user = allData[i];
+                if (user.id == action.clientData.id) {
+                    allData[i] = action.clientData;
+                    break;
+                }
+            }
+            return { ...state, clientData: allData }
+
         default:
             return state
     }

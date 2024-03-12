@@ -72,8 +72,8 @@ export default class JwtService {
     return axios.get(this.jwtConfig.searchUsersEndpoint, ...args)
   }
 
-  getHeaders(token){
-    return axios.get(this.jwtConfig.headerGetEndpoint, {
+  getHeaders(token, id){
+    return axios.get(`${this.jwtConfig.headerGetEndpoint}?customer_id=${id}`, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -89,8 +89,8 @@ export default class JwtService {
     })
   }
 
-  getFooters(token){
-    return axios.get(this.jwtConfig.footerGetEndpoint, {
+  getFooters(token, id){
+    return axios.get(`${this.jwtConfig.footerGetEndpoint}?customer_id=${id}`, {
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -236,8 +236,17 @@ export default class JwtService {
       }
     })
   }
+  
   getClientByClientID(token, params) {
-    return axios.get(`${this.jwtConfig.getClientByClientIDEndPoint}?client_id=${params.client_id}`, {
+    return axios.get(`${this.jwtConfig.getClientByClientIDEndPoint}${params.client_id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateClientByClientID(token, params){
+    return axios.post(this.jwtConfig.updateClientEndpoint, params, {
       headers: {
         Authorization: 'Bearer ' + token
       }

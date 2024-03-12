@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import ClientComponent from "./clientComponent";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
+import { action_type } from "redux/action_type";
 import form from "./schemas/form";
 import { getClientByClientID } from "redux/actions/client_manage";
 import initialValues from "./schemas/initialValues";
+import { updateClientByClientID } from "redux/actions/client_manage";
 import { useEffect } from "react";
 import validations from "./schemas/validations";
 
@@ -15,29 +17,37 @@ function ClientUpdateComponent(props) {
     const dispatch = useDispatch();
 
     const selected_client_data = useSelector((state) => state.clientReducer.selectedClientData);
+    const client_update_modal_status = useSelector((state) => state.clientReducer.clientUpdateModalStatus);
+
     const userdata = useSelector((state) => state.auth.userData);
 
     const client_id = { 'client_id': props.client_id };
     const access_token = userdata.access;
+
+    const toogleClientModal = (id) => {
+        dispatch({ type: action_type.SELECT_FOR_UPDATE_CLIENT, status: id });
+        dispatch({ type: action_type.CLIENT_UPDATE_MODAL_STATUS, status: !client_update_modal_status });
+    }
 
     useEffect(() => {
         dispatch(getClientByClientID(access_token, client_id));
     }, [])
 
     const handleSubmit = async (values, actions) => {
-        console.log("handle submit")
+        values.client_id = props.client_id
+        dispatch(updateClientByClientID(access_token, values));
+        toogleClientModal(-1);
     };
 
-    if(selected_client_data.length != 0){
-        initialValues.client_name               = selected_client_data.client_name
-        initialValues.client_phone_number       = selected_client_data.client_phone_number
-        initialValues.client_email              = selected_client_data.client_email
-        initialValues.get_same_video            = selected_client_data.get_same_video
-        initialValues.appears_in_others_video   = selected_client_data.appears_in_others_video
-        initialValues.voice_can_be_recorded     = selected_client_data.voice_can_be_recorded
-        initialValues.be_shown_potential        = selected_client_data.be_shown_potential
-        initialValues.be_shown_public_business  = selected_client_data.be_shown_public_business
-        initialValues.be_shown_social_media     = selected_client_data.be_shown_social_media
+    if (selected_client_data.length != 0) {
+        initialValues.client_name = selected_client_data.client_name
+        initialValues.client_email = selected_client_data.client_email
+        initialValues.get_same_video = selected_client_data.get_same_video
+        initialValues.appears_in_others_video = selected_client_data.appears_in_others_video
+        initialValues.voice_can_be_recorded = selected_client_data.voice_can_be_recorded
+        initialValues.be_shown_potential = selected_client_data.be_shown_potential
+        initialValues.be_shown_public_business = selected_client_data.be_shown_public_business
+        initialValues.be_shown_social_media = selected_client_data.be_shown_social_media
     }
 
     return (

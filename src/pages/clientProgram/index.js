@@ -21,7 +21,7 @@ import { useEffect } from "react";
 
 // Vision UI Dashboard PRO React components
 const BadgeComponent = (flag) => {
-  return flag ?
+  return flag.flag ?
     <VuiBox ml={-1.325}>
       <VuiBadgeDot size="xs" badgeContent="Yes" />
     </VuiBox> :
@@ -61,7 +61,6 @@ function ClientProgram() {
     ],
     rows: []
   };
-
   clientTableData.rows = client_data.map((item) => {
     return {
       client_name: [process.env.REACT_APP_BASE_URL + item.photos[0].img_url, item.client_name],

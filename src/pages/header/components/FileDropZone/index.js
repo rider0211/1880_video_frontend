@@ -24,10 +24,10 @@ const FileDropZone = () => {
             });
             this.on("complete", function({file, xhr, meta}){
               try {
-                if(xhr.status === 200 || xhr.status === 201){
+                if(xhr.status === 401){
                   dispatch(alert_session_terminated());
                   dispatch(handleLogout());
-                }else if(xhr.status === 200){
+                }else if(xhr.status === 200 || xhr.status === 201){
                   const returnData = JSON.parse(xhr.response).data;
                   dispatch(addHeader(returnData));
                 }else if(xhr.status === 403){

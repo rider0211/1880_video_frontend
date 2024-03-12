@@ -27,7 +27,6 @@ export default [
   Yup.object().shape({
     [client_name.name]: Yup.string().required(client_name.errorMsg),
     [client_email.name]: Yup.string().required(client_email.errorMsg).email(client_email.invalidMsg),
-    [client_phone_number.name]: Yup.string().required(client_phone_number.errorMsg),
     [get_same_video.name]: Yup.string().required(get_same_video.errorMsg).oneOf(["true", "false"]),
     [appears_in_others_video.name]: Yup.string().required(appears_in_others_video.errorMsg).oneOf(["true", "false"]),
     [voice_can_be_recorded.name]: Yup.string().required(voice_can_be_recorded.errorMsg).oneOf(["true", "false"]),

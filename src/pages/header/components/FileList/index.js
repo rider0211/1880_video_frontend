@@ -10,7 +10,11 @@ const FileList = () => {
   const userdata = useSelector((state) => state.auth.userData);
   const headerVideo = useSelector((state) => state.headerVideos.header_video);
   useEffect(()=>{
-    dispatch(getHeaders(userdata.access));
+    if(userdata.user_type == 1){
+      dispatch(getHeaders(userdata.access, -1));
+    }else{
+      dispatch(getHeaders(userdata.access, userdata.user_id));
+    }
   }, [])
 
   const headerItem = (videos) => {

@@ -25,12 +25,6 @@ export default {
       placeholder: "eg. Steve Stence",
       errorMsg: "Full Name is required.",
     },
-    client_phone_number: {
-      name: "client_phone_number",
-      label: "Client Phone Number",
-      type: "text",
-      placeholder: "eg. +123456789",
-    },
     client_email: {
       name: "client_email",
       label: "Client Email Address",

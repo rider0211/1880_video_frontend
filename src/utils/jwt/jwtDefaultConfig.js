@@ -31,8 +31,9 @@ export default {
   addChildEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/child/add_with_photos`,
 
   getClientByCustomerIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getallclients`,
-  clientDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/deleteClient`,
-  getClientByClientIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getclientbyid`,
+  clientDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/delete`,
+  getClientByClientIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/client/`,
+  updateClientEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/update`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',

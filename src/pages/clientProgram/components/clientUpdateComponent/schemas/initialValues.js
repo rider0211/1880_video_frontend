@@ -20,7 +20,6 @@ import checkout from "pages/webCamCapture/components/clientAddComponent/schemas/
 const {
   formField: {
     client_name,
-    client_phone_number,
     client_email,
     get_same_video,
     appears_in_others_video,
@@ -33,7 +32,6 @@ const {
 
 export default {
   [client_name.name]: "",
-  [client_phone_number.name]: "",
   [client_email.name]: "",
   [get_same_video.name]: true,
   [appears_in_others_video.name]: true,

@@ -11,7 +11,11 @@ const FileList = () => {
   const footerVideo = useSelector((state) => state.footerVideos.footer_video);
 
   useEffect(()=>{
-    dispatch(getFooters(userdata.access));
+    if(userdata.user_type == 1){
+      dispatch(getFooters(userdata.access, -1));
+    }else{
+      dispatch(getFooters(userdata.access, userdata.user_id));
+    }
   }, [])
 
   const footerItem = (videos) => {

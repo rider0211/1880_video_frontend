@@ -5,15 +5,15 @@ import { action_type } from "redux/action_type";
 const initialState = {
     customerData: [],
     selectedCustomerData: []
-  }
-  
+}
+
 const customerReducer = (state = initialState, action) => {
     switch (action.type) {
         case action_type.FETCH_CUSTOMERS:
-            return {...state, customerData: action.customerTempData}
+            return { ...state, customerData: action.customerTempData }
 
         case action_type.FETCH_CUSTOMER_BY_ID:
-            return {...state, selectedCustomerData: action.selectedCustomerData}
+            return { ...state, selectedCustomerData: action.selectedCustomerData }
 
         case action_type.ADD_CUSTOMER:
             let aCustomers = [...state.customerData];
@@ -21,28 +21,28 @@ const customerReducer = (state = initialState, action) => {
             return { ...state, customerData: aCustomers }
 
         case action_type.UPDATE_CUSTOMER:
-            allData = [...state.customerData];
+            let allData = [...state.customerData];
             for (let i = 0; i < allData.length; i++) {
                 const user = allData[i];
                 if (user.id == action.customerTempData.id) {
-                allData[i] = action.customerTempData;
-                break;
+                    allData[i] = action.customerTempData;
+                    break;
                 }
             }
-            return { ...state, customerData: action.customerTempData }
-            
+            return { ...state, customerData: allData }
+
         case action_type.DELETE_CUSTOMER:
             const customerID = action.customer_id;
             let rCustomers = [...state.customerData];
-            for (let i=0; i<rCustomers.length; i++) {
-            const item = rCustomers[i];
-            if (item.id == customerID) {
-                rCustomers.splice(i, 1);
-                break
-            }
+            for (let i = 0; i < rCustomers.length; i++) {
+                const item = rCustomers[i];
+                if (item.id == customerID) {
+                    rCustomers.splice(i, 1);
+                    break
+                }
             }
             return { ...state, customerData: rCustomers }
-            
+
         default:
             return state
     }

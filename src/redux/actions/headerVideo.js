@@ -4,10 +4,10 @@ import { action_type } from 'redux/action_type';
 import { handleLogout } from './login';
 import useJwt from 'utils/jwt/useJwt';
 
-export const getHeaders = (token) => async (dispatch) => {
+export const getHeaders = (token, id) => async (dispatch) => {
   try {
     useJwt
-      .getHeaders(token)
+      .getHeaders(token, id)
       .then(res => {
         if (res.status) {
           dispatch({ type: action_type.FETCH_VIDEO, header_video: res.data.data });

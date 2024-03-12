@@ -1,6 +1,6 @@
-import {FormField, OptionFormField} from "pages/webCamCapture/components/formField";
-
+import FormField from "pages/webCamCapture/components/formField";
 import { Grid } from "@mui/material";
+import OptionFormField from "pages/webCamCapture/components/formField/option_form_field";
 import PropTypes from "prop-types";
 
 function ClientComponent({ formData }) {
@@ -9,7 +9,6 @@ function ClientComponent({ formData }) {
 
     const {
         client_name,
-        client_phone_number,
         client_email,
         get_same_video,
         appears_in_others_video,
@@ -20,7 +19,6 @@ function ClientComponent({ formData }) {
 
     const {
         client_name: client_name_V,
-        client_phone_number: client_phone_number_V,
         client_email: client_email_V,
         get_same_video: get_same_video_V,
         appears_in_others_video: appears_in_others_video_V,
@@ -50,15 +48,6 @@ function ClientComponent({ formData }) {
                     placeholder={client_email.placeholder}
                     error={errors.client_email && touched.client_email}
                     success={client_email_V.length > 0 && !errors.client_email}
-                />
-                <FormField
-                    label={client_phone_number.label}
-                    name={client_phone_number.name}
-                    type={client_phone_number.type}
-                    value={client_phone_number_V}
-                    placeholder={client_phone_number.placeholder}
-                    error={errors.client_phone_number && touched.client_phone_number}
-                    success={client_phone_number_V.length > 0 && !errors.client_phone_number}
                 />
                 <OptionFormField
                     label={get_same_video.label}

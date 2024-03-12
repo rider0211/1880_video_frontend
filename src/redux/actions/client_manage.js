@@ -1,4 +1,4 @@
-import { alert_error_from_server, alert_forbiden_error, alert_register_success, alert_session_terminated } from './warningMsgFunc';
+import { alert_delete_success, alert_error_from_server, alert_forbiden_error, alert_register_success, alert_session_terminated, alert_update_success } from './warningMsgFunc';
 
 import { action_type } from 'redux/action_type';
 import { handleLogout } from './login';
@@ -91,8 +91,8 @@ export const deleteClient = (id, token) => async (dispatch) => {
       .deleteClient(id, token)
       .then(res => {
         if (res.data.status) {
-          dispatch({ type: action_type.DELETE_CLIENT, client_id: id });
           dispatch(alert_delete_success());
+          dispatch({ type: action_type.DELETE_CLIENT, client_id: id });
         }
       })
       .catch(err => {
@@ -117,6 +117,31 @@ export const getClientByClientID = (token, param) => async (dispatch) => {
       .then(res => {
         if (res.data.status)
           dispatch({ type: action_type.SELECTED_CLIEND_DATA, clientData: res.data.data });
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        }else if(err.response.status === 403){
+          dispatch(alert_forbiden_error());
+        } else {
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};
+
+export const updateClientByClientID = (token, param) => async (dispatch) => {
+  try {
+    useJwt
+      .updateClientByClientID(token, param)
+      .then(res => {
+        if (res.data.status)
+          dispatch({ type: action_type.UPDATE_CLIENT, clientData: res.data.data });
+          dispatch(alert_update_success());
       })
       .catch(err => {
         console.log(err)

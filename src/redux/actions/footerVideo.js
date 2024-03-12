@@ -4,10 +4,10 @@ import { action_type } from 'redux/action_type';
 import { handleLogout } from './login';
 import useJwt from 'utils/jwt/useJwt';
 
-export const getFooters = (token) => async (dispatch) => {
+export const getFooters = (token, id) => async (dispatch) => {
   try {
     useJwt
-      .getFooters(token)
+      .getFooters(token, id)
       .then(res => {
         if (res.status) {
           dispatch({ type: action_type.FETCH_FOOTER_VIDEO, footer_video: res.data.data });
