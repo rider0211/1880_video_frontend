@@ -114,7 +114,7 @@ function ClientProgram() {
           fontWeight="bold"
           color="white"
         >
-          Footer Program
+          Client Program
         </VuiTypography>
       </VuiBox>
       <VuiBox py={3}>
