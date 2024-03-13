@@ -19,7 +19,6 @@ const FileDropZone = () => {
           url : `${process.env.REACT_APP_BASE_API_URL}/admin/header/add`,
           init: function() {
             this.on("sending", function(file, xhr, formData) {
-              formData.append("user", userdata.user_id);
               formData.append("video_path", file)
             });
             this.on("complete", function({file, xhr, meta}){

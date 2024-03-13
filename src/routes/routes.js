@@ -40,12 +40,14 @@
 // React icons
 import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
 
+import CameraVoiceProgram from 'pages/cameraVoiceProgram'
 import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import Default from "pages/dashboard";
 import { FaPeopleGroup } from "react-icons/fa6";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
+import { TbCameraCheck } from "react-icons/tb";
 import WebCamCapture from 'pages/webCamCapture'
 
 // Vision UI Dashboard PRO React layouts
@@ -109,6 +111,16 @@ const routes = [
     icon: <FaPeopleGroup size="15px" color="inherit" />,
     route: "/clientProgram",
     component: <ClientProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
+  {
+    type: "collapse",
+    name: "Camera Voice Program",
+    key: "cameraVoiceProgram",
+    icon: <TbCameraCheck size="15px" color="inherit" />,
+    route: "/cameraVoiceProgram",
+    component: <CameraVoiceProgram />,
     noCollapse: true,
     access_type: false,
   }

@@ -13,7 +13,9 @@ import Table from "./components";
 import VuiBadgeDot from "components/VuiBadgeDot";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
+import VuiTypography from "components/VuiTypography";
 import { action_type } from "redux/action_type";
+import breakpoints from "assets/theme/base/breakpoints";
 import { dateFormat } from "utils/common";
 import { getClientByCustomerID } from "redux/actions/client_manage";
 // Data
@@ -31,6 +33,7 @@ const BadgeComponent = (flag) => {
 }
 
 function ClientProgram() {
+  const { values } = breakpoints;
   const dispatch = useDispatch();
 
   const client_data = useSelector((state) => state.clientReducer.clientData);
@@ -104,6 +107,16 @@ function ClientProgram() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+      <VuiBox mb={3} p={1}>
+        <VuiTypography
+          variant={window.innerWidth < values.sm ? "h3" : "h2"}
+          textTransform="capitalize"
+          fontWeight="bold"
+          color="white"
+        >
+          Footer Program
+        </VuiTypography>
+      </VuiBox>
       <VuiBox py={3}>
         <Modal open={client_update_modal_status} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={() => toogleClientModal(-1)}>
           <Card sx={{ minHeight: "490px" }}>
