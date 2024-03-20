@@ -6,6 +6,7 @@ const initialState = {
     clientData: [],
     selectClient: -1,
     clientUpdateModalStatus: false,
+    clientAddModalStatus: false,
     selectForUpdateClient: -1,
     selectedClientData: [],
 }
@@ -39,7 +40,8 @@ const clientReducer = (state = initialState, action) => {
             return { ...state, clientData: rClient }
         case action_type.CLIENT_UPDATE_MODAL_STATUS:
             return { ...state, clientUpdateModalStatus: action.status }
-
+        case action_type.CLIENT_ADD_MODAL_STATUS:
+            return { ...state, clientAddModalStatus: action.status }
         case action_type.SELECT_FOR_UPDATE_CLIENT:
             return { ...state, selectForUpdateClient: action.client_id }
 

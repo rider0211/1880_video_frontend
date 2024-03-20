@@ -15,18 +15,21 @@
 
 */
 
-import Card from "@mui/material/Card";
 // @mui material components
-import { Table as MuiTable } from "@mui/material";
+import { Grid, Table as MuiTable } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+
+import Card from "@mui/material/Card";
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 import TableBody from "@mui/material/TableBody";
-import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import VuiAvatar from "components/VuiAvatar";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
+import VuiButton from "components/VuiButton";
 import VuiTypography from "components/VuiTypography";
+import { action_type } from "redux/action_type";
 import borders from "assets/theme/base/borders";
 // Vision UI Dashboard PRO React base styles
 import colors from "assets/theme/base/colors";
@@ -40,6 +43,9 @@ function Table({ columns, rows }) {
   const { size, fontWeightMedium } = typography;
   const { borderWidth } = borders;
 
+  const dispatch = useDispatch();
+  const modalStatus = useSelector((state) => state.clientReducer.clientAddModalStatus);
+  
   const renderColumns = columns.map(({ name, align, width }, key) => {
     let pl;
     let pr;
@@ -132,6 +138,11 @@ function Table({ columns, rows }) {
     return <TableRow key={rowKey}>{tableRow}</TableRow>;
   });
 
+
+  const openAddClientModal = () => {
+    dispatch({type: action_type.CLIENT_ADD_MODAL_STATUS, status: !modalStatus});
+  }
+  
   return useMemo(
     () => (
       <Card
@@ -140,13 +151,24 @@ function Table({ columns, rows }) {
             overflowX: "scroll",
           },
         })}
-      >
-        <MuiTable>
-          <VuiBox component="thead">
-            <TableRow>{renderColumns}</TableRow>
-          </VuiBox>
-          <TableBody>{renderRows}</TableBody>
-        </MuiTable>
+      > 
+        <Grid container justifyContent={'center'}>
+          <Grid item xs={12} sm={12}>
+            <MuiTable>
+              <VuiBox component="thead">
+                <TableRow>{renderColumns}</TableRow>
+              </VuiBox>
+              <TableBody>{renderRows}</TableBody>
+            </MuiTable>
+          </Grid>
+          <Grid item xs={12} sm={12}>
+            <VuiBox ml="auto" mt="10px"> 
+              <VuiButton variant="outlined" sx={{width: '100%'}} color="info" size="small" onClick={openAddClientModal}>
+                Add New Client
+              </VuiButton>
+            </VuiBox>
+          </Grid>
+        </Grid>
       </Card>
     ),
     [columns, rows]

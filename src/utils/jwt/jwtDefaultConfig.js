@@ -27,8 +27,8 @@ export default {
   getCustomerByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/user`,
   customerUpdateEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/update`,
   
-  addClientEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/client/add_with_photos`,
-  addChildEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/child/add_with_photos`,
+  addClientEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/add_client`,
+  addChildEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/add_child`,
 
   getClientByCustomerIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/getallclients`,
   clientDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/delete`,
