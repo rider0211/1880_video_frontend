@@ -22,7 +22,7 @@ function CameraVoiceComponent({ customer_id, toogleModal, status }) {
     const dispatch = useDispatch();
     const userdata = useSelector((state) => state.auth.userData);
     const token = userdata.access;
-    
+
     const handleSubmit = async (values, actions) => {
         const access_token = userdata.access;
         dispatch(addCameraVoice(access_token, values));
@@ -32,7 +32,7 @@ function CameraVoiceComponent({ customer_id, toogleModal, status }) {
     useEffect(() => {
         dispatch(getAllCamera(token))
     }, [])
-    
+
     return (
         <Formik
             initialValues={status === -1 ? add_initialValues : update_initialValues}

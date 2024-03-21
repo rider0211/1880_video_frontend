@@ -107,7 +107,7 @@ function ComplexProjectCard({ color, icon, title, dateTime, description, members
           {wait_for_seconds ? (
             <VuiBox display="flex" flexDirection="column" lineHeight={0}>
               <VuiTypography variant="button" color="white" fontWeight="medium">
-                {wait_for_seconds}
+                {wait_for_seconds} s
               </VuiTypography>
               <VuiTypography variant="button" fontWeight="medium" color="text">
                 Wait for seconds

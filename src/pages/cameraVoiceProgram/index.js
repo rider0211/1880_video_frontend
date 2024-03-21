@@ -76,7 +76,7 @@ function CameraVoiceProgram() {
           <ComplexProjectCard
             icon={<GiCctvCamera color="white" size="33px" />}
             title={camera_data.camera_name}
-            color={'info'}
+            color={item.camera_voice_data.enter_or_exit_code? 'info' : 'error'}
             description={item.camera_voice_data.text}
             dateTime={dateFormat(item.camera_voice_data.date)}
             members={item.members}
