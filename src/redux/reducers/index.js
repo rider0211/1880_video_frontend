@@ -1,5 +1,6 @@
 // reducer import
 
+import cameraReducer from './camera';
 import clientReducer from './client';
 import customerReducer from './customers';
 import footerVideoReducer from './footerVideo';
@@ -7,6 +8,7 @@ import headerVideoReducer from './headerVideo';
 import selectReducer from './select';
 import snackbar from './snackbar';
 import useJwt from 'utils/jwt/useJwt';
+import voiceReducer from './cameraVoice';
 import webCamReducer from './webcam';
 
 const config = useJwt.jwtConfig;
@@ -45,7 +47,9 @@ const reducer = {
     footerVideos: footerVideoReducer,
     customers: customerReducer,
     webCamReducer: webCamReducer,
-    clientReducer: clientReducer
+    clientReducer: clientReducer,
+    voiceReducer: voiceReducer,
+    cameraReducer: cameraReducer,
 };
 
 export default reducer;

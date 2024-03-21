@@ -4,7 +4,7 @@ import jwtDefaultConfig from './jwtDefaultConfig'
 
 export default class JwtService {
   // ** jwtConfig <= Will be used by this service
-  
+
   // eslint-disable-next-line
   jwtConfig = { ...jwtDefaultConfig }
 
@@ -72,7 +72,7 @@ export default class JwtService {
     return axios.get(this.jwtConfig.searchUsersEndpoint, ...args)
   }
 
-  getHeaders(token){
+  getHeaders(token) {
     return axios.get(this.jwtConfig.headerGetEndpoint, {
       headers: {
         Authorization: 'Bearer ' + token
@@ -80,8 +80,8 @@ export default class JwtService {
     })
   }
 
-  deleteHeaders(id, token){
-    return axios.post(this.jwtConfig.headerDeleteEndpoint, { header_id : id}, {
+  deleteHeaders(id, token) {
+    return axios.post(this.jwtConfig.headerDeleteEndpoint, { header_id: id }, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
@@ -89,7 +89,7 @@ export default class JwtService {
     })
   }
 
-  getFooters(token){
+  getFooters(token) {
     return axios.get(this.jwtConfig.footerGetEndpoint, {
       headers: {
         Authorization: 'Bearer ' + token
@@ -97,8 +97,8 @@ export default class JwtService {
     })
   }
 
-  deleteFooters(id, token){
-    return axios.post(this.jwtConfig.footerDeleteEndpoint, { footer_id : id}, {
+  deleteFooters(id, token) {
+    return axios.post(this.jwtConfig.footerDeleteEndpoint, { footer_id: id }, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
@@ -112,8 +112,8 @@ export default class JwtService {
       }
     })
   }
-  deleteCustomer(id, token){
-    return axios.post(this.jwtConfig.customerDeleteEndpoint, { user_id : id}, {
+  deleteCustomer(id, token) {
+    return axios.post(this.jwtConfig.customerDeleteEndpoint, { user_id: id }, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
@@ -128,15 +128,15 @@ export default class JwtService {
     })
   }
 
-  updateCustomer(token, ...args){
+  updateCustomer(token, ...args) {
     return axios.post(this.jwtConfig.customerUpdateEndpoint, ...args, {
       headers: {
         Authorization: 'Bearer ' + token
       }
     })
   }
-  
-  async addClient(token, params){
+
+  async addClient(token, params) {
     return axios.post(this.jwtConfig.addClientEndPoint, params, {
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -151,38 +151,38 @@ export default class JwtService {
       }
     })
   }
-  async addChild(token, args){
+  async addChild(token, args) {
     let formData = new FormData();
     for (let arg in args) {
-      if(arg === 'front_1_file'){
+      if (arg === 'front_1_file') {
         await Promise.all([
           getBlobFromLocalForage(args[arg].key)
         ]).then(([front_1_file]) => {
           try {
             formData.append('front_1_file', front_1_file, 'front_1_file.png');
           } catch (error) {
-              console.log(error);
+            console.log(error);
           }
         })
-      }else if(arg === 'front_2_file'){
+      } else if (arg === 'front_2_file') {
         await Promise.all([
           getBlobFromLocalForage(args[arg].key)
         ]).then(([front_2_file]) => {
           formData.append('front_2_file', front_2_file, 'front_2_file.png');
         })
-      }else if(arg === 'left_file'){
+      } else if (arg === 'left_file') {
         await Promise.all([
           getBlobFromLocalForage(args[arg].key)
         ]).then(([left_file]) => {
           formData.append('left_file', left_file, 'left_file.png');
         })
-      }else if(arg === 'right_file'){
+      } else if (arg === 'right_file') {
         await Promise.all([
           getBlobFromLocalForage(args[arg].key)
         ]).then(([right_file]) => {
           formData.append('right_file', right_file, 'right_file.png');
         })
-      }else{
+      } else {
         await formData.append(arg, args[arg]);
       }
     }
@@ -194,15 +194,15 @@ export default class JwtService {
     })
   }
 
-  deleteClient(id, token){
-    return axios.post(this.jwtConfig.clientDeleteEndpoint, { client_id : id}, {
+  deleteClient(id, token) {
+    return axios.post(this.jwtConfig.clientDeleteEndpoint, { client_id: id }, {
       headers: {
         'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
       }
     })
   }
-  
+
   getClientByClientID(token, params) {
     return axios.get(`${this.jwtConfig.getClientByClientIDEndPoint}${params.client_id}`, {
       headers: {
@@ -211,8 +211,64 @@ export default class JwtService {
     })
   }
 
-  updateClientByClientID(token, params){
+  updateClientByClientID(token, params) {
     return axios.post(this.jwtConfig.updateClientEndpoint, params, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getAllCameraVoice(token) {
+    return axios.get(this.jwtConfig.getAllCameraVoiceEndPoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getCameraVoiceByID(token, param) {
+    return axios.get(`${this.jwtConfig.getCameraVoiceByIDEndpoint}?id=${param.id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getCameravoiceByCameraID(token, param) {
+    return axios.get(`${this.jwtConfig.getCameravoiceByCameraIDEndpoint}?id=${param.id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  addCameraVoice(token, param) {
+    return axios.post(this.jwtConfig.addCameraVoiceEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateCameraVoice(token, param) {
+    return axios.post(this.jwtConfig.updateCameraVoiceEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  deleteCameraVoice(token, param) {
+    return axios.post(this.jwtConfig.deleteCameraVoiceEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getAllCamera(token) {
+    return axios.get(this.jwtConfig.getAllCameraEndPoint, {
       headers: {
         Authorization: 'Bearer ' + token
       }

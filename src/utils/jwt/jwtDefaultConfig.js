@@ -21,7 +21,6 @@ export default {
   footerGetEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer`,
   footerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer/delete`,
   
-
   getCustomersEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/users/range`,
   customerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/delete`,
   getCustomerByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/user`,
@@ -34,6 +33,15 @@ export default {
   clientDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/delete`,
   getClientByClientIDEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/client/`,
   updateClientEndpoint: `${process.env.REACT_APP_BASE_API_URL}/customer/update`,
+
+  getAllCameraVoiceEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/getCameraVoice`,
+  getCameraVoiceByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/getCameraVoiceByID`, //?id=2
+  getCameravoiceByCameraIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/getCameraVoiceByCameraID`, //?camera_id=1
+  addCameraVoiceEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/addCameraVoice`,
+  deleteCameraVoiceEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/deleteCameraVoice`,
+  updateCameraVoiceEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/updateCameraVoice`,
+
+  getAllCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getall`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',
