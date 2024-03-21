@@ -21,6 +21,7 @@ function ClientAddComponent(props) {
         values.paid_status = false;
         const access_token = userdata.access;
         dispatch(addClient(access_token, values));
+        props.toogleModal();
     };
 
     return (

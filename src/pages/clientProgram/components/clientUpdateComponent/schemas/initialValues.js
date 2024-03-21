@@ -15,13 +15,14 @@
 
 */
 
-import checkout from "pages/webCamCapture/components/clientAddComponent/schemas/form";
+import checkout from "pages/clientProgram/components/clientUpdateComponent/schemas/form";
 
 const {
   formField: {
     client_name,
     client_email,
     get_same_video,
+    rfid_tag,
     appears_in_others_video,
     voice_can_be_recorded,
     be_shown_potential,
@@ -33,6 +34,7 @@ const {
 export default {
   [client_name.name]: "",
   [client_email.name]: "",
+  [rfid_tag.name]: "",
   [get_same_video.name]: true,
   [appears_in_others_video.name]: true,
   [voice_can_be_recorded.name]: true,

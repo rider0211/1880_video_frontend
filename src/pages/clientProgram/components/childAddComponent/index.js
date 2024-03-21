@@ -10,7 +10,6 @@ import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import { addChild } from "redux/actions/client_manage";
 import form from "./schemas/form";
-import { getClientByCustomerID } from 'redux/actions/client_manage';
 import initialValues from "./schemas/initialValues";
 import validations from "./schemas/validations";
 
@@ -26,6 +25,7 @@ function ChildAddComponent(props) {
         values.customer_id = userdata.user_id;
         const access_token = userdata.access;
         dispatch(addChild(access_token, values));
+        props.toogleModal();
     };
     
     return (

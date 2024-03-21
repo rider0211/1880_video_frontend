@@ -33,6 +33,13 @@ export default {
       errorMsg: "Email address is required.",
       invalidMsg: "Your email address is invalid",
     },
+    rfid_tag: {
+      name: "rfid_tag",
+      label: "Scan your RFID tag",
+      type: "text",
+      placeholder: "eg. 5246758151815",
+      errorMsg: "Scan your RFID tag.",
+    },
     get_same_video: {
       name: "get_same_video",
       label: "Get Same Video",

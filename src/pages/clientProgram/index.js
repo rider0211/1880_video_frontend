@@ -121,7 +121,6 @@ function ClientProgram() {
   }, [])
   const TabPanel = (props) => {
     const { children, value, index, ...other } = props;
-    console.log(value, index);
     return (
       <VuiBox
         role="tabpanel"
