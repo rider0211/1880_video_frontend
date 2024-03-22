@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@mui/material";
+import { getAllCameraVoice, getCameraVoiceByID } from "redux/actions/camera_voice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -20,7 +21,7 @@ import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 import breakpoints from "assets/theme/base/breakpoints";
 import { dateFormat } from "utils/common";
-import { getAllCameraVoice } from "redux/actions/camera_voice";
+import { deleteCameraVoice } from "redux/actions/camera_voice";
 
 function CameraVoiceProgram() {
 
@@ -31,27 +32,39 @@ function CameraVoiceProgram() {
   const [slackBotMenu, setSlackBotMenu] = useState(null);
   const [selectVoiceID, setSelectVoiceID] = useState(-1);
   const [voiceCameraModal, setVoiceCameraModal] = useState(false);
-  
+
   const userdata = useSelector((state) => state.auth.userData);
   const cameraVoiceData = useSelector((state) => state.voiceReducer.voiceData);
   const access_token = userdata.access;
   // TeamProfileCard dropdown menu handlers
   const openSlackBotMenu = (event, id) => {
     setSelectVoiceID(id)
+    dispatch(getCameraVoiceByID(access_token, id));
     setSlackBotMenu(event.currentTarget);
   }
-  const closeSlackBotMenu = () => setSlackBotMenu(null);
-  
+  const closeSlackBotMenu = () => {
+    setSlackBotMenu(null);
+  }
+
   const updateCameraVoiceModal = () => {
-    console.log(selectVoiceID);
+    closeSlackBotMenu();
+    toogleCameraVoiceModal();
   }
   const deleteCameraVoiceModal = () => {
-    console.log(selectVoiceID);
+    closeSlackBotMenu();
+    dispatch(deleteCameraVoice(access_token, { id: selectVoiceID }))
+    initSelectVoiceID()
   }
-  const toogleCameraVoiceModal = () => setVoiceCameraModal(!voiceCameraModal);
+  const initSelectVoiceID = () => setSelectVoiceID(-1);
 
+  const toogleCameraVoiceModal = () => {
+    if (voiceCameraModal) {
+      initSelectVoiceID()
+    }
+    setVoiceCameraModal(!voiceCameraModal);
+  }
   useEffect(() => {
-      dispatch(getAllCameraVoice(access_token));
+    dispatch(getAllCameraVoice(access_token));
   }, [])
   // Dropdown menu template for the ComplexProjectCard
   const renderMenu = (state, close) => {
@@ -76,7 +89,7 @@ function CameraVoiceProgram() {
           <ComplexProjectCard
             icon={<GiCctvCamera color="white" size="33px" />}
             title={camera_data.camera_name}
-            color={item.camera_voice_data.enter_or_exit_code? 'info' : 'error'}
+            color={item.camera_voice_data.enter_or_exit_code ? 'info' : 'error'}
             description={item.camera_voice_data.text}
             dateTime={dateFormat(item.camera_voice_data.date)}
             members={item.members}
@@ -113,13 +126,13 @@ function CameraVoiceProgram() {
           <Grid container spacing={3}>
             {renderCamera()}
             <Grid item xs={12} md={6} lg={4}>
-              <PlaceholderCard title={{ variant: "h5", text: "New Camera" }} onClickFunc={toogleCameraVoiceModal}/>
+              <PlaceholderCard title={{ variant: "h5", text: "New Camera Voice" }} onClickFunc={toogleCameraVoiceModal} />
             </Grid>
           </Grid>
           <Modal open={voiceCameraModal} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={() => toogleCameraVoiceModal()}>
             <Card sx={{ minHeight: "490px" }}>
               <CardContent sx={{ padding: 0 }}>
-                <CameraVoiceComponent customer_id={userdata.user_id} toogleModal={toogleCameraVoiceModal} status={selectVoiceID}/>
+                <CameraVoiceComponent customer_id={userdata.user_id} toogleModal={toogleCameraVoiceModal} status={selectVoiceID} />
               </CardContent>
             </Card>
           </Modal>

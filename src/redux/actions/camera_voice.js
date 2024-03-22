@@ -17,7 +17,7 @@ export const getAllCameraVoice = (token) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());
@@ -45,9 +45,9 @@ export const addCameraVoice = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -57,3 +57,76 @@ export const addCameraVoice = (token, param) => async (dispatch) => {
   }
 };
 
+export const getCameraVoiceByID = (token, id) => async (dispatch) => {
+  try {
+    useJwt
+      .getCameraVoiceByID(token, id)
+      .then(res => {
+        if (res.data.status)
+          dispatch({ type: action_type.FETCH_CAMERA_VOICE_BY_ID, selectedVoiceData: res.data.data.camera_voice_data });
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        } else if (err.response.status === 403) {
+          dispatch(alert_forbiden_error());
+        } else {
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};
+
+export const updateCameraVoice = (token, param) => async (dispatch) => {
+  try {
+    useJwt
+      .updateCameraVoice(token, param)
+      .then(res => {
+        if (res.data.status)
+          dispatch({ type: action_type.UPDATE_CAMERA_VOICE, voiceData: res.data.data });
+        dispatch(alert_update_success());
+      })
+      .catch(err => {
+        console.log(err)
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        } else if (err.response.status === 403) {
+          dispatch(alert_forbiden_error());
+        } else {
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};
+
+export const deleteCameraVoice = (token, id) => async (dispatch) => {
+  try {
+    useJwt
+      .deleteCameraVoice(token, id)
+      .then(res => {
+        if (res.data.status) {
+          dispatch(alert_delete_success());
+          dispatch({ type: action_type.DELETE_CAMERA_VOICE, voice_data_id: res.data.data.id });
+        }
+      })
+      .catch(err => {
+        if (err.response.status === 401) {
+          dispatch(alert_session_terminated());
+          dispatch(handleLogout());
+        } else if (err.response.status === 403) {
+          dispatch(alert_session_terminated());
+        } else {
+          dispatch(alert_error_from_server());
+        }
+      })
+  } catch (error) {
+    dispatch(alert_error_from_server());
+  }
+};

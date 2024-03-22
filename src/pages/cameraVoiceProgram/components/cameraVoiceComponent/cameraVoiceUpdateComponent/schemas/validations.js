@@ -20,14 +20,14 @@ import * as Yup from "yup";
 import checkout from "pages/cameraVoiceProgram/components/cameraVoiceComponent/cameraVoiceUpdateComponent/schemas/form";
 
 const {
-  formField: {camera_id, wait_for_sec, enter_or_exit_code, text}
+  formField: { camera_id, wait_for_sec, enter_or_exit_code, text }
 } = checkout;
 
 export default [
   Yup.object().shape({
     [camera_id.name]: Yup.number().required(camera_id.errorMsg),
     [wait_for_sec.name]: Yup.number().required(wait_for_sec.errorMsg),
-    [enter_or_exit_code.name]: Yup.bool().required(enter_or_exit_code.errorMsg).oneOf(["true", "false"]),
+    [enter_or_exit_code.name]: Yup.bool().required(enter_or_exit_code.errorMsg).oneOf([true, false]),
     [text.name]: Yup.string().required(text.errorMsg).required(text.errorMsg),
   })
 ];

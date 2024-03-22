@@ -13,7 +13,7 @@ const voiceReducer = (state = initialState, action) => {
             return { ...state, voiceData: action.voiceData }
 
         case action_type.FETCH_CAMERA_VOICE_BY_ID:
-            return { ...state, selectedVoiceData: action.voiceData }
+            return { ...state, selectedVoiceData: action.selectedVoiceData }
 
         case action_type.ADD_CAMERA_VOICE:
             let aVoice = [...state.voiceData];
@@ -25,18 +25,18 @@ const voiceReducer = (state = initialState, action) => {
             let rVoice = [...state.voiceData];
             for (let i = 0; i < rVoice.length; i++) {
                 const item = rVoice[i];
-                if (item.id == voice_id) {
+                if (item.camera_voice_data.id == voice_id) {
                     rVoice.splice(i, 1);
                     break
                 }
             }
             return { ...state, voiceData: rVoice }
-            
+
         case action_type.UPDATE_CAMERA_VOICE:
             let allData = [...state.voiceData];
             for (let i = 0; i < allData.length; i++) {
                 const voiceDataTmp = allData[i];
-                if (voiceDataTmp.id == action.voiceData.id) {
+                if (voiceDataTmp.camera_voice_data.id == action.voiceData.camera_voice_data.id) {
                     allData[i] = action.voiceData;
                     break;
                 }

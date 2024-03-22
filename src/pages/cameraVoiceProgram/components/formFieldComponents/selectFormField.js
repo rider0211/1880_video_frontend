@@ -6,9 +6,9 @@ import VuiSelect from "components/VuiSelect";
 import VuiTypography from "components/VuiTypography";
 import { useFormikContext } from "formik";
 
-function SelectFormField({ label, name, cameradata, ...rest }) {
+function SelectFormField({ label, name, cameradata, value, ...rest }) {
 
-  const {setFieldValue} = useFormikContext();
+  const { setFieldValue } = useFormikContext();
   return (
     <VuiBox mb={1.5}>
       <VuiBox mb={1} ml={0.5} lineHeight={0} display="inline-block">
@@ -24,13 +24,14 @@ function SelectFormField({ label, name, cameradata, ...rest }) {
       </VuiBox>
       <Field name={name}>
         {({
-          field: {name, value}, // { name, value, onChange, onBlur }
+          field: { name, value }, // { name, value, onChange, onBlur }
           form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
           meta,
         }) => (
           <VuiSelect
+            defaultValue={{ value: value, label: cameradata.map((item) => item.id === value ? item.camera_name : '') }}
             options={cameradata.map((entry) => ({ value: entry.id, label: entry.camera_name }))}
-            onChange={(e) => {setFieldValue(name, e.value)}}
+            onChange={(e) => { setFieldValue(name, e.value) }}
           />
         )}
       </Field>

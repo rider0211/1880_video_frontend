@@ -227,8 +227,8 @@ export default class JwtService {
     })
   }
 
-  getCameraVoiceByID(token, param) {
-    return axios.get(`${this.jwtConfig.getCameraVoiceByIDEndpoint}?id=${param.id}`, {
+  getCameraVoiceByID(token, id) {
+    return axios.get(`${this.jwtConfig.getCameraVoiceByIDEndpoint}?id=${id}`, {
       headers: {
         Authorization: 'Bearer ' + token
       }
