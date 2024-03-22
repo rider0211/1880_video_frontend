@@ -7,6 +7,7 @@ import CameraVoiceComponent from "./components/cameraVoiceComponent";
 import ComplexProjectCard from "pages/cameraVoiceProgram/components/complexProjectCardComponent";
 // Vision UI Dashboard PRO React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import { GiCctvCamera } from "react-icons/gi";
 // @mui material components
@@ -107,6 +108,7 @@ function CameraVoiceProgram() {
 
   return (
     <DashboardLayout>
+      <DashboardNavbar/>
       <VuiBox mt="30px" mb="24px">
         <Grid container>
           <Grid item xs={12}>

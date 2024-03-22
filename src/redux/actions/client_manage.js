@@ -96,11 +96,12 @@ export const deleteClient = (id, token) => async (dispatch) => {
         }
       })
       .catch(err => {
+        console.log(err.response.status);
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
         }else if(err.response.status === 403){
-          dispatch(alert_session_terminated());
+          dispatch(alert_forbiden_error());
         }else{
           dispatch(alert_error_from_server());
         }

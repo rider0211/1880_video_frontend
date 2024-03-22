@@ -121,7 +121,7 @@ export const deleteCameraVoice = (token, id) => async (dispatch) => {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
         } else if (err.response.status === 403) {
-          dispatch(alert_session_terminated());
+          dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());
         }
