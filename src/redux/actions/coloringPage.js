@@ -37,8 +37,8 @@ export const getAllColoringPage = (token) => async (dispatch) => {
 export const addColoringPage = (token, param) => async (dispatch) => {
   try {
     useJwt
-    .addColoringPage(token, param)
-    .then(res => {
+      .addColoringPage(token, param)
+      .then(res => {
         if (res.data.status) {
           const data = res.data.data;
           dispatch({ type: action_type.ADD_COLORING_PAGE, coloringData: data });
