@@ -38,11 +38,12 @@ function DataTable({
   const defaultValue = entriesPerPage.defaultValue ? entriesPerPage.defaultValue : 10;
   const entries = entriesPerPage.entries ? entriesPerPage.entries : [5, 10, 15, 20, 25];
   const columns = useMemo(() => table.columns, [table]);
-  
+
   const updateddata = table.rows.map((item, key) => {
-    return item = {...item, action: 
-    <ActionComponent user={item.id} />
-  }
+    return item = {
+      ...item, action:
+        <ActionComponent user={item.id} />
+    }
   })
   const data = useMemo(() => updateddata, [table]);
   const tableInstance = useTable(
@@ -72,9 +73,9 @@ function DataTable({
   // Set the default value for the entries per page when component mounts
   useEffect(() => setPageSize(defaultValue || 10), [defaultValue]);
 
-  useEffect(()=>{
-    const start_row_index = pageIndex === 0 ? pageIndex : pageIndex * pageSize -1;
-    const end_row_index = start_row_index + pageSize -1;
+  useEffect(() => {
+    const start_row_index = pageIndex === 0 ? pageIndex : pageIndex * pageSize - 1;
+    const end_row_index = start_row_index + pageSize - 1;
     const param = {
       start_row_index: start_row_index,
       end_row_index: end_row_index

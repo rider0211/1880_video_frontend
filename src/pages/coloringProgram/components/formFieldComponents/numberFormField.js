@@ -19,7 +19,7 @@ function NumberFormField({ label, name, ...rest }) {
           {label}
         </VuiTypography>
       </VuiBox>
-      <Field {...rest} name={name} as={VuiInput} type={'number'}/>
+      <Field {...rest} name={name} as={VuiInput} type={'number'} />
       <VuiBox mt={0.75}>
         <VuiTypography component="div" variant="caption" color="error">
           <ErrorMessage name={name} />

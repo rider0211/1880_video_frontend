@@ -45,7 +45,7 @@ function Table({ columns, rows }) {
 
   const dispatch = useDispatch();
   const modalStatus = useSelector((state) => state.clientReducer.clientAddModalStatus);
-  
+
   const renderColumns = columns.map(({ name, align, width }, key) => {
     let pl;
     let pr;
@@ -140,9 +140,9 @@ function Table({ columns, rows }) {
 
 
   const openAddClientModal = () => {
-    dispatch({type: action_type.CLIENT_ADD_MODAL_STATUS, status: !modalStatus});
+    dispatch({ type: action_type.CLIENT_ADD_MODAL_STATUS, status: !modalStatus });
   }
-  
+
   return useMemo(
     () => (
       <Card
@@ -151,7 +151,7 @@ function Table({ columns, rows }) {
             overflowX: "scroll",
           },
         })}
-      > 
+      >
         <Grid container justifyContent={'center'}>
           <Grid item xs={12} sm={12}>
             <MuiTable>
@@ -162,8 +162,8 @@ function Table({ columns, rows }) {
             </MuiTable>
           </Grid>
           <Grid item xs={12} sm={12}>
-            <VuiBox ml="auto" mt="10px"> 
-              <VuiButton variant="outlined" sx={{width: '100%'}} color="info" size="small" onClick={openAddClientModal}>
+            <VuiBox ml="auto" mt="10px">
+              <VuiButton variant="outlined" sx={{ width: '100%' }} color="info" size="small" onClick={openAddClientModal}>
                 Add New Client
               </VuiButton>
             </VuiBox>

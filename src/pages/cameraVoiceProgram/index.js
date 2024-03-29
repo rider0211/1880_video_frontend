@@ -108,7 +108,7 @@ function CameraVoiceProgram() {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar/>
+      <DashboardNavbar />
       <VuiBox mt="30px" mb="24px">
         <Grid container>
           <Grid item xs={12}>

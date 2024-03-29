@@ -267,7 +267,7 @@ export default class JwtService {
     })
   }
 
-// Coloring page actions
+  // Coloring page actions
 
   getAllColoringPage(token) {
     return axios.get(this.jwtConfig.getAllColoringPageEndPoint, {

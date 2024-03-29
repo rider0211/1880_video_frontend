@@ -21,15 +21,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 // Vision UI Context Provider
 import { VisionUIControllerProvider } from "context";
-import {store} from "redux/store";
+import { store } from "redux/store";
 
 ReactDOM.render(
   <Provider store={store}>
-      <BrowserRouter>
-        <VisionUIControllerProvider>
-          <App />
-        </VisionUIControllerProvider>
-      </BrowserRouter>
+    <BrowserRouter>
+      <VisionUIControllerProvider>
+        <App />
+      </VisionUIControllerProvider>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

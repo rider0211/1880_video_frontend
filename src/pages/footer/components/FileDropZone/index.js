@@ -13,40 +13,40 @@ const FileDropZone = () => {
 
   const userdata = useSelector((state) => state.auth.userData);
   return (
-        <VuiDropzone options={{ 
-          addRemoveLinks: true,
-          autoProcessQueue : true,
-          url : `${process.env.REACT_APP_BASE_API_URL}/admin/footer/add`,
-          init: function() {
-            this.on("sending", function(file, xhr, formData) {
-              formData.append("video_path", file)
-            });
-            this.on("complete", function({file, xhr, meta}){
-              try {
-                if(xhr.status === 401){
-                  dispatch(alert_session_terminated());
-                  dispatch(handleLogout());
-                }else if(xhr.status === 200 || xhr.status === 201){
-                  const returnData = JSON.parse(xhr.response).data;
-                  dispatch(addFooter(returnData));
-                }else if(xhr.status === 403){
-                  dispatch(alert_forbiden_error())
-                }else{
-                  dispatch(alert_error_from_server())
-                }
-              } catch (error) {
-                dispatch(alert_error_from_server());
-              }
-            })
-          },
-          headers : {
-            'Cache-Control': 'no-cache',
-            'Authorization': 'Bearer ' + userdata.access,
-          },
-          complete: function(file){
-            this.removeFile(file);
+    <VuiDropzone options={{
+      addRemoveLinks: true,
+      autoProcessQueue: true,
+      url: `${process.env.REACT_APP_BASE_API_URL}/admin/footer/add`,
+      init: function () {
+        this.on("sending", function (file, xhr, formData) {
+          formData.append("video_path", file)
+        });
+        this.on("complete", function ({ file, xhr, meta }) {
+          try {
+            if (xhr.status === 401) {
+              dispatch(alert_session_terminated());
+              dispatch(handleLogout());
+            } else if (xhr.status === 200 || xhr.status === 201) {
+              const returnData = JSON.parse(xhr.response).data;
+              dispatch(addFooter(returnData));
+            } else if (xhr.status === 403) {
+              dispatch(alert_forbiden_error())
+            } else {
+              dispatch(alert_error_from_server())
+            }
+          } catch (error) {
+            dispatch(alert_error_from_server());
           }
-        }} />
+        })
+      },
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Authorization': 'Bearer ' + userdata.access,
+      },
+      complete: function (file) {
+        this.removeFile(file);
+      }
+    }} />
   );
 };
 

@@ -20,7 +20,7 @@ import * as Yup from "yup";
 import checkout from "pages/authentication/signin/schemas/form";
 
 const {
-  formField: { email, password},
+  formField: { email, password },
 } = checkout;
 
 export default [

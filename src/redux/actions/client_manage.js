@@ -22,9 +22,9 @@ export const addClient = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -47,7 +47,7 @@ export const getClientByCustomerID = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());
@@ -73,9 +73,9 @@ export const addChild = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -100,9 +100,9 @@ export const deleteClient = (id, token) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -124,7 +124,7 @@ export const getClientByClientID = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());
@@ -142,14 +142,14 @@ export const updateClientByClientID = (token, param) => async (dispatch) => {
       .then(res => {
         if (res.data.status)
           dispatch({ type: action_type.UPDATE_CLIENT, clientData: res.data.data });
-          dispatch(alert_update_success());
+        dispatch(alert_update_success());
       })
       .catch(err => {
         console.log(err)
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());

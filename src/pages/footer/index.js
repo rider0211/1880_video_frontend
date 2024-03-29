@@ -37,7 +37,7 @@ function FooterVideo() {
             <Grid item xs={12} lg={6} xl={10}>
               <Card>
                 <FileDropZone />
-                <Divider light sx={{ margin: 1}}/>
+                <Divider light sx={{ margin: 1 }} />
                 <FileList />
               </Card>
             </Grid>

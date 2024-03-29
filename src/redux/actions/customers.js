@@ -17,9 +17,9 @@ export const getCustomers = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -42,9 +42,9 @@ export const deleteCustomer = (id, token) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_session_terminated());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -75,9 +75,9 @@ export const getCustomerByID = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403) {
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
       })
@@ -105,9 +105,9 @@ export const updateCustomer = (token, param) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_session_terminated());
-        }else{
+        } else {
           dispatch(alert_error_from_server());
         }
         return false;

@@ -3,7 +3,7 @@ import reducer from './reducers';
 
 // ==============================|| REDUX - MAIN STORE ||============================== //
 
-const store = configureStore({ 
+const store = configureStore({
     reducer: reducer,
 })
 

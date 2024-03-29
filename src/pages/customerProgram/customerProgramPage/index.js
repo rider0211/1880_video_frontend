@@ -12,25 +12,25 @@ import { useEffect } from "react";
 
 function CustomerManagement() {
   const dispatch = useDispatch();
-  
+
   const userdata = useSelector((state) => state.auth.userData);
- 
+
   const param = {
-      start_row_index: 0,
-      end_row_index: 9
+    start_row_index: 0,
+    end_row_index: 9
   }
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch(getCustomers(userdata.access, param));
   }, [])
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
-        <VuiBox pt={6}>
-          <UsersList />
-        </VuiBox>
-        <CustomerTable />
+      <VuiBox pt={6}>
+        <UsersList />
+      </VuiBox>
+      <CustomerTable />
       <Footer />
     </DashboardLayout>
   );

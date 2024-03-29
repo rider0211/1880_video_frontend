@@ -11,16 +11,15 @@ function ActionComponent(user) {
     const userdata = useSelector((state) => state.auth.userData);
     const client_update_modal_status = useSelector((state) => state.clientReducer.clientUpdateModalStatus);
 
-    const toogleClientModal = (id) => 
-    {
-      dispatch({type: action_type.SELECT_FOR_UPDATE_CLIENT, client_id: id});
-      dispatch({type: action_type.CLIENT_UPDATE_MODAL_STATUS, status: !client_update_modal_status});
+    const toogleClientModal = (id) => {
+        dispatch({ type: action_type.SELECT_FOR_UPDATE_CLIENT, client_id: id });
+        dispatch({ type: action_type.CLIENT_UPDATE_MODAL_STATUS, status: !client_update_modal_status });
     }
 
     const deleteHandleChange = (user) => {
         dispatch(deleteClient(user.user, userdata.access));
     }
-    
+
     return (
         <VuiBox>
             <VuiButton

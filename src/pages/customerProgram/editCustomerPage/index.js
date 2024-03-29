@@ -9,21 +9,21 @@ import { getCustomerByID } from "redux/actions/customers";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 
-function EditCustomerPage(){
+function EditCustomerPage() {
     const param = useParams();
     const userdata = useSelector((state) => state.auth.userData);
     const dispatch = useDispatch();
-    useEffect(()=> {
+    useEffect(() => {
         dispatch(getCustomerByID(userdata.access, param.user_id));
     }, [])
-    
+
     return (
         <DashboardLayout>
-            <DashboardNavbar/>
-                <Grid container="true" justifyContent={"center"} spacing={3} mt="2px">
-                    <CustomerEditComponent user_id={param.user_id}/>
-                </Grid>
-            <Footer/>
+            <DashboardNavbar />
+            <Grid container="true" justifyContent={"center"} spacing={3} mt="2px">
+                <CustomerEditComponent user_id={param.user_id} />
+            </Grid>
+            <Footer />
         </DashboardLayout>
     )
 }

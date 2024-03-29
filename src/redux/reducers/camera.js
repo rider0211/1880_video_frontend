@@ -31,7 +31,7 @@ const cameraReducer = (state = initialState, action) => {
                 }
             }
             return { ...state, cameraData: rCamera }
-            
+
         case action_type.UPDATE_CAMERA:
             let allData = [...state.cameraData];
             for (let i = 0; i < allData.length; i++) {

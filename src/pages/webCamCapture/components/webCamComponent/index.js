@@ -114,9 +114,9 @@ function WebCamCameraCompoent() {
                 ry = (eye_left[0] + (eye_right[0] - eye_left[0]) / 2 - nose[0]) / 20;
                 face_val = ry.toFixed(2);
             }
-            if(videoRef.current)
+            if (videoRef.current)
                 canvasRef.current.innerHtml = faceapi.createCanvasFromMedia(videoRef.current);
-            if(canvasRef.current)
+            if (canvasRef.current)
                 faceapi.matchDimensions(canvasRef.current, {
                     width: 640,
                     height: 480,
@@ -128,13 +128,13 @@ function WebCamCameraCompoent() {
                 dy = y;
                 d_width = width;
                 d_height = height;
-        
+
             });
 
-            if (!take_front && (((160 < dx) && (dx < 320) && (d_width < 320)) && ((40 < dy ) && (d_height < 390)))) {
+            if (!take_front && (((160 < dx) && (dx < 320) && (d_width < 320)) && ((40 < dy) && (d_height < 390)))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
-            else if (((80 < dx) && (dx < 320) && (d_width < 400)) && ((40 < dy ) && (d_height < 390))) {
+            else if (((80 < dx) && (dx < 320) && (d_width < 400)) && ((40 < dy) && (d_height < 390))) {
                 drawSelfieRect(160, 40, 320, 390, 30, '#1722eb', 3, ctx);
             }
             else {
@@ -262,16 +262,16 @@ function WebCamCameraCompoent() {
 
     const capture_side = [
         {
-            'side_key_label' : 'Front Face',
-            'side_key_value' : 1
+            'side_key_label': 'Front Face',
+            'side_key_value': 1
         },
         {
-            'side_key_label' : 'Left Face',
-            'side_key_value' : 2
+            'side_key_label': 'Left Face',
+            'side_key_value': 2
         },
         {
-            'side_key_label' : 'Right Face',
-            'side_key_value' : 3
+            'side_key_label': 'Right Face',
+            'side_key_value': 3
         }
     ]
     const onChangeCaptureSelect = (event) => set_manual_capture_key(event.value);
@@ -307,13 +307,13 @@ function WebCamCameraCompoent() {
                     options={available_cameras.map((item) => { return { value: item.deviceId, label: item.label } })}
                     onChange={onChangeSelect}
                 />
-                <Divider light/>
+                <Divider light />
                 <VuiSelect
                     defaultValue={{ value: capture_side[0].side_key_value, label: capture_side[0].side_key_label }}
                     options={capture_side.map((item) => { return { value: item.side_key_value, label: item.side_key_label } })}
                     onChange={onChangeCaptureSelect}
                 />
-                
+
                 <VuiButton
                     variant="outlined"
                     size="small"

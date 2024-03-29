@@ -20,7 +20,7 @@ import validations from "./schemas/validations";
 function CustomerEditComponent(user) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handleCancelChange = () =>{
+  const handleCancelChange = () => {
     return navigate("/customerManagement")
   }
   const selectedCustomerData = useSelector((state) => state.customers.selectedCustomerData);
@@ -29,14 +29,14 @@ function CustomerEditComponent(user) {
   const handleSubmit = async (values, actions) => {
     values.user_id = user.user_id;
     dispatch(updateCustomer(userdata.access, values))
-    .finally(() => {
-      return navigate("/customerManagement")
-    })
+      .finally(() => {
+        return navigate("/customerManagement")
+      })
   };
-  
+
   const { formId, formField } = form;
 
-  if(selectedCustomerData.length != 0){
+  if (selectedCustomerData.length != 0) {
     initialValues.username = selectedCustomerData.username
     initialValues.email = selectedCustomerData.email
     initialValues.phone_number = selectedCustomerData.phone_number
@@ -48,7 +48,7 @@ function CustomerEditComponent(user) {
     initialValues.contact_name = selectedCustomerData.contact_name
     initialValues.contact_email = selectedCustomerData.contact_email
     initialValues.contact_phone_number = selectedCustomerData.contact_phone_number
-}
+  }
 
   return (
     <Card id="basic-info" sx={{ overflow: "visible" }}>
@@ -59,13 +59,13 @@ function CustomerEditComponent(user) {
       </VuiBox>
       <VuiBox>
         <Formik
-                initialValues={initialValues}
-                validationSchema={validations[0]}
-                onSubmit={handleSubmit}
-              >
+          initialValues={initialValues}
+          validationSchema={validations[0]}
+          onSubmit={handleSubmit}
+        >
           {({ values, errors, touched, isSubmitting }) => (
             <Form id={formId} autoComplete="off">
-              <CustomerEditInfo formData={{values, touched, formField, errors, selectedCustomerData}}/>
+              <CustomerEditInfo formData={{ values, touched, formField, errors, selectedCustomerData }} />
               <VuiBox
                 display="flex"
                 justifyContent="end"
@@ -79,9 +79,9 @@ function CustomerEditComponent(user) {
                   </VuiButton>
                   <VuiBox ml={{ xs: 0, sm: 1 }} mt={{ xs: 1, sm: 0 }}>
                     <VuiButton
-                      variant="contained" 
-                      color="error" 
-                      sx={{ height: "100%" }} 
+                      variant="contained"
+                      color="error"
+                      sx={{ height: "100%" }}
                       size="small"
                       disabled={isSubmitting}
                       type="submit"

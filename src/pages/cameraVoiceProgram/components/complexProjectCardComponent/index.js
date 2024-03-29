@@ -73,8 +73,8 @@ function ComplexProjectCard({ color, icon, title, dateTime, description, members
             </VuiBox>
             <VuiBox display="flex">
               <VuiTypography
-              variant="h6"
-              color="white"
+                variant="h6"
+                color="white"
               >
                 Customer Name : {customer_name}
               </VuiTypography>

@@ -6,9 +6,9 @@ function ChildComponent({ formData }) {
 
     const { formField, values, errors, touched } = formData;
 
-    const { children_name} = formField;
+    const { children_name } = formField;
 
-    const { children_name: children_name_V} = values;
+    const { children_name: children_name_V } = values;
 
     return (
         <Grid container>

@@ -109,7 +109,7 @@ function ComplexProjectCard({ color, icon, title, dateTime, description, members
             </Grid>
             <Grid item xs={6}>
               <VuiBox>
-                <IconButton sx={navbarIconButton} size="small" onClick={()=>window.open(pdf_src)}>
+                <IconButton sx={navbarIconButton} size="small" onClick={() => window.open(pdf_src)}>
                   <BsFilePdfFill size="20px" color="white" />
                   <VuiTypography variant="button" fontWeight="medium" color="white" >
                     PDF file

@@ -28,7 +28,7 @@ const style = {
 };
 
 
-function MediaPlayer({props}) {
+function MediaPlayer({ props }) {
   const dispatch = useDispatch();
   const userdata = useSelector((state) => state.auth.userData);
 
@@ -56,55 +56,55 @@ function MediaPlayer({props}) {
 
   return (
     <>
-    <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-      <Box sx={{ ...style, width: 700, color: 'white !important' }}>
-        <ReactPlayer url={videopath} playing controls width={'100%'}/>
-      </Box>
+        <Box sx={{ ...style, width: 700, color: 'white !important' }}>
+          <ReactPlayer url={videopath} playing controls width={'100%'} />
+        </Box>
 
-    </Modal>
-    
-    <Card
-      sx={{
-        backgroundImage: `url(${thumbnaillink})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: '300px',
-        height: '200px'
-      }}
-    >
-      <VuiBox pb={3} position="relative" lineHeight={0} display="flex" flexDirection="column">
-        <VuiBox display="flex" mt={5} pt={1} justifyContent="center">
-          <VuiBox display="flex" alignItems="center" justifyContent="center">
-            <VuiButton
-              variant="outlined"
-              size="large"
-              circular
-              iconOnly
-              sx={mediaPlayerButtonStyles}
-              onClick={handleOpen}
-            >
-              <Icon>play_arrow</Icon>
-            </VuiButton>
-            <VuiButton
-              variant="outlined"
-              size="large"
-              circular
-              iconOnly
-              sx={mediaPlayerButtonStyles}
-              onClick={() => removeVideo(props.id)}
-            >
-              <Icon>restore_from_trash</Icon>
-            </VuiButton>
+      </Modal>
+
+      <Card
+        sx={{
+          backgroundImage: `url(${thumbnaillink})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: '300px',
+          height: '200px'
+        }}
+      >
+        <VuiBox pb={3} position="relative" lineHeight={0} display="flex" flexDirection="column">
+          <VuiBox display="flex" mt={5} pt={1} justifyContent="center">
+            <VuiBox display="flex" alignItems="center" justifyContent="center">
+              <VuiButton
+                variant="outlined"
+                size="large"
+                circular
+                iconOnly
+                sx={mediaPlayerButtonStyles}
+                onClick={handleOpen}
+              >
+                <Icon>play_arrow</Icon>
+              </VuiButton>
+              <VuiButton
+                variant="outlined"
+                size="large"
+                circular
+                iconOnly
+                sx={mediaPlayerButtonStyles}
+                onClick={() => removeVideo(props.id)}
+              >
+                <Icon>restore_from_trash</Icon>
+              </VuiButton>
+            </VuiBox>
           </VuiBox>
         </VuiBox>
-      </VuiBox>
-    </Card>
-  </>
+      </Card>
+    </>
   );
 }
 

@@ -20,7 +20,7 @@ import * as Yup from "yup";
 import checkout from "pages/clientProgram/components/clientAddComponent/schemas/form";
 
 const {
-  formField: {client_name, client_phone_number, client_email, rfid_tag, get_same_video, appears_in_others_video, voice_can_be_recorded, be_shown_potential, be_shown_public_business, be_shown_social_media}
+  formField: { client_name, client_phone_number, client_email, rfid_tag, get_same_video, appears_in_others_video, voice_can_be_recorded, be_shown_potential, be_shown_public_business, be_shown_social_media }
 } = checkout;
 
 export default [

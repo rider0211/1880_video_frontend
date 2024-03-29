@@ -11,7 +11,7 @@ socket.on('connect_error', err => handleErrors(err));
 socket.on('connect_failed', err => handleErrors(err));
 
 const SocketContext = createContext();
-socket.emit('login', {'token': useJwt.getToken()})
+socket.emit('login', { 'token': useJwt.getToken() })
 
 const SocketProvider = ({ children }) => {
     return <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>

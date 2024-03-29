@@ -14,7 +14,7 @@ function AddCameraVoiceComponent({ formData }) {
         camera_id,
         wait_for_sec,
         enter_or_exit_code,
-        text,} = formField;
+        text, } = formField;
 
     const {
         camera_id: camera_id_V,

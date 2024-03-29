@@ -20,12 +20,12 @@ export default {
   footerAddEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer/add`,
   footerGetEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer`,
   footerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/footer/delete`,
-  
+
   getCustomersEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/users/range`,
   customerDeleteEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/delete`,
   getCustomerByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/user`,
   customerUpdateEndpoint: `${process.env.REACT_APP_BASE_API_URL}/auth/update`,
-  
+
   addClientEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/add_client`,
   addChildEndPoint: `${process.env.REACT_APP_BASE_API_URL}/customer/add_child`,
 

@@ -6,8 +6,8 @@ function CustomerEditInfo({ formData }) {
 
     const { formField, values, errors, touched } = formData;
 
-    const { 
-        username, 
+    const {
+        username,
         email,
         phone_number,
         street,
@@ -19,7 +19,7 @@ function CustomerEditInfo({ formData }) {
         contact_email,
         contact_phone_number } = formField;
 
-    const { 
+    const {
         username: usernameV,
         email: emailV,
         phone_number: phone_numberV,

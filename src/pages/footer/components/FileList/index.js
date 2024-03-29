@@ -10,17 +10,17 @@ const FileList = () => {
   const userdata = useSelector((state) => state.auth.userData);
   const footerVideo = useSelector((state) => state.footerVideos.footer_video);
 
-  useEffect(()=>{
-    if(userdata.user_type == 1){
+  useEffect(() => {
+    if (userdata.user_type == 1) {
       dispatch(getFooters(userdata.access, -1));
-    }else{
+    } else {
       dispatch(getFooters(userdata.access, userdata.user_id));
     }
   }, [])
 
   const footerItem = (videos) => {
     const videocomponents = videos.map((item, index) => {
-      return <Grid item xs={2} sm={3} md={3} key={index}> <MediaPlayer props={item}/> </Grid>  
+      return <Grid item xs={2} sm={3} md={3} key={index}> <MediaPlayer props={item} /> </Grid>
     });
 
     return <>{videocomponents}</>
@@ -28,12 +28,12 @@ const FileList = () => {
   }
   return (
     <Container style={{
-      width: '100%', 
-      height: window.innerHeight*0.43, 
+      width: '100%',
+      height: window.innerHeight * 0.43,
       overflowX: 'auto',
       scrollbarWidth: 'thin',
     }}>
-      <Grid container  spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {footerItem(footerVideo)}
       </Grid>
     </Container>

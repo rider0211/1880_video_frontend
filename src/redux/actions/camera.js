@@ -17,7 +17,7 @@ export const getAllCamera = (token) => async (dispatch) => {
         if (err.response.status === 401) {
           dispatch(alert_session_terminated());
           dispatch(handleLogout());
-        }else if(err.response.status === 403){
+        } else if (err.response.status === 403) {
           dispatch(alert_forbiden_error());
         } else {
           dispatch(alert_error_from_server());

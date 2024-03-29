@@ -76,63 +76,63 @@ function NewUser() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-        <VuiBox py={3} mb={20}>
-          <Grid container justifyContent="center" sx={{ height: "100%" }}>
-            <Grid item xs={12} lg={8}>
-              <Stepper activeStep={activeStep} alternativeLabel>
-                {steps.map((label) => (
-                  <Step key={label}>
-                    <StepLabel>{label}</StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
-              <Formik
-                initialValues={initialValues}
-                validationSchema={currentValidation}
-                onSubmit={handleSubmit}
-              >
-                {({ values, errors, touched, isSubmitting }) => (
-                  <Form id={formId} autoComplete="off">
-                    <Card sx={{ height: "100%" }}>
+      <VuiBox py={3} mb={20}>
+        <Grid container justifyContent="center" sx={{ height: "100%" }}>
+          <Grid item xs={12} lg={8}>
+            <Stepper activeStep={activeStep} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={currentValidation}
+              onSubmit={handleSubmit}
+            >
+              {({ values, errors, touched, isSubmitting }) => (
+                <Form id={formId} autoComplete="off">
+                  <Card sx={{ height: "100%" }}>
+                    <VuiBox>
                       <VuiBox>
-                        <VuiBox>
-                          {getStepContent(activeStep, {
-                            values,
-                            touched,
-                            formField,
-                            errors,
-                          })}
-                          <VuiBox mt={2} width="100%" display="flex" justifyContent="space-between">
-                            {activeStep === 0 ? (
-                              <VuiBox />
-                            ) : (
-                              <VuiButton
-                                variant="gradient"
-                                sx={{ minWidth: "100px" }}
-                                color="light"
-                                onClick={handleBack}
-                              >
-                                prev
-                              </VuiButton>
-                            )}
+                        {getStepContent(activeStep, {
+                          values,
+                          touched,
+                          formField,
+                          errors,
+                        })}
+                        <VuiBox mt={2} width="100%" display="flex" justifyContent="space-between">
+                          {activeStep === 0 ? (
+                            <VuiBox />
+                          ) : (
                             <VuiButton
-                              disabled={isSubmitting}
-                              type="submit"
+                              variant="gradient"
                               sx={{ minWidth: "100px" }}
-                              color="info"
+                              color="light"
+                              onClick={handleBack}
                             >
-                              {isLastStep ? "send" : "next"}
+                              prev
                             </VuiButton>
-                          </VuiBox>
+                          )}
+                          <VuiButton
+                            disabled={isSubmitting}
+                            type="submit"
+                            sx={{ minWidth: "100px" }}
+                            color="info"
+                          >
+                            {isLastStep ? "send" : "next"}
+                          </VuiButton>
                         </VuiBox>
                       </VuiBox>
-                    </Card>
-                  </Form>
-                )}
-              </Formik>
-            </Grid>
+                    </VuiBox>
+                  </Card>
+                </Form>
+              )}
+            </Formik>
           </Grid>
-        </VuiBox>
+        </Grid>
+      </VuiBox>
       <Footer />
     </DashboardLayout>
   );

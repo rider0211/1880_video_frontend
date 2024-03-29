@@ -38,16 +38,16 @@ function Address({ formData }) {
       <VuiBox mt={3}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-              <VuiBox mt={-1.625}>
-                <FormField
-                  label={country.label}
-                  name={country.name}
-                  value={countryV}
-                  placeholder={country.placeholder}
-                  error={errors.country && touched.country}
-                  success={countryV.length > 0 && !errors.countryV}
-                />
-              </VuiBox>
+            <VuiBox mt={-1.625}>
+              <FormField
+                label={country.label}
+                name={country.name}
+                value={countryV}
+                placeholder={country.placeholder}
+                error={errors.country && touched.country}
+                success={countryV.length > 0 && !errors.countryV}
+              />
+            </VuiBox>
           </Grid>
           <Grid item xs={12}>
             <FormField
@@ -73,13 +73,13 @@ function Address({ formData }) {
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormField
-                label={state.label}
-                name={state.name}
-                value={stateV}
-                placeholder={state.placeholder}
-                error={errors.state && touched.state}
-                success={stateV.length > 0 && !errors.state}
-              />
+              label={state.label}
+              name={state.name}
+              value={stateV}
+              placeholder={state.placeholder}
+              error={errors.state && touched.state}
+              success={stateV.length > 0 && !errors.state}
+            />
           </Grid>
           <Grid item xs={6} sm={3}>
             <FormField

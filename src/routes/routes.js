@@ -135,7 +135,7 @@ const routes = [
     noCollapse: true,
     access_type: false,
   },
-  
+
 ];
 
 export default routes;

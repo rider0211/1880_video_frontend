@@ -162,9 +162,9 @@ function Basic() {
             validationSchema={currentValidation}
             onSubmit={handleSubmit}
           >
-            {({values, errors, touched, isSubmitting}) => (
-               <Form id={formId} autoComplete="off">
-                <LoginInfo formData={{values, touched, formField, errors}}/>
+            {({ values, errors, touched, isSubmitting }) => (
+              <Form id={formId} autoComplete="off">
+                <LoginInfo formData={{ values, touched, formField, errors }} />
                 <VuiBox display="flex" alignItems="center">
                   <VuiSwitch color="info" checked={rememberMe} onChange={handleSetRememberMe} />
                   <VuiTypography

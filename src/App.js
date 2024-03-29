@@ -67,12 +67,12 @@ export default function App() {
 
       if (route.route) {
 
-        return <Route 
-                  exact 
-                  path={route.route} 
-                  element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? route.component : <BasicSignin />}
-                  key={route.key}
-                ></Route>
+        return <Route
+          exact
+          path={route.route}
+          element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? route.component : <BasicSignin />}
+          key={route.key}
+        ></Route>
       }
 
       return null;

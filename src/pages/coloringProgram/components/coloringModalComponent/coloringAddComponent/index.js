@@ -12,7 +12,7 @@ function AddColoringComponent({ formData }) {
     const {
         camera_id,
         wait_for_sec,
-        text,} = formField;
+        text, } = formField;
 
     const {
         camera_id: camera_id_V,

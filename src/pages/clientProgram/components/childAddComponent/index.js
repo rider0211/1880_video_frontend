@@ -27,7 +27,7 @@ function ChildAddComponent(props) {
         dispatch(addChild(access_token, values));
         props.toogleModal();
     };
-    
+
     return (
         <>
             <ClientSelectList />

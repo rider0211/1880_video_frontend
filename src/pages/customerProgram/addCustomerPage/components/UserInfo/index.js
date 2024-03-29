@@ -29,10 +29,10 @@ function UserInfo({ formData }) {
     confirm_password: confirm_passwordV,
   } = values;
 
-  const handleOnChange = (event) =>{
-    dispatch({type: action_type.SELECTED_USER_TYPE, data: event.target.value});
+  const handleOnChange = (event) => {
+    dispatch({ type: action_type.SELECTED_USER_TYPE, data: event.target.value });
   }
-  
+
   return (
     <VuiBox>
       <VuiBox lineHeight={0} display="flex" flexDirection="column">
@@ -71,32 +71,32 @@ function UserInfo({ formData }) {
             value={phonenumberV}
             placeholder={phonenumber.placeholder}
           />
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <FormField
-              label={password.label}
-              name={password.name}
-              type={password.type}
-              value={passwordV}
-              placeholder={password.placeholder}
-              error={errors.password && touched.password}
-              success={passwordV.length > 0 && !errors.password}
-              inputProps={{ autoComplete: "" }}
-            />
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <FormField
+                label={password.label}
+                name={password.name}
+                type={password.type}
+                value={passwordV}
+                placeholder={password.placeholder}
+                error={errors.password && touched.password}
+                success={passwordV.length > 0 && !errors.password}
+                inputProps={{ autoComplete: "" }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormField
+                label={confirm_password.label}
+                name={confirm_password.name}
+                type={confirm_password.type}
+                value={confirm_passwordV}
+                placeholder={confirm_password.placeholder}
+                error={errors.confirm_password && touched.confirm_password}
+                success={confirm_passwordV.length > 0 && !errors.confirm_password}
+                inputProps={{ autoComplete: "" }}
+              />
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <FormField
-              label={confirm_password.label}
-              name={confirm_password.name}
-              type={confirm_password.type}
-              value={confirm_passwordV}
-              placeholder={confirm_password.placeholder}
-              error={errors.confirm_password && touched.confirm_password}
-              success={confirm_passwordV.length > 0 && !errors.confirm_password}
-              inputProps={{ autoComplete: "" }}
-            />
-          </Grid>
-        </Grid>
         </Grid>
       </VuiBox>
     </VuiBox>

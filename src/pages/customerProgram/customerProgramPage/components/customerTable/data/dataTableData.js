@@ -10,7 +10,7 @@ export default {
     { Header: "Action", accessor: "action", width: "10%" },
   ],
 
-  rows: [    
+  rows: [
     {
       user_id: 1,
       username: "Steven Stence",

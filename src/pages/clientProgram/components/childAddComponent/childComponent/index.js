@@ -9,7 +9,7 @@ function ChildComponent({ formData }) {
 
     const { children_name, rfid_tag } = formField;
 
-    const { 
+    const {
         children_name: children_name_V,
         rfid_tag: rfid_tag_V
     } = values;

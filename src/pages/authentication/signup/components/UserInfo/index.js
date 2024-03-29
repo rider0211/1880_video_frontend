@@ -29,10 +29,10 @@ function UserInfo({ formData }) {
     confirm_password: confirm_passwordV,
   } = values;
 
-  const handleOnChange = (event) =>{
-    dispatch({type: action_type.SELECTED_USER_TYPE, data: event.target.value});
+  const handleOnChange = (event) => {
+    dispatch({ type: action_type.SELECTED_USER_TYPE, data: event.target.value });
   }
-  
+
   return (
     <VuiBox>
       <VuiBox lineHeight={0} display="flex" flexDirection="column">

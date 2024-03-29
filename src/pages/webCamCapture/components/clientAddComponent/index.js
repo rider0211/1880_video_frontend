@@ -15,17 +15,17 @@ function ClientAddComponent(props) {
     const { formId, formField } = form;
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const face_alarm = () => dispatch({type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Please take your all face pictures'});
+    const face_alarm = () => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: 'Please take your all face pictures' });
     const storePhotos = useSelector((state) => state.webCamReducer.client_photos);
     const userdata = useSelector((state) => state.auth.userData);
     const navigateClientProgram = () => {
         return navigate('/clientProgram');
     }
     const handleSubmit = async (values, actions) => {
-        if(storePhotos.length < 3){
+        if (storePhotos.length < 3) {
             face_alarm();
             props.toogleModal();
-        }else{
+        } else {
             storePhotos.map(async (item) => {
                 switch (item.side) {
                     case 1:
@@ -48,34 +48,34 @@ function ClientAddComponent(props) {
             navigateClientProgram();
         }
     };
-    
-    return(
+
+    return (
         <Formik
-        initialValues={initialValues}
-        validationSchema={validations[0]}
-        onSubmit={handleSubmit}
+            initialValues={initialValues}
+            validationSchema={validations[0]}
+            onSubmit={handleSubmit}
         >
-        {({ values, errors, touched, isSubmitting }) => (
-            <Form id={formId} autoComplete="off">
-                <ClientComponent formData={{values, touched, formField, errors}}/>
-                <VuiBox
-                    display="flex"
-                    justifyContent="center"
-                    p={1.4}
-                >
-                    <VuiButton
-                    variant="contained" 
-                    color="error" 
-                    sx={{ width: '100%'}} 
-                    size="small"
-                    disabled={isSubmitting}
-                    type="submit"
+            {({ values, errors, touched, isSubmitting }) => (
+                <Form id={formId} autoComplete="off">
+                    <ClientComponent formData={{ values, touched, formField, errors }} />
+                    <VuiBox
+                        display="flex"
+                        justifyContent="center"
+                        p={1.4}
                     >
-                    Register Client
-                    </VuiButton>
-                </VuiBox>
-            </Form>
-        )}
+                        <VuiButton
+                            variant="contained"
+                            color="error"
+                            sx={{ width: '100%' }}
+                            size="small"
+                            disabled={isSubmitting}
+                            type="submit"
+                        >
+                            Register Client
+                        </VuiButton>
+                    </VuiBox>
+                </Form>
+            )}
         </Formik>
     );
 

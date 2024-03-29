@@ -20,7 +20,7 @@ import * as Yup from "yup";
 import checkout from "pages/cameraVoiceProgram/components/cameraVoiceComponent/cameraVoiceAddComponent/schemas/form";
 
 const {
-  formField: {camera_id, wait_for_sec, enter_or_exit_code, text}
+  formField: { camera_id, wait_for_sec, enter_or_exit_code, text }
 } = checkout;
 
 export default [
