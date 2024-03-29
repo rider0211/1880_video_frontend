@@ -34,13 +34,11 @@ export const getAllColoringPage = (token) => async (dispatch) => {
   }
 };
 
-
 export const addColoringPage = (token, param) => async (dispatch) => {
   try {
     useJwt
-      .addColoringPage(token, param)
-      .then(res => {
-        console.log(res.data);
+    .addColoringPage(token, param)
+    .then(res => {
         if (res.data.status) {
           const data = res.data.data;
           dispatch({ type: action_type.ADD_COLORING_PAGE, coloringData: data });
@@ -70,7 +68,7 @@ export const getColoringPageByID = (token, id) => async (dispatch) => {
       .getColoringPageByID(token, id)
       .then(res => {
         if (res.data.status)
-          dispatch({ type: action_type.FETCH_COLORING_PAGE_BY_ID, selectedColoringData: res.data.data.coloring_page_data });
+          dispatch({ type: action_type.FETCH_COLORING_PAGE_BY_ID, selectedColoringData: res.data.data });
       })
       .catch(err => {
         console.log(err)

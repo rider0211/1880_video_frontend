@@ -24,7 +24,6 @@ import VuiTypography from "components/VuiTypography";
 import breakpoints from "assets/theme/base/breakpoints";
 import { dateFormat } from "utils/common";
 import { deleteColoringPage } from "redux/actions/coloringPage";
-import { coloring_page_data } from './components/mock_data.js';
 
 function ColoringProgram() {
 
@@ -86,23 +85,23 @@ function ColoringProgram() {
     </Menu>
   };
   const renderColoring = () => {
-    return coloring_page_data.map((item, key) => {
-      const camera_data = item.coloring_page_data.camera_data;
-      const customer_data = item.coloring_page_data.customer_data;
+    return coloringPageData.map((item, key) => {
+      const camera_data = item.camera;
+      const customer_data = item.customer_data;
       return (
         <Grid item xs={12} md={6} lg={4} key={key}>
           <ComplexProjectCard
             icon={<FaRegFilePdf color="white" size="33px" />}
             title={camera_data.camera_name}
             color={'info'}
-            description={item.coloring_page_data.text}
-            dateTime={dateFormat(item.coloring_page_data.date)}
+            description={item.text}
+            dateTime={dateFormat(item.date)}
             members={item.members}
-            wait_for_seconds={item.coloring_page_data.wait_for_sec}
+            wait_for_seconds={item.wait_for_sec}
             customer_name={customer_data.username}
-            pdf_src={item.coloring_page_data.pdf_src}
+            pdf_src={process.env.REACT_APP_BASE_URL + item.coloringpage}
             dropdown={{
-              action: (e) => openSlackBotMenu(e, item.coloring_page_data.id),
+              action: (e) => openSlackBotMenu(e, item.id),
               menu: renderMenu(slackBotMenu, closeSlackBotMenu),
             }}
           />

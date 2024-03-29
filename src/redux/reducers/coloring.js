@@ -32,7 +32,7 @@ const coloringReducer = (state = initialState, action) => {
             let rColoring = [...state.coloringData];
             for (let i = 0; i < rColoring.length; i++) {
                 const item = rColoring[i];
-                if (item.coloring_page_data.id == coloring_id) {
+                if (item.id == coloring_id) {
                     rColoring.splice(i, 1);
                     break
                 }
@@ -43,7 +43,7 @@ const coloringReducer = (state = initialState, action) => {
             let allData = [...state.coloringData];
             for (let i = 0; i < allData.length; i++) {
                 const coloringDataTmp = allData[i];
-                if (coloringDataTmp.coloring_page_data.id == action.coloringData.coloring_page_data.id) {
+                if (coloringDataTmp.id == action.coloringData.id) {
                     allData[i] = action.coloringData;
                     break;
                 }

@@ -21,7 +21,7 @@ import VuiDropzone from "components/VuiDropzone";
 function ColoringModalComponent({ customer_id, toogleModal, status }) {
     const { formId, formField } = status === -1 ? add_form : update_form;
     const dispatch = useDispatch();
-    const selectedVoiceData = useSelector((state) => state.voiceReducer.selectedVoiceData);
+    const selectedColoringData = useSelector((state) => state.coloringReducer.selectedColoringData);
     const userdata = useSelector((state) => state.auth.userData);
 
     const token = userdata.access;
@@ -34,7 +34,7 @@ function ColoringModalComponent({ customer_id, toogleModal, status }) {
         if (status === -1) {
             dispatch(addColoringPage(access_token, values))
         } else {
-            values.id = selectedVoiceData.id;
+            values.id = selectedColoringData.id;
             dispatch(updateColoringPage(access_token, values))
         }
         toogleModal();
@@ -45,11 +45,11 @@ function ColoringModalComponent({ customer_id, toogleModal, status }) {
     }, [])
 
     if (status !== -1) {
-        if (selectedVoiceData) {
-            update_initialValues.camera_id = selectedVoiceData.camera_data.id
-            update_initialValues.wait_for_sec = selectedVoiceData.wait_for_sec
-            update_initialValues.enter_or_exit_code = selectedVoiceData.enter_or_exit_code
-            update_initialValues.text = selectedVoiceData.text
+        if (selectedColoringData) {
+            update_initialValues.camera_id = selectedColoringData.camera.id
+            update_initialValues.wait_for_sec = selectedColoringData.wait_for_sec
+            update_initialValues.enter_or_exit_code = selectedColoringData.enter_or_exit_code
+            update_initialValues.text = selectedColoringData.text
         }
     }
     return (
@@ -63,7 +63,6 @@ function ColoringModalComponent({ customer_id, toogleModal, status }) {
                             if (this.files.length > 1) {
                                 this.removeFile(this.files[0]);
                             }
-                            console.log(file);
                             coloringPDF = file;
                         })
                     }
