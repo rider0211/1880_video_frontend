@@ -1,71 +1,75 @@
 import { Card, CardContent } from "@mui/material";
-import { getAllCameraVoice, getCameraVoiceByID } from "redux/actions/camera_voice";
+import { getAllColoringPage, getColoringPageByID } from "redux/actions/coloringPage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import CameraVoiceComponent from "./components/cameraVoiceComponent";
-import ComplexProjectCard from "pages/cameraVoiceProgram/components/complexProjectCardComponent";
+import ColoringModalComponent from "./components/coloringModalComponent";
+
+import ComplexProjectCard from "pages/coloringProgram/components/complexProjectCardComponent";
 // Vision UI Dashboard PRO React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import { GiCctvCamera } from "react-icons/gi";
+import { FaRegFilePdf } from "react-icons/fa6";
 // @mui material components
 import Grid from "@mui/material/Grid";
 // Project page components
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Modal } from 'react-responsive-modal';
-import PlaceholderCard from "pages/cameraVoiceProgram/components/placeholderCard";
+import PlaceholderCard from "pages/coloringProgram/components/placeholderCard";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 import breakpoints from "assets/theme/base/breakpoints";
 import { dateFormat } from "utils/common";
-import { deleteCameraVoice } from "redux/actions/camera_voice";
+import { deleteColoringPage } from "redux/actions/coloringPage";
+import { coloring_page_data } from './components/mock_data.js';
 
-function CameraVoiceProgram() {
+function ColoringProgram() {
 
   const { values } = breakpoints;
   const dispatch = useDispatch();
 
   // ComplexProjectCard dropdown menu state
   const [slackBotMenu, setSlackBotMenu] = useState(null);
-  const [selectVoiceID, setSelectVoiceID] = useState(-1);
-  const [voiceCameraModal, setVoiceCameraModal] = useState(false);
+  const [selectColoringID, setSelectColoringID] = useState(-1);
+  const [coloringModal, setcoloringModal] = useState(false);
 
   const userdata = useSelector((state) => state.auth.userData);
-  const cameraVoiceData = useSelector((state) => state.voiceReducer.voiceData);
+
+  const coloringPageData = useSelector((state) => state.coloringReducer.coloringData);
+
   const access_token = userdata.access;
   // TeamProfileCard dropdown menu handlers
   const openSlackBotMenu = (event, id) => {
-    setSelectVoiceID(id)
-    dispatch(getCameraVoiceByID(access_token, id));
+    setSelectColoringID(id)
+    dispatch(getColoringPageByID(access_token, id));
     setSlackBotMenu(event.currentTarget);
   }
   const closeSlackBotMenu = () => {
     setSlackBotMenu(null);
   }
 
-  const updateCameraVoiceModal = () => {
+  const updateColoringItemModal = () => {
     closeSlackBotMenu();
-    toogleCameraVoiceModal();
+    toogleColoringModal();
   }
-  const deleteCameraVoiceModal = () => {
+  const deleteColoringItemModal = () => {
     closeSlackBotMenu();
-    dispatch(deleteCameraVoice(access_token, { id: selectVoiceID }))
-    initSelectVoiceID()
+    dispatch(deleteColoringPage(access_token, { id: selectColoringID }))
+    initSelectColoringID()
   }
-  const initSelectVoiceID = () => setSelectVoiceID(-1);
+  const initSelectColoringID = () => setSelectColoringID(-1);
 
-  const toogleCameraVoiceModal = () => {
-    if (voiceCameraModal) {
-      initSelectVoiceID()
+  const toogleColoringModal = () => {
+    if (coloringModal) {
+      initSelectColoringID()
     }
-    setVoiceCameraModal(!voiceCameraModal);
+    setcoloringModal(!coloringModal);
   }
   useEffect(() => {
-    dispatch(getAllCameraVoice(access_token));
+    dispatch(getAllColoringPage(access_token));
   }, [])
   // Dropdown menu template for the ComplexProjectCard
   const renderMenu = (state, close) => {
@@ -77,27 +81,28 @@ function CameraVoiceProgram() {
       onClose={close}
       keepMounted
     >
-      <MenuItem onClick={updateCameraVoiceModal}>Update</MenuItem>
-      <MenuItem onClick={deleteCameraVoiceModal}>Delete</MenuItem>
+      <MenuItem onClick={updateColoringItemModal}>Update</MenuItem>
+      <MenuItem onClick={deleteColoringItemModal}>Delete</MenuItem>
     </Menu>
   };
-  const renderCamera = () => {
-    return cameraVoiceData.map((item, key) => {
-      const camera_data = item.camera_voice_data.camera_data;
-      const customer_data = item.camera_voice_data.customer_data;
+  const renderColoring = () => {
+    return coloring_page_data.map((item, key) => {
+      const camera_data = item.coloring_page_data.camera_data;
+      const customer_data = item.coloring_page_data.customer_data;
       return (
         <Grid item xs={12} md={6} lg={4} key={key}>
           <ComplexProjectCard
-            icon={<GiCctvCamera color="white" size="33px" />}
+            icon={<FaRegFilePdf color="white" size="33px" />}
             title={camera_data.camera_name}
-            color={item.camera_voice_data.enter_or_exit_code ? 'info' : 'error'}
-            description={item.camera_voice_data.text}
-            dateTime={dateFormat(item.camera_voice_data.date)}
+            color={'info'}
+            description={item.coloring_page_data.text}
+            dateTime={dateFormat(item.coloring_page_data.date)}
             members={item.members}
-            wait_for_seconds={item.camera_voice_data.wait_for_sec}
+            wait_for_seconds={item.coloring_page_data.wait_for_sec}
             customer_name={customer_data.username}
+            pdf_src={item.coloring_page_data.pdf_src}
             dropdown={{
-              action: (e) => openSlackBotMenu(e, item.camera_voice_data.id),
+              action: (e) => openSlackBotMenu(e, item.coloring_page_data.id),
               menu: renderMenu(slackBotMenu, closeSlackBotMenu),
             }}
           />
@@ -108,7 +113,7 @@ function CameraVoiceProgram() {
 
   return (
     <DashboardLayout>
-      <DashboardNavbar/>
+      <DashboardNavbar />
       <VuiBox mt="30px" mb="24px">
         <Grid container>
           <Grid item xs={12}>
@@ -119,22 +124,22 @@ function CameraVoiceProgram() {
                 fontWeight="bold"
                 color="white"
               >
-                Camera Voice Program
+                Coloring Program
               </VuiTypography>
             </VuiBox>
           </Grid>
         </Grid>
         <VuiBox mb={1}>
           <Grid container spacing={3}>
-            {renderCamera()}
+            {renderColoring()}
             <Grid item xs={12} md={6} lg={4}>
-              <PlaceholderCard title={{ variant: "h5", text: "New Camera Voice" }} onClickFunc={toogleCameraVoiceModal} />
+              <PlaceholderCard title={{ variant: "h5", text: "New Coloring Data" }} onClickFunc={toogleColoringModal} />
             </Grid>
           </Grid>
-          <Modal open={voiceCameraModal} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={() => toogleCameraVoiceModal()}>
+          <Modal open={coloringModal} center styles={{ modal: { background: '#171a42', minWidth: '30%', marginTop: 100, maxWidth: '20%' }, closeButton: { display: 'none' } }} onClose={() => toogleColoringModal()}>
             <Card sx={{ minHeight: "490px" }}>
               <CardContent sx={{ padding: 0 }}>
-                <CameraVoiceComponent customer_id={userdata.user_id} toogleModal={toogleCameraVoiceModal} status={selectVoiceID} />
+                <ColoringModalComponent customer_id={userdata.user_id} toogleModal={toogleColoringModal} status={selectColoringID} />
               </CardContent>
             </Card>
           </Modal>
@@ -145,4 +150,4 @@ function CameraVoiceProgram() {
   );
 }
 
-export default CameraVoiceProgram;
+export default ColoringProgram;

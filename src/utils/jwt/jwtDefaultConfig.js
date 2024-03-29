@@ -41,6 +41,14 @@ export default {
   deleteCameraVoiceEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/deleteCameraVoice`,
   updateCameraVoiceEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera_voice/updateCameraVoice`,
 
+  // coloring page end point
+
+  getAllColoringPageEndPoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/get/all`,
+  getColoringPageByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/get`,
+  addColoringPageEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/add`,
+  updateColoringPageEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/update`,
+  deleteColoringPageEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/delete`,
+
   getAllCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getall`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>

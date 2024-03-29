@@ -10,7 +10,7 @@ import snackbar from './snackbar';
 import useJwt from 'utils/jwt/useJwt';
 import voiceReducer from './cameraVoice';
 import webCamReducer from './webcam';
-
+import coloringReducer from './coloring';
 const config = useJwt.jwtConfig;
 
 // ==============================|| COMBINE REDUCER ||============================== //
@@ -50,6 +50,7 @@ const reducer = {
     clientReducer: clientReducer,
     voiceReducer: voiceReducer,
     cameraReducer: cameraReducer,
+    coloringReducer: coloringReducer,
 };
 
 export default reducer;

@@ -267,6 +267,49 @@ export default class JwtService {
     })
   }
 
+// Coloring page actions
+
+  getAllColoringPage(token) {
+    return axios.get(this.jwtConfig.getAllColoringPageEndPoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getColoringPageByID(token, id) {
+    return axios.get(`${this.jwtConfig.getColoringPageByIDEndpoint}/${id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  addColoringPage(token, param) {
+    return axios.post(this.jwtConfig.addColoringPageEndpoint, param, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateColoringPage(token, param) {
+    return axios.post(this.jwtConfig.updateColoringPageEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  deleteColoringPage(token, param) {
+    return axios.post(this.jwtConfig.deleteColoringPageEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
   getAllCamera(token) {
     return axios.get(this.jwtConfig.getAllCameraEndPoint, {
       headers: {

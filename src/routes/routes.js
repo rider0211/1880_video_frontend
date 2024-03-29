@@ -39,7 +39,7 @@
 
 // React icons
 import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
-
+import { BsFilePdfFill } from "react-icons/bs";
 import CameraVoiceProgram from 'pages/cameraVoiceProgram'
 import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
@@ -48,7 +48,8 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
 import { TbCameraCheck } from "react-icons/tb";
-import WebCamCapture from 'pages/webCamCapture'
+import WebCamCapture from 'pages/webCamCapture';
+import ColoringProgram from 'pages/coloringProgram';
 
 // Vision UI Dashboard PRO React layouts
 
@@ -123,7 +124,18 @@ const routes = [
     component: <CameraVoiceProgram />,
     noCollapse: true,
     access_type: false,
-  }
+  },
+  {
+    type: "collapse",
+    name: "Coloring Program",
+    key: "coloringProgram",
+    icon: <BsFilePdfFill size="15px" color="inherit" />,
+    route: "/coloringProgram",
+    component: <ColoringProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
+  
 ];
 
 export default routes;

@@ -25,12 +25,15 @@ import VuiAvatar from "components/VuiAvatar";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
+import { Grid } from "@mui/material";
+import { BsFilePdfFill } from "react-icons/bs";
+import { navbarIconButton } from "examples/Navbars/DashboardNavbar/styles";
+import IconButton from "@mui/material/IconButton";
 
 // Custom styles for ComplexProjectCard
-function ComplexProjectCard({ color, icon, title, dateTime, description, members, dropdown, wait_for_seconds, customer_name }) {
+function ComplexProjectCard({ color, icon, title, dateTime, description, members, dropdown, wait_for_seconds, customer_name, pdf_src }) {
   const renderMembers = members.map((member, key) => {
     const memberKey = `member-${key}`;
-
     return (
       <VuiAvatar
         key={memberKey}
@@ -73,8 +76,8 @@ function ComplexProjectCard({ color, icon, title, dateTime, description, members
             </VuiBox>
             <VuiBox display="flex">
               <VuiTypography
-              variant="h6"
-              color="white"
+                variant="h6"
+                color="white"
               >
                 Customer Name : {customer_name}
               </VuiTypography>
@@ -98,9 +101,23 @@ function ComplexProjectCard({ color, icon, title, dateTime, description, members
           {dropdown.menu}
         </VuiBox>
         <VuiBox my={2} lineHeight={1}>
-          <VuiTypography variant="button" fontWeight="regular" color="text">
-            {description}
-          </VuiTypography>
+          <Grid container spacing={3}>
+            <Grid item xs={6}>
+              <VuiTypography variant="button" fontWeight="regular" color="text">
+                {description}
+              </VuiTypography>
+            </Grid>
+            <Grid item xs={6}>
+              <VuiBox>
+                <IconButton sx={navbarIconButton} size="small" onClick={()=>window.open(pdf_src)}>
+                  <BsFilePdfFill size="20px" color="white" />
+                  <VuiTypography variant="button" fontWeight="medium" color="white" >
+                    PDF file
+                  </VuiTypography>
+                </IconButton>
+              </VuiBox>
+            </Grid>
+          </Grid>
         </VuiBox>
         <Divider light />
         <VuiBox display="flex" justifyContent="space-between" alignItems="center">
@@ -154,6 +171,7 @@ ComplexProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   dateTime: PropTypes.string,
   description: PropTypes.node.isRequired,
+  pdf_src: PropTypes.string,
   members: PropTypes.arrayOf(PropTypes.string),
   dropdown: PropTypes.oneOfType([
     PropTypes.bool,
