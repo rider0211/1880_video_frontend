@@ -30,7 +30,13 @@ function ColoringModalComponent({ customer_id, toogleModal, status }) {
 
     const handleSubmit = async (values, actions) => {
         const access_token = userdata.access;
-        values.coloringpage = coloringPDF;
+        if(status !== -1){
+            if(coloringPDF !== undefined){
+                values.coloringpage = coloringPDF;
+            }
+        }else{
+            values.coloringpage = coloringPDF;
+        }
         if (status === -1) {
             dispatch(addColoringPage(access_token, values))
         } else {

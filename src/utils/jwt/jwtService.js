@@ -297,6 +297,7 @@ export default class JwtService {
   updateColoringPage(token, param) {
     return axios.post(this.jwtConfig.updateColoringPageEndpoint, param, {
       headers: {
+        'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
       }
     })
