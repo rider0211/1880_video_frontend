@@ -11,6 +11,8 @@ import useJwt from 'utils/jwt/useJwt';
 import voiceReducer from './cameraVoice';
 import webCamReducer from './webcam';
 import coloringReducer from './coloring';
+import exitEmailReducer from './exitEmail';
+
 const config = useJwt.jwtConfig;
 
 // ==============================|| COMBINE REDUCER ||============================== //
@@ -51,6 +53,7 @@ const reducer = {
     voiceReducer: voiceReducer,
     cameraReducer: cameraReducer,
     coloringReducer: coloringReducer,
+    exitEmailReducer: exitEmailReducer,
 };
 
 export default reducer;

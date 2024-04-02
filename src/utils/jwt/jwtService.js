@@ -311,6 +311,52 @@ export default class JwtService {
     })
   }
 
+
+  // Exit Email actions
+
+  getAllExitEmail(token) {
+    return axios.get(this.jwtConfig.getAllExitEmailEndPoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getExitEmailByID(token, id) {
+    return axios.get(`${this.jwtConfig.getExitEmailByIDEndpoint}/${id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  addExitEmail(token, param) {
+    return axios.post(this.jwtConfig.addExitEmailEndpoint, param, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateExitEmail(token, param) {
+    return axios.post(this.jwtConfig.updateExitEmailEndpoint, param, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  deleteExitEmail(token, param) {
+    return axios.post(this.jwtConfig.deleteExitEmailEndpoint, param, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+
   getAllCamera(token) {
     return axios.get(this.jwtConfig.getAllCameraEndPoint, {
       headers: {

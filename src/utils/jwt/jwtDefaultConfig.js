@@ -49,6 +49,16 @@ export default {
   updateColoringPageEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/update`,
   deleteColoringPageEndpoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/delete`,
 
+
+  // Exit Email End Point
+
+  getAllExitEmailEndPoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/get/all`,
+  getExitEmailByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/get`,
+  addExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/add`,
+  updateExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/update`,
+  deleteExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/delete`,
+
+
   getAllCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getall`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>

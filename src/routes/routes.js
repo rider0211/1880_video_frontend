@@ -39,6 +39,7 @@
 
 // React icons
 import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
+import { PiFilmReelFill } from "react-icons/pi";
 import { BsFilePdfFill } from "react-icons/bs";
 import CameraVoiceProgram from 'pages/cameraVoiceProgram'
 import ClientProgram from "pages/clientProgram";
@@ -50,6 +51,12 @@ import Header from "pages/header";
 import { TbCameraCheck } from "react-icons/tb";
 import WebCamCapture from 'pages/webCamCapture';
 import ColoringProgram from 'pages/coloringProgram';
+import { TbCameraCog } from "react-icons/tb";
+import CameraManagementProgram from "pages/cameraManagementProgram";
+import { SiMinutemailer } from "react-icons/si";
+import { FaMicrophone } from "react-icons/fa6";
+import { BsCameraReelsFill } from "react-icons/bs";
+import SendExitEmailProgram from "pages/sendExitEmailProgram";
 
 // Vision UI Dashboard PRO React layouts
 
@@ -69,7 +76,7 @@ const routes = [
     type: "collapse",
     name: "Header Program",
     key: "header",
-    icon: <IoVideocamSharp size="15px" color="inherit" />,
+    icon: <PiFilmReelFill size="15px" color="inherit" />,
     route: "/header",
     component: <Header />,
     noCollapse: true,
@@ -119,7 +126,7 @@ const routes = [
     type: "collapse",
     name: "Camera Voice Program",
     key: "cameraVoiceProgram",
-    icon: <TbCameraCheck size="15px" color="inherit" />,
+    icon: <FaMicrophone size="15px" color="inherit" />,
     route: "/cameraVoiceProgram",
     component: <CameraVoiceProgram />,
     noCollapse: true,
@@ -132,6 +139,26 @@ const routes = [
     icon: <BsFilePdfFill size="15px" color="inherit" />,
     route: "/coloringProgram",
     component: <ColoringProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
+  {
+    type: "collapse",
+    name: "Camera Program",
+    key: "cameraManagementProgram",
+    icon: <BsCameraReelsFill size="15px" color="inherit" />,
+    route: "/cameraManagementProgram",
+    component: <CameraManagementProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
+  {
+    type: "collapse",
+    name: "Exit Email Program",
+    key: "sendExitEmailProgram",
+    icon: <SiMinutemailer size="15px" color="inherit" />,
+    route: "/sendExitEmailProgram",
+    component: <SendExitEmailProgram />,
     noCollapse: true,
     access_type: false,
   },
