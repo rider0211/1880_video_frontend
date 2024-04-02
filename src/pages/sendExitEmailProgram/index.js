@@ -24,8 +24,6 @@ import VuiTypography from "components/VuiTypography";
 import breakpoints from "assets/theme/base/breakpoints";
 import { dateFormat } from "utils/common";
 
-import {sendExitEmailData} from './components/mock_data.js';
-
 function SendExitEmailProgram() {
 
   const { values } = breakpoints;
@@ -37,7 +35,7 @@ function SendExitEmailProgram() {
   const [exitEmailModal, setExitEmailModal] = useState(false);
 
   const userdata = useSelector((state) => state.auth.userData);
-  // const sendExitEmailData = useSelector((state) => state.exitEmailReducer.exitEmailData);
+  const sendExitEmailData = useSelector((state) => state.exitEmailReducer.exitEmailData);
 
   const access_token = userdata.access;
   // TeamProfileCard dropdown menu handlers

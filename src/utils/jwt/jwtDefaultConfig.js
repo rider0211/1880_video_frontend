@@ -52,11 +52,11 @@ export default {
 
   // Exit Email End Point
 
-  getAllExitEmailEndPoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/get/all`,
-  getExitEmailByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/get`,
-  addExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/add`,
-  updateExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/update`,
-  deleteExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/exitEmail/delete`,
+  getAllExitEmailEndPoint: `${process.env.REACT_APP_BASE_API_URL}/email/get/all`,
+  getExitEmailByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/email/get`,
+  addExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/email/add`,
+  updateExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/email/update`,
+  deleteExitEmailEndpoint: `${process.env.REACT_APP_BASE_API_URL}/email/delete`,
 
 
   getAllCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getall`,
