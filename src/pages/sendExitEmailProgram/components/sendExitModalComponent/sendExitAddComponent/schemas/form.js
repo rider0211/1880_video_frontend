@@ -42,7 +42,7 @@ export default {
     from_email: {
       name: "from_email",
       label: "This email is sender email",
-      type: "email",
+      type: "text",
       placeholder: "eg. test@test.com",
       errorMsg: "You need to input the sender email",
       invalidMsg: "Invalid Email",

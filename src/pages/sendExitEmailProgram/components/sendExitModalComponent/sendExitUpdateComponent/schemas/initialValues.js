@@ -30,5 +30,5 @@ export default {
   [camera_id.name]: 0,
   [wait_for_sec.name]: 0,
   [text.name]: "",
-  [from_email]: '',
+  [from_email.name]: '',
 };
