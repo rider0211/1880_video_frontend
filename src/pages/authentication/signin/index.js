@@ -60,7 +60,7 @@ function Basic() {
               fontSize: size.lg,
             })}
           >
-            Register with
+            Login with
           </VuiTypography>
           <Stack mb="25px" justifyContent="center" alignItems="center" direction="row" spacing={2}>
             <GradientBorder borderRadius="xl">
