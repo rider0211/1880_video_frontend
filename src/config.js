@@ -1,5 +1,5 @@
 const config = {
-    appname: '1880 Town Tour',
+    appname: 'Assistance Travel',
     defaultPath: '/login',
     fontFamily: `'Roboto', sans-serif`,
     borderRadius: 12

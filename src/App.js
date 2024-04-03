@@ -105,38 +105,38 @@ export default function App() {
   const role = auth.userData?.user_type;
   const toggleSnackbar = () => default_dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: !snack_bar.snack_bar_open, snack_bar_text: '' });
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {layout === "dashboard" && (
-        <>
-          <Sidenav
-            color={sidenavColor}
-            brandName="1880 town"
-            routes={routes}
-            onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave}
-          />
-          <Configurator />
-          {configsButton}
-        </>
-      )}
-      <Routes>
-        <Route exact path="/" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
-        <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
-        <Route exact path="/customerManagement/add" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <AddCustomerComponent /> : <BasicSignin />}></Route>
-        <Route exact path="/customerManagement/edit/:user_id" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <EditCustomerComponent /> : <BasicSignin />}></Route>
-        <Route path="/register" element={<BasicSignup />} />
-        {getRoutes(routes)}
-      </Routes>
-      <VuiSnackbar
-        color={snack_bar.snack_bar_type}
-        icon="notifications"
-        title="1880 Town Notification"
-        content={snack_bar.snack_bar_text}
-        dateTime=""
-        open={snack_bar.snack_bar_open}
-        close={toggleSnackbar}
-      />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {layout === "dashboard" && (
+          <>
+            <Sidenav
+              color={sidenavColor}
+              brandName="Travel Assistance"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
+            <Configurator />
+            {configsButton}
+          </>
+        )}
+        <Routes>
+          <Route exact path="/" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
+          <Route exact path="/login" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <Navigate to={role !== '4' ? "/dashboard" : "/tourtown"} replace /> : <BasicSignin />}></Route>
+          <Route exact path="/customerManagement/add" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <AddCustomerComponent /> : <BasicSignin />}></Route>
+          <Route exact path="/customerManagement/edit/:user_id" element={(auth.accessToken && auth.accessToken !== "" && role !== undefined) ? <EditCustomerComponent /> : <BasicSignin />}></Route>
+          <Route path="/register" element={<BasicSignup />} />
+          {getRoutes(routes)}
+        </Routes>
+        <VuiSnackbar
+          color={snack_bar.snack_bar_type}
+          icon="notifications"
+          title="Travel Assistance Notification"
+          content={snack_bar.snack_bar_text}
+          dateTime=""
+          open={snack_bar.snack_bar_open}
+          close={toggleSnackbar}
+        />
+      </ThemeProvider>
   );
 }

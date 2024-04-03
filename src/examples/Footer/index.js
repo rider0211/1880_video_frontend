@@ -64,7 +64,7 @@ function Footer({ links }) {
             favorite
           </Icon>
         </VuiBox>
-        by 1880 Town
+        by Assistance Travel
       </VuiBox>
       <VuiBox
         component="ul"

@@ -124,7 +124,7 @@ function DefaultNavbar({ routes, transparent, light, action }) {
           <VuiTypography
             variant="button"
             textGradient={true}
-            color="logo"
+            color="light"
             fontSize={14}
             letterSpacing={2}
             fontWeight="medium"
@@ -178,7 +178,6 @@ function DefaultNavbar({ routes, transparent, light, action }) {
           ) : (
             <VuiBox display={{ xs: "none", lg: "inline-block" }}>
               <VuiButton
-                minWidth="110px"
                 component="a"
                 href={action.route}
                 target="_blank"
@@ -190,7 +189,6 @@ function DefaultNavbar({ routes, transparent, light, action }) {
                   borders: { borderRadius },
                 }) => ({
                   fontSize: pxToRem(size.sm),
-                  minWidth: "110px",
                   color: transparent ? "black !important" : "",
                   borderRadius: transparent ? borderRadius.xl : "",
                 })}

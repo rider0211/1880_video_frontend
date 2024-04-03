@@ -55,7 +55,7 @@ function Footer({ full }) {
             sx={{ textAlign: "center", fontWeight: "400 !important" }}
             color="white"
           >
-            @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by 1880 Town
+            @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by Assistance Travel
           </VuiTypography>
         </Grid>
         <Grid item xs={full ? 10 : 10} lg={full ? 6 : 10}>
