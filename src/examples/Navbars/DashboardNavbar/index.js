@@ -36,7 +36,7 @@ import VuiTypography from "components/VuiTypography";
 import { handleLogout } from 'redux/actions/login';
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 // Images
-import team2 from "assets/images/team-2.jpg";
+import team2 from "assets/images/male-avatar.png";
 import { useDispatch } from 'react-redux';
 
 function DashboardNavbar({ absolute, light, isMini }) {
@@ -131,21 +131,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </VuiBox>
         {isMini ? null : (
           <VuiBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <VuiBox pr={1} maxWidth={{ sm: "175px", md: "100%" }}>
-              <VuiInput
-                placeholder="Type here..."
-                icon={{ component: "search", direction: "left" }}
-                sx={({ breakpoints }) => ({
-                  [breakpoints.down("sm")]: {
-                    maxWidth: "80px",
-                  },
-                  [breakpoints.only("sm")]: {
-                    maxWidth: "80px",
-                  },
-                  backgroundColor: "info.main !important",
-                })}
-              />
-            </VuiBox>
             <VuiBox color={light ? "white" : "inherit"}>
                 <IconButton sx={navbarIconButton} size="small" onClick={()=>defaultDispatch(handleLogout())}>
                   <Icon
@@ -174,17 +159,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 onClick={handleConfiguratorOpen}
               >
                 <Icon>settings</Icon>
-              </IconButton>
-              <IconButton
-                size="small"
-                color="white"
-                sx={navbarIconButton}
-                aria-controls="notification-menu"
-                aria-haspopup="true"
-                variant="contained"
-                onClick={handleOpenMenu}
-              >
-                <Icon>notifications</Icon>
               </IconButton>
               {renderMenu()}
             </VuiBox>
