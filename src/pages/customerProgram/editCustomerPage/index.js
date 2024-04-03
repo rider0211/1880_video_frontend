@@ -23,7 +23,7 @@ function EditCustomerPage() {
             <Grid container="true" justifyContent={"center"} spacing={3} mt="2px">
                 <CustomerEditComponent user_id={param.user_id} />
             </Grid>
-            <Footer />
+            {/* <Footer /> */}
         </DashboardLayout>
     )
 }

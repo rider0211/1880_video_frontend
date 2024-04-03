@@ -22,13 +22,12 @@ import SidenavItem from 'layouts/Sidenav/SidenavItem';
 import SidenavList from 'layouts/Sidenav/SidenavList';
 // Custom styles for the Sidenav
 import SidenavRoot from 'layouts/Sidenav/SidenavRoot';
-// Vision UI Dashboard PRO custom icons
-import SimmmpleLogo from 'examples/Icons/SimmmpleLogo';
 // Vision UI Dashboard PRO React components
 import VuiBox from 'components/VuiBox';
 import VuiTypography from 'components/VuiTypography';
 import sidenavLogoLabel from 'layouts/Sidenav/styles/sidenav';
 import { useSelector } from 'react-redux';
+import logo from "assets/images/logo.png";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
 	const [ openCollapse, setOpenCollapse ] = useState(false);
@@ -220,40 +219,14 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 									})
 								}>
 								<VuiBox
-									display='flex'
-									sx={
-										((theme) => sidenavLogoLabel(theme, { miniSidenav, transparentSidenav }),
-										{
-											mr: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : 1
-										})
-									}>
-									<SimmmpleLogo size='24px' />
+									sx={{textAlign:'center'}}>
+									<img src={logo} width={"200px"}></img>
 								</VuiBox>
-								<VuiTypography
-									variant='button'
-									textGradient={true}
-									color='inherit'
-									fontSize={14}
-									letterSpacing={2}
-									fontWeight='medium'
-									sx={
-										((theme) => sidenavLogoLabel(theme, { miniSidenav, transparentSidenav }),
-										{
-											opacity: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : 1,
-											maxWidth: miniSidenav || (miniSidenav && transparentSidenav) ? 0 : '100%',
-											margin: '0 auto'
-										})
-									}>
-									{brandName}
-								</VuiTypography>
 							</VuiBox>
 						</VuiBox>
 						<Divider light />
 					</VuiBox>
 					<List sx={{ mb: 'auto' }}>{renderRoutes}</List>
-					<VuiBox pt={2} mx={2} mb={2}>
-						<SidenavCard />
-					</VuiBox>
 				</VuiBox>
 			</Scrollbars>
 		</SidenavRoot>

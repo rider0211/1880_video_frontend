@@ -32,9 +32,6 @@ function ContactInfo({ formData }) {
 
   return (
     <VuiBox>
-      <VuiTypography variant="lg" color="white" fontWeight="bold">
-        Contact Info
-      </VuiTypography>
       <VuiBox mt={3}>
         <Grid container spacing={1}>
           <Grid item xs={12}>

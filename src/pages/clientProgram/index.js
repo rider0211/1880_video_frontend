@@ -204,7 +204,7 @@ function ClientProgram() {
         </Modal>
         <Table columns={columns} rows={rows} />
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

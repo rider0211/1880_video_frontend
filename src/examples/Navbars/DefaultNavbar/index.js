@@ -12,11 +12,10 @@ import PagesMenu from "examples/Navbars/DefaultNavbar/Menus/PagesMenu";
 import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
-import VuiTypography from "components/VuiTypography";
 import borders from "assets/theme/base/borders";
 import breakpoints from "assets/theme/base/breakpoints";
 import colors from "assets/theme/base/colors";
-import config from "config";
+import logo from "assets/images/logo.png";
 
 // react-router components
 
@@ -121,19 +120,10 @@ function DefaultNavbar({ routes, transparent, light, action }) {
         })}
       >
         <VuiBox component={Link} to="/" py={transparent ? 1.5 : 0.75} lineHeight={1}>
-          <VuiTypography
-            variant="button"
-            textGradient={true}
-            color="light"
-            fontSize={14}
-            letterSpacing={2}
-            fontWeight="medium"
-            sx={{
-              margin: "0 auto",
-            }}
-          >
-            {config.appname}
-          </VuiTypography>
+          <VuiBox
+            sx={{textAlign:'center'}}>
+            <img src={logo} width={"350px"}></img>
+          </VuiBox>
         </VuiBox>
         <VuiBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
           <DefaultNavbarLink

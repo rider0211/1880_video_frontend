@@ -100,10 +100,7 @@ function Configurator() {
       >
         <VuiBox>
           <VuiTypography color="white" variant="h5">
-            1880 town UI Configurator
-          </VuiTypography>
-          <VuiTypography variant="body2" color="text">
-            See our dashboard options.
+            Settings
           </VuiTypography>
         </VuiBox>
 
@@ -222,80 +219,6 @@ function Configurator() {
           </VuiTypography>
 
           <VuiSwitch color="info" checked={miniSidenav} onChange={handleMiniSidenav} />
-        </VuiBox>
-
-        <Divider />
-
-        <VuiBox mt={3} mb={2}>
-          <VuiBox mb={2}>
-            <VuiButton
-              component={Link}
-              href="https://www.creative-tim.com/product/vision-ui-dashboard-pro-react"
-              target="_blank"
-              rel="noreferrer"
-              color="info"
-              variant="contained"
-              fullWidth
-            >
-              buy now
-            </VuiButton>
-          </VuiBox>
-          <VuiBox mb={2}>
-            <VuiButton
-              component={Link}
-              href="https://www.creative-tim.com/product/vision-ui-dashboard-react"
-              target="_blank"
-              rel="noreferrer"
-              color="dark"
-              variant="gradient"
-              fullWidth
-            >
-              free download
-            </VuiButton>
-          </VuiBox>
-          <VuiButton
-            component={Link}
-            href="https://www.creative-tim.com/learning-lab/react/quick-start/vision-ui-dashboard/"
-            target="_blank"
-            rel="noreferrer"
-            color="white"
-            variant="outlined"
-            fullWidth
-          >
-            view documentation
-          </VuiButton>
-        </VuiBox>
-        <VuiBox mt={3} textAlign="center">
-          <VuiBox mb={0.5}>
-            <VuiTypography variant="h6" color="white">
-              Thank you for sharing!
-            </VuiTypography>
-          </VuiBox>
-
-          <VuiBox display="flex" justifyContent="center">
-            <VuiBox mr={1.5}>
-              <VuiButton
-                component={Link}
-                href="https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/vision-ui-dashboard-pro-react&text=Check%20Vision%20UI%20Dashboard%20PRO%20React%20made%20by%20@simmmple_web%20and%20@CreativeTim%20#webdesign%20#dashboard%20#react"
-                target="_blank"
-                rel="noreferrer"
-                color="dark"
-              >
-                <TwitterIcon />
-                &nbsp; Tweet
-              </VuiButton>
-            </VuiBox>
-            <VuiButton
-              component={Link}
-              href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/vision-ui-dashboard-pro-react"
-              target="_blank"
-              rel="noreferrer"
-              color="dark"
-            >
-              <FacebookIcon />
-              &nbsp; Share
-            </VuiButton>
-          </VuiBox>
         </VuiBox>
       </VuiBox>
     </ConfiguratorRoot>

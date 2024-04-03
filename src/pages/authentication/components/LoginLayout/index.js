@@ -17,14 +17,14 @@
 
 // Vision UI Dashboard PRO React example components
 
-import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import Footer from "pages/authentication/components/Footer";
+// import DefaultNavbar from "examples/Navbars/DefaultNavbar";
+// import Footer from "pages/authentication/components/Footer";
 import Grid from "@mui/material/Grid";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 import PropTypes from "prop-types";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
-import pageRoutes from "routes/page.routes";
+// import pageRoutes from "routes/page.routes";
 
 // Authentication layout components
 
@@ -42,7 +42,7 @@ import pageRoutes from "routes/page.routes";
 function LoginLayout({ title, description, image, children }) {
   return (
     <PageLayout>
-      <DefaultNavbar
+      {/* <DefaultNavbar
         routes={pageRoutes}
         action={{
           type: "external",
@@ -51,7 +51,7 @@ function LoginLayout({ title, description, image, children }) {
         }}
         transparent
         light
-      />
+      /> */}
       <VuiBox
         display={{ xs: "none", lg: "block" }}
         width={"calc(100% - 2rem)"}
@@ -103,7 +103,7 @@ function LoginLayout({ title, description, image, children }) {
           {children}
         </VuiBox>
       </VuiBox>
-      <Footer full />
+      {/* <Footer full /> */}
     </PageLayout>
   );
 }
@@ -118,7 +118,7 @@ LoginLayout.defaultProps = {
 LoginLayout.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string.isRequired,
+  // image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

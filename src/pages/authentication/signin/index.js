@@ -7,13 +7,14 @@ import LoginLayout from "pages/authentication/components/LoginLayout";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import VuiTypography from "components/VuiTypography";
-import bgBasic from "assets/images/background-basic-auth.png";
+// import bgBasic from "assets/images/background-basic-auth.png";
 import borders from "assets/theme/base/borders";
 import form from "pages/authentication/signin/schemas/form";
 import initialValues from "./schemas/initialValues";
 import { login } from "redux/actions/login";
 import { useDispatch } from 'react-redux'
 import validations from "pages/authentication/signin/schemas/validations";
+import logo from "assets/images/logo.png";
 
 function Basic() {
   const currentValidation = validations[0];
@@ -29,9 +30,10 @@ function Basic() {
 
   return (
     <LoginLayout
-      title="Welcome!"
-      description="Use these awesome forms to login or create new account in your project for free."
-      image={bgBasic}
+      // title="Welcome!"
+      // description="Use these awesome forms to login or create new account in your project for free."
+      // image={bgBasic}
+
     >
       <GradientBorder borderRadius={borders.borderRadius.form} minWidth="100%" maxWidth="100%">
         <VuiBox
@@ -41,7 +43,7 @@ function Basic() {
             backgroundColor: secondary.main,
           })}
         >
-          <VuiTypography
+          {/* <VuiTypography
             color="white"
             fontWeight="bold"
             textAlign="center"
@@ -51,7 +53,11 @@ function Basic() {
             })}
           >
             Login
-          </VuiTypography>
+          </VuiTypography> */}
+          <VuiBox
+          sx={{textAlign:'center'}}>
+            <img src={logo} width={"350px"}></img>
+          </VuiBox>
           <Formik
             initialValues={initialValues}
             validationSchema={currentValidation}

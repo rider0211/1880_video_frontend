@@ -35,14 +35,6 @@ function UserInfo({ formData }) {
 
   return (
     <VuiBox>
-      <VuiBox lineHeight={0} display="flex" flexDirection="column">
-        <VuiTypography variant="lg" color="white" fontWeight="bold">
-          About me
-        </VuiTypography>
-        <VuiTypography variant="button" fontWeight="regular" color="text">
-          Mandatory informations
-        </VuiTypography>
-      </VuiBox>
       <VuiBox mt={3}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
@@ -63,6 +55,7 @@ function UserInfo({ formData }) {
                 variant="caption"
                 fontWeight="bold"
                 textTransform="capitalize"
+                color="white"
               >
                 User Type
               </VuiTypography>

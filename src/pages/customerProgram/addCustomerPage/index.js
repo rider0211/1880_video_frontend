@@ -133,7 +133,7 @@ function NewUser() {
           </Grid>
         </Grid>
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

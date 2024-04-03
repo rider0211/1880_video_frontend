@@ -288,7 +288,7 @@ function WebCamCapture() {
           </Grid>
         </Grid>
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

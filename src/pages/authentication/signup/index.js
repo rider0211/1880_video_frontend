@@ -25,6 +25,7 @@ import { register } from "redux/actions/register";
 import { useState } from "react";
 // NewUser layout schemas for form and form feilds
 import validations from "pages/authentication/signup/schemas/validations";
+import logo from "assets/images/logo.png";
 
 function getSteps() {
   return ["User Info", "Address", "Contact Info"];
@@ -51,7 +52,6 @@ function NewUser() {
   const isLastStep = activeStep === steps.length - 1;
   const dispatch = useDispatch()
 
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleBack = () => setActiveStep(activeStep - 1);
   const user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const submitForm = async (values, actions) => {
@@ -73,21 +73,10 @@ function NewUser() {
     }
   };
   return (
-    <BasicLayout
-      title="Welcome!"
-      description="create new account for free."
-      image={bgBasic}
-    >
+    <BasicLayout>
       <VuiBox py={3} mb={20}>
         <Grid container justifyContent="center" sx={{ height: "100%" }}>
           <Grid item xs={12} lg={8}>
-            <Stepper activeStep={activeStep} alternativeLabel>
-              {steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
             <Formik
               initialValues={initialValues}
               validationSchema={currentValidation}
@@ -96,6 +85,17 @@ function NewUser() {
               {({ values, errors, touched, isSubmitting }) => (
                 <Form id={formId} autoComplete="off">
                   <Card sx={{ height: "100%" }}>
+                    <VuiBox
+                    sx={{textAlign:'center', paddingTop:'20px'}}>
+                      <img src={logo} width={"350px"}></img>
+                    </VuiBox>
+                    <Stepper activeStep={activeStep} alternativeLabel>
+                      {steps.map((label) => (
+                        <Step key={label}>
+                          <StepLabel>{label}</StepLabel>
+                        </Step>
+                      ))}
+                    </Stepper>
                     <VuiBox>
                       <VuiBox>
                         {getStepContent(activeStep, {

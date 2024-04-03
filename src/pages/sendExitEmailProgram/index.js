@@ -142,7 +142,7 @@ function SendExitEmailProgram() {
           </Modal>
         </VuiBox>
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }

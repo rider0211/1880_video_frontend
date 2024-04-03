@@ -44,7 +44,7 @@ function FooterVideo() {
           </Grid>
         </Grid>
       </VuiBox>
-      <Footer />
+      {/* <Footer /> */}
     </DashboardLayout>
   );
 }
