@@ -8,7 +8,6 @@
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store
@@ -26,3 +25,14 @@ yarn.lock
 
 commit.sh
 /.env
+/.babelrc
+/.env.copy
+/.eslintrc
+/.eslintrc.json
+/.npmrc
+/package.json
+/README.md
+/jsconfig.json
+/ISSUE_TEMPLATE.md
+/CHANGELOG.md
+/.prettierrc.json
