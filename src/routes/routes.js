@@ -61,16 +61,16 @@ import SendExitEmailProgram from "pages/sendExitEmailProgram";
 // Vision UI Dashboard PRO React layouts
 
 const routes = [
-  {
-    type: "collapse",
-    name: "Dashboard",
-    key: "dashboard",
-    icon: <IoHome size="15px" color="inherit" />,
-    route: "/dashboard",
-    component: <Default />,
-    noCollapse: true,
-    access_type: false,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Dashboard",
+  //   key: "dashboard",
+  //   icon: <IoHome size="15px" color="inherit" />,
+  //   route: "/dashboard",
+  //   component: <Default />,
+  //   noCollapse: true,
+  //   access_type: false,
+  // },
   { type: "title", title: "Pages", key: "title-pages" },
   {
     type: "collapse",
