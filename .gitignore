@@ -1,7 +1,5 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
 /node_modules
+
 .DS_Store
 
 # testing
@@ -25,3 +23,20 @@ yarn.lock
 
 commit.sh
 /.env
+=======
+/public
+/src
+/.babelrc
+/.env
+/.env.copy
+/.eslintrc
+/.eslintrc.json
+/.npmrc
+/.prettierrc.json
+/CHANGELOG.md
+/ISSUE_TEMPLATE.md
+/jsconfig.json
+/package-lock.json
+/package.json
+/README.md
+
