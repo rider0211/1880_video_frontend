@@ -27,6 +27,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import VuiBox from "components/VuiBox";
 import VuiTypography from "components/VuiTypography";
 
+const year = new Date().getFullYear();
 function Footer({ full }) {
   return (
     <VuiBox
@@ -41,7 +42,7 @@ function Footer({ full }) {
     >
       <Grid
         container
-        justifyContent={{ xs: "center", lg: full ? "space-between" : "center" }}
+        justifyContent={{ xs: "center", lg: full ? "center" : "center" }}
         sx={({ breakpoints }) => ({
           maxWidth: full ? "100%" : "450px",
           [breakpoints.down("xl")]: {
@@ -55,10 +56,10 @@ function Footer({ full }) {
             sx={{ textAlign: "center", fontWeight: "400 !important" }}
             color="white"
           >
-            @ 2024, Made with ❤️&nbsp;&nbsp;&nbsp; by Assistance Travel
+            © {year} Jerry Durgin - All Rights Reserved
           </VuiTypography>
         </Grid>
-        <Grid item xs={full ? 10 : 10} lg={full ? 6 : 10}>
+        {/* <Grid item xs={full ? 10 : 10} lg={full ? 6 : 10}>
           <VuiBox display="flex" justifyContent="center" flexWrap="wrap" mb={3}>
             <VuiBox mr={{ xs: "20px", lg: "46px" }}>
               <VuiTypography component="a" href="#" variant="body2" color="white">
@@ -76,7 +77,7 @@ function Footer({ full }) {
               </VuiTypography>
             </VuiBox>
           </VuiBox>
-        </Grid>
+        </Grid> */}
       </Grid>
     </VuiBox>
   );

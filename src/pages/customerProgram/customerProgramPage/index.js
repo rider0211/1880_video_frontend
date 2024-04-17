@@ -31,7 +31,7 @@ function CustomerManagement() {
         <UsersList />
       </VuiBox>
       <CustomerTable />
-      {/* <Footer /> */}
+      <Footer />
     </DashboardLayout>
   );
 }

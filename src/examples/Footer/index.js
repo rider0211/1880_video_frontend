@@ -39,13 +39,13 @@ function Footer({ links }) {
         </Link>
       </VuiBox>
     ));
-
+  const year = new Date().getFullYear();
   return (
     <VuiBox
       width="100%"
       display="flex"
       flexDirection={{ xs: "column", lg: "row" }}
-      justifyContent="space-between"
+      justifyContent="center"
       alignItems="center"
       px={1.5}
     >
@@ -58,15 +58,9 @@ function Footer({ links }) {
         fontSize={size.sm}
         px={1.5}
       >
-        &copy; {new Date().getFullYear()}, made with
-        <VuiBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
-          <Icon color="inherit" fontSize="inherit">
-            favorite
-          </Icon>
-        </VuiBox>
-        by Assistance Travel
+        © {year} Jerry Durgin - All Rights Reserved
       </VuiBox>
-      <VuiBox
+      {/* <VuiBox
         component="ul"
         sx={({ breakpoints }) => ({
           display: "flex",
@@ -84,7 +78,7 @@ function Footer({ links }) {
         })}
       >
         {renderLinks()}
-      </VuiBox>
+      </VuiBox> */}
     </VuiBox>
   );
 }

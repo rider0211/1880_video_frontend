@@ -140,7 +140,7 @@ function CameraVoiceProgram() {
           </Modal>
         </VuiBox>
       </VuiBox>
-      {/* <Footer /> */}
+      <Footer />
     </DashboardLayout>
   );
 }

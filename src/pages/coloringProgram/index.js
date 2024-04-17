@@ -144,7 +144,7 @@ function ColoringProgram() {
           </Modal>
         </VuiBox>
       </VuiBox>
-      {/* <Footer /> */}
+      <Footer />
     </DashboardLayout>
   );
 }

@@ -18,7 +18,7 @@
 // Vision UI Dashboard PRO React example components
 
 // import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-// import Footer from "pages/authentication/components/Footer";
+import Footer from "pages/authentication/components/Footer";
 import Grid from "@mui/material/Grid";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 import PropTypes from "prop-types";
@@ -103,7 +103,7 @@ function LoginLayout({ title, description, image, children }) {
           {children}
         </VuiBox>
       </VuiBox>
-      {/* <Footer full /> */}
+      <Footer full />
     </PageLayout>
   );
 }

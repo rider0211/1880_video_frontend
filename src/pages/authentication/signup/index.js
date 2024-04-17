@@ -26,6 +26,7 @@ import { useState } from "react";
 // NewUser layout schemas for form and form feilds
 import validations from "pages/authentication/signup/schemas/validations";
 import logo from "assets/images/logo.png";
+import Footer from "pages/authentication/components/Footer";
 
 function getSteps() {
   return ["User Info", "Address", "Contact Info"];
@@ -74,7 +75,7 @@ function NewUser() {
   };
   return (
     <BasicLayout>
-      <VuiBox py={3} mb={20}>
+      <VuiBox py={3} mb={1}>
         <Grid container justifyContent="center" sx={{ height: "100%" }}>
           <Grid item xs={12} lg={8}>
             <Formik
@@ -97,6 +98,7 @@ function NewUser() {
                       ))}
                     </Stepper>
                     <VuiBox>
+
                       <VuiBox>
                         {getStepContent(activeStep, {
                           values,
@@ -104,27 +106,45 @@ function NewUser() {
                           formField,
                           errors,
                         })}
-                        <VuiBox mt={2} width="100%" display="flex" justifyContent="space-between">
+                        <VuiBox mt={2} width="100%" display="flex" justifyContent="end">
+                          <VuiBox px="10px">
+                            <VuiTypography variant="button" color="text" fontWeight="regular">
+                              Already have an account?{" "}
+                              <VuiTypography
+                                component={Link}
+                                to="/login"
+                                variant="button"
+                                color="white"
+                                fontWeight="medium"
+                              >
+                                Sign in
+                              </VuiTypography>
+                            </VuiTypography>
+                          </VuiBox>
                           {activeStep === 0 ? (
                             <VuiBox />
                           ) : (
-                            <VuiButton
-                              variant="gradient"
-                              sx={{ minWidth: "100px" }}
-                              color="light"
-                              onClick={handleBack}
-                            >
-                              prev
-                            </VuiButton>
+                            <VuiBox px="10px">
+                              <VuiButton
+                                variant="gradient"
+                                sx={{ minWidth: "100px" }}
+                                color="light"
+                                onClick={handleBack}
+                              >
+                                prev
+                              </VuiButton>
+                            </VuiBox>
                           )}
-                          <VuiButton
-                            disabled={isSubmitting}
-                            type="submit"
-                            sx={{ minWidth: "100px" }}
-                            color="info"
-                          >
-                            {isLastStep ? "send" : "next"}
-                          </VuiButton>
+                          <VuiBox px="10px">
+                            <VuiButton
+                              disabled={isSubmitting}
+                              type="submit"
+                              sx={{ minWidth: "100px" }}
+                              color="info"
+                            >
+                              {isLastStep ? "send" : "next"}
+                            </VuiButton>
+                          </VuiBox>
                         </VuiBox>
                       </VuiBox>
                     </VuiBox>
@@ -132,23 +152,10 @@ function NewUser() {
                 </Form>
               )}
             </Formik>
-            <VuiBox mt={3} textAlign="center">
-              <VuiTypography variant="button" color="text" fontWeight="regular">
-                Already have an account?{" "}
-                <VuiTypography
-                  component={Link}
-                  to="/login"
-                  variant="button"
-                  color="white"
-                  fontWeight="medium"
-                >
-                  Sign in
-                </VuiTypography>
-              </VuiTypography>
-            </VuiBox>
           </Grid>
         </Grid>
       </VuiBox>
+      <Footer full/>
     </BasicLayout>
   );
 }

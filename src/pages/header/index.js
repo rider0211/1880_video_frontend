@@ -44,7 +44,7 @@ function Header() {
           </Grid>
         </Grid>
       </VuiBox>
-      {/* <Footer /> */}
+      <Footer />
     </DashboardLayout>
   );
 }
