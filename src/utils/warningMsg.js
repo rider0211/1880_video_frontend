@@ -11,4 +11,5 @@ export default {
   INVALID_LOGIN_INFO: 'Invalid email and password',
   INVALID_FACES: 'Please take your all faces',
   CLIENT_NOT_SELECTED: 'CLIENT_NOT_SELECTED',
+  CLIENT_NOT_ALLOWED: 'Please wait until admin allows you',
 }

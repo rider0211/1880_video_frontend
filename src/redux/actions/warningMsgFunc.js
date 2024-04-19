@@ -16,4 +16,6 @@ export const alert_error_from_client = () => async (dispatch) => dispatch({ type
 export const alert_invalid_login_info = () => async (dispatch) => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.INVALID_LOGIN_INFO });
 export const alert_invalid_faces = () => async (dispatch) => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.INVALID_FACES });
 export const alert_client_not_selected = () => async (dispatch) => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.CLIENT_NOT_SELECTED });
+export const alert_now_allowed = () => async (dispatch) => dispatch({ type: action_type.ALERT_SNACK_BAR, snack_bar_open: true, snack_bar_type: 'error', snack_bar_text: warningMsg.CLIENT_NOT_ALLOWED });
+
 

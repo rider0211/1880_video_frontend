@@ -48,6 +48,7 @@ function CustomerEditComponent(user) {
     initialValues.contact_name = selectedCustomerData.contact_name
     initialValues.contact_email = selectedCustomerData.contact_email
     initialValues.contact_phone_number = selectedCustomerData.contact_phone_number
+    initialValues.status = selectedCustomerData.status
   }
 
   return (

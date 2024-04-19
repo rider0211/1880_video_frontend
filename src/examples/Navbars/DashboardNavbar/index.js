@@ -37,9 +37,15 @@ import { handleLogout } from 'redux/actions/login';
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 // Images
 import team2 from "assets/images/male-avatar.png";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import Divider from '@mui/material/Divider';
 
 function DashboardNavbar({ absolute, light, isMini }) {
+  const user_data = useSelector(state => state.auth);
+  const user_type = user_data.userData?.user_type;
+  const user_name = user_data.userData?.username;
+
   const [navbarType, setNavbarType] = useState();
   const [controller, dispatch] = useVisionUIController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
@@ -131,19 +137,18 @@ function DashboardNavbar({ absolute, light, isMini }) {
         </VuiBox>
         {isMini ? null : (
           <VuiBox sx={(theme) => navbarRow(theme, { isMini })}>
+            <VuiBox>
+              <VuiTypography fontWeight="medium" variant="button" color="white">Welcome👏 {user_type === 1 ? <VuiTypography fontWeight="medium" variant="button" color="error">admin</VuiTypography> : user_name}</VuiTypography>
+            </VuiBox>
             <VuiBox color={light ? "white" : "inherit"}>
-                <IconButton sx={navbarIconButton} size="small" onClick={()=>defaultDispatch(handleLogout())}>
-                  <Icon
-                    sx={({ palette: { dark, white } }) => ({
-                      color: white.main,
-                    })}
-                  >
-                    account_circle
-                  </Icon>
-                  <VuiTypography variant="button" fontWeight="medium" color="white" >
-                    Sign Out
-                  </VuiTypography>
-                </IconButton>
+              <IconButton sx={navbarIconButton} size="small" onClick={() => defaultDispatch(handleLogout())}>
+                <PowerSettingsNewIcon sx={({ palette: { dark, white } }) => ({
+                    color: white.main,
+                  })}/>
+                <VuiTypography variant="button" fontWeight="medium" color="white" >
+                  Sign Out
+                </VuiTypography>
+              </IconButton>
               <IconButton
                 size="small"
                 color="white"

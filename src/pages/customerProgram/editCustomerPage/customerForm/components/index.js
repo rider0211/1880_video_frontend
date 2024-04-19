@@ -1,6 +1,8 @@
 import FormField from "pages/authentication/signup/components/FormField";
 import { Grid } from "@mui/material";
 import PropTypes from "prop-types";
+import OptionFormField from "./option_form_field";
+import VuiBox from "components/VuiBox";
 
 function CustomerEditInfo({ formData }) {
 
@@ -17,7 +19,9 @@ function CustomerEditInfo({ formData }) {
         zipcode,
         contact_name,
         contact_email,
-        contact_phone_number } = formField;
+        contact_phone_number,
+        status,
+    } = formField;
 
     const {
         username: usernameV,
@@ -31,6 +35,7 @@ function CustomerEditInfo({ formData }) {
         contact_name: contact_nameV,
         contact_phone_number: contact_phone_numberV,
         contact_email: contact_emailV,
+        status: status_V
     } = values;
 
     return (
@@ -134,7 +139,7 @@ function CustomerEditInfo({ formData }) {
                     success={contact_nameV.length > 0 && !errors.contact_name}
                 />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
                 <FormField
                     label={contact_email.label}
                     name={contact_email.name}
@@ -145,7 +150,7 @@ function CustomerEditInfo({ formData }) {
                     success={contact_emailV.length > 0 && !errors.contact_email}
                 />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={4}>
                 <FormField
                     label={contact_phone_number.label}
                     name={contact_phone_number.name}
@@ -154,6 +159,17 @@ function CustomerEditInfo({ formData }) {
                     placeholder={contact_phone_number.placeholder}
                     error={errors.contact_phone_number && touched.contact_phone_number}
                     success={contact_phone_numberV.length > 0 && !errors.contact_phone_number}
+                />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+                <OptionFormField
+                    label={status.label}
+                    name={status.name}
+                    type={status.type}
+                    value={status_V}
+                    placeholder={status.placeholder}
+                    error={errors.status && touched.status}
+                    success={status_V.length > 0 && !errors.status}
                 />
             </Grid>
         </Grid>

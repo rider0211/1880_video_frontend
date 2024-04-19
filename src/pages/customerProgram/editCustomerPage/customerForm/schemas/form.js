@@ -97,6 +97,14 @@ export default {
       type: "text",
       placeholder: "+123456789",
       errorMsg: "Contact phone number is required.",
+    },
+    status: {
+      name: "status",
+      label: "Status",
+      type: "boolean",
+      placeholder: "eg. vision@dashboard.come",
+      errorMsg: "status is required.",
+      invalidMsg: "status is invalid",
     }
   },
 };

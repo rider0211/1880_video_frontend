@@ -1,4 +1,4 @@
-import { alert_error_from_server, alert_invalid_login_info, alert_login_success } from './warningMsgFunc';
+import { alert_error_from_server, alert_invalid_login_info, alert_login_success, alert_now_allowed } from './warningMsgFunc';
 
 import { action_type } from 'redux/action_type';
 import useJwt from 'utils/jwt/useJwt';
@@ -26,13 +26,15 @@ export const login = (param) => async (dispatch) => {
               [config.storageRefreshTokenKeyName]: return_data.access
             })
           }, 100);
-        } else {
-          dispatch(alert_invalid_login_info());
         }
       })
       .catch(err => {
         console.log(err);
-        dispatch(alert_error_from_server());
+        if (err.response.status === 423) {
+          dispatch(alert_now_allowed());
+        } else if (err.response.status === 406) {
+          dispatch(alert_invalid_login_info());
+        }
       })
   } catch (error) {
     console.log(error);

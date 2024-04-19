@@ -30,6 +30,7 @@ const {
     contact_name,
     contact_email,
     contact_phone_number,
+    status
   },
 } = checkout;
 
@@ -45,4 +46,5 @@ export default {
   [contact_name.name]: "",
   [contact_email.name]: "",
   [contact_phone_number.name]: "",
+  [status.name]: false,
 };
