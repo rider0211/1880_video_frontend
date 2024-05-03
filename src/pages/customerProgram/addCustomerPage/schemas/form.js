@@ -82,7 +82,8 @@ export default {
       type: "number",
       placeholder: "7 letters",
       errorMsg: "zipcode is required.",
-      invalidMsg: "Zipcode is not valie (e.g. 70000).",
+      invalidMsg: "Zipcode is not valie (e.g. 12345).",
+      invalidNumberMsg: "Must be only digit"
     },
     state: {
       name: "state",

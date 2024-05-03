@@ -38,7 +38,7 @@ export default [
     [city.name]: Yup.string().required(city.errorMsg),
     [country.name]: Yup.string().required(country.errorMsg),
     [state.name]: Yup.string().required(state.errorMsg),
-    [zipcode.name]: Yup.string().required(zipcode.errorMsg).min(6, zipcode.invalidMsg),
+    [zipcode.name]: Yup.string().required(zipcode.errorMsg).matches(/^[0-9]+$/, zipcode.invalidNumberMsg).min(5, zipcode.invalidMsg).max(5, zipcode.invalidMsg),
   }),
   Yup.object().shape({
     [contact_name.name]: Yup.string().required(contact_name.errorMsg),
