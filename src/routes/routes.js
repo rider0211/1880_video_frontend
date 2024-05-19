@@ -57,6 +57,8 @@ import { SiMinutemailer } from "react-icons/si";
 import { FaMicrophone } from "react-icons/fa6";
 import { BsCameraReelsFill } from "react-icons/bs";
 import SendExitEmailProgram from "pages/sendExitEmailProgram";
+import VideoEditProgram from 'pages/videoEditProgram';
+import { IoConstruct } from "react-icons/io5";
 
 // Vision UI Dashboard PRO React layouts
 
@@ -159,6 +161,16 @@ const routes = [
     icon: <SiMinutemailer size="15px" color="inherit" />,
     route: "/sendExitEmailProgram",
     component: <SendExitEmailProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
+  {
+    type: "collapse",
+    name: "Video Edit Program",
+    key: "videoEditProgram",
+    icon: <IoConstruct size="15px" color="inherit" />,
+    route: "/videoEditProgram",
+    component: <VideoEditProgram />,
     noCollapse: true,
     access_type: false,
   },
