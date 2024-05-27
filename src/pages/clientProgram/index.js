@@ -70,6 +70,7 @@ function ClientProgram() {
       { name: "be_shown_social_media", align: "center" },
       { name: "tour_status", align: "center" },
       { name: "paid_status", align: "center" },
+      { name: "tour_status", align: "center" },
       { name: "date", align: "center" },
       { name: "id", align: "center" },
       { name: "action", align: "center" },

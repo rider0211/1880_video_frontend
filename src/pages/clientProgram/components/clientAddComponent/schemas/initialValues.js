@@ -21,24 +21,27 @@ const {
   formField: {
     client_name,
     client_email,
-    rfid_tag,
+    // rfid_tag,
     get_same_video,
     appears_in_others_video,
     voice_can_be_recorded,
     be_shown_potential,
     be_shown_public_business,
     be_shown_social_media,
+    paid_status,
   },
 } = checkout;
 
 export default {
   [client_name.name]: "",
   [client_email.name]: "",
-  [rfid_tag.name]: "",
+  // [rfid_tag.name]: "",
   [get_same_video.name]: true,
   [appears_in_others_video.name]: true,
   [voice_can_be_recorded.name]: true,
   [be_shown_potential.name]: true,
   [be_shown_public_business.name]: true,
-  [be_shown_social_media.name]: true
+  [be_shown_social_media.name]: true,
+  [paid_status.name]: false,
+
 };

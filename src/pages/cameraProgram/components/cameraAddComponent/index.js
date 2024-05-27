@@ -1,25 +1,22 @@
 import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from 'react-redux';
 
-import ClientComponent from "./clientComponent";
+import CameraComponent from "./cameraComponent";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
-import { action_type } from "redux/action_type";
-import { addClient } from "redux/actions/client_manage";
+import { addCamera } from "redux/actions/camera";
 import form from "./schemas/form";
 import initialValues from "./schemas/initialValues";
 import validations from "./schemas/validations";
 
-function ClientAddComponent(props) {
+function CameraAddComponent(props) {
     const { formId, formField } = form;
     const dispatch = useDispatch();
     const userdata = useSelector((state) => state.auth.userData);
 
     const handleSubmit = async (values, actions) => {
-        values.customer_id = userdata.user_id;
-        values.tour_status = false;
         const access_token = userdata.access;
-        dispatch(addClient(access_token, values));
+        dispatch(addCamera(access_token, values));
         props.toogleModal();
     };
 
@@ -31,7 +28,7 @@ function ClientAddComponent(props) {
         >
             {({ values, errors, touched, isSubmitting }) => (
                 <Form id={formId} autoComplete="off">
-                    <ClientComponent formData={{ values, touched, formField, errors }} />
+                    <CameraComponent formData={{ values, touched, formField, errors }} />
                     <VuiBox
                         display="flex"
                         justifyContent="center"
@@ -45,7 +42,7 @@ function ClientAddComponent(props) {
                             disabled={isSubmitting}
                             type="submit"
                         >
-                            Register Client
+                            Register Camera
                         </VuiButton>
                     </VuiBox>
                 </Form>
@@ -55,4 +52,4 @@ function ClientAddComponent(props) {
 
 }
 
-export default ClientAddComponent
+export default CameraAddComponent

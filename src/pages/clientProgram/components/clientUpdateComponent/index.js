@@ -36,7 +36,6 @@ function ClientUpdateComponent(props) {
     const handleSubmit = async (values, actions) => {
         values.client_id = props.client_id;
         values.tour_status = selected_client_data.tour_status;
-        values.paid_status = selected_client_data.paid_status;
         dispatch(updateClientByClientID(access_token, values));
         toogleClientModal(-1);
     };
@@ -44,13 +43,14 @@ function ClientUpdateComponent(props) {
     if (selected_client_data.length != 0) {
         initialValues.client_name = selected_client_data.client_name
         initialValues.client_email = selected_client_data.client_email
-        initialValues.rfid_tag = selected_client_data.rfid_tag
+        // initialValues.rfid_tag = selected_client_data.rfid_tag
         initialValues.get_same_video = selected_client_data.get_same_video
         initialValues.appears_in_others_video = selected_client_data.appears_in_others_video
         initialValues.voice_can_be_recorded = selected_client_data.voice_can_be_recorded
         initialValues.be_shown_potential = selected_client_data.be_shown_potential
         initialValues.be_shown_public_business = selected_client_data.be_shown_public_business
         initialValues.be_shown_social_media = selected_client_data.be_shown_social_media
+        initialValues.paid_status = selected_client_data.paid_status
     }
 
     return (

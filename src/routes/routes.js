@@ -38,28 +38,25 @@
 */
 
 // React icons
-import { IoCamera, IoFilmSharp, IoHome, IoPeopleSharp, IoVideocamSharp } from "react-icons/io5";
+import { IoFilmSharp, IoPeopleSharp } from "react-icons/io5";
 import { PiFilmReelFill } from "react-icons/pi";
 import { BsFilePdfFill } from "react-icons/bs";
 import CameraVoiceProgram from 'pages/cameraVoiceProgram'
 import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
-import Default from "pages/dashboard";
 import { FaPeopleGroup } from "react-icons/fa6";
 import FooterVideo from "pages/footer";
 import Header from "pages/header";
-import { TbCameraCheck } from "react-icons/tb";
-import WebCamCapture from 'pages/webCamCapture';
 import ColoringProgram from 'pages/coloringProgram';
-import { TbCameraCog } from "react-icons/tb";
-import CameraManagementProgram from "pages/cameraManagementProgram";
+import TourManagementProgram from "pages/tourManagementProgram";
 import { SiMinutemailer } from "react-icons/si";
 import { FaMicrophone } from "react-icons/fa6";
 import { BsCameraReelsFill } from "react-icons/bs";
 import SendExitEmailProgram from "pages/sendExitEmailProgram";
 import VideoEditProgram from 'pages/videoEditProgram';
-import { IoConstruct } from "react-icons/io5";
-
+import CameraProgram from "pages/cameraProgram";
+import { FaImages } from "react-icons/fa6";
+import { FaNetworkWired } from "react-icons/fa6";
 // Vision UI Dashboard PRO React layouts
 
 const routes = [
@@ -146,11 +143,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Camera Program",
-    key: "cameraManagementProgram",
+    name: "Tour Program",
+    key: "tourManagementProgram",
     icon: <BsCameraReelsFill size="15px" color="inherit" />,
-    route: "/cameraManagementProgram",
-    component: <CameraManagementProgram />,
+    route: "/tourManagementProgram",
+    component: <TourManagementProgram />,
     noCollapse: true,
     access_type: false,
   },
@@ -168,13 +165,21 @@ const routes = [
     type: "collapse",
     name: "Video Edit Program",
     key: "videoEditProgram",
-    icon: <IoConstruct size="15px" color="inherit" />,
+    icon: <FaImages size="15px" color="inherit" />,
     route: "/videoEditProgram",
     component: <VideoEditProgram />,
     noCollapse: true,
     access_type: false,
   },
-
+  {
+    type: "collapse",
+    name: "Camera Program",
+    key: "cameraProgram",
+    icon: <FaNetworkWired size="15px" color="inherit" />,
+    route: "/cameraProgram",
+    component: <CameraProgram />,
+    noCollapse: true,
+    access_type: false,
+  },
 ];
-
 export default routes;

@@ -12,4 +12,7 @@ export default {
   INVALID_FACES: 'Please take your all faces',
   CLIENT_NOT_SELECTED: 'CLIENT_NOT_SELECTED',
   CLIENT_NOT_ALLOWED: 'Please wait until admin allows you',
+  SEND_COLORING_PDF: 'Sending coloring pdf completed successfuly',
+  PROXY_NOT_EXISTS: 'Proxy server is not working now',
+  DUPLICATED_CAMERA: 'Same camera is already exists'
 }

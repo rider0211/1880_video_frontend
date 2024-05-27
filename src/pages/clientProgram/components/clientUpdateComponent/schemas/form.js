@@ -33,13 +33,13 @@ export default {
       errorMsg: "Email address is required.",
       invalidMsg: "Your email address is invalid",
     },
-    rfid_tag: {
-      name: "rfid_tag",
-      label: "Scan your RFID tag",
-      type: "text",
-      placeholder: "eg. 5246758151815",
-      errorMsg: "Scan your RFID tag.",
-    },
+    // rfid_tag: {
+    //   name: "rfid_tag",
+    //   label: "Scan your RFID tag",
+    //   type: "text",
+    //   placeholder: "eg. 5246758151815",
+    //   errorMsg: "Scan your RFID tag.",
+    // },
     get_same_video: {
       name: "get_same_video",
       label: "Get Same Video",
@@ -87,6 +87,14 @@ export default {
       placeholder: "eg. vision@dashboard.come",
       errorMsg: "Be Shown Social Media is required.",
       invalidMsg: "Be Shown Social Media is invalid",
+    },
+    paid_status: {
+      name: "paid_status",
+      label: "Paid Status",
+      type: "boolean",
+      placeholder: "eg. vision@dashboard.com",
+      errorMsg: "Paid Status is required.",
+      invalidMsg: "Paid Status is invalid",
     }
   },
 };

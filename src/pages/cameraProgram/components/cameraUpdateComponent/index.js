@@ -1,28 +1,42 @@
+import { useEffect } from "react";
 import { Form, Formik } from "formik";
 import { useDispatch, useSelector } from 'react-redux';
 
-import ClientComponent from "./clientComponent";
+import CameraComponent from "./cameraComponent";
 import VuiBox from "components/VuiBox";
 import VuiButton from "components/VuiButton";
 import { action_type } from "redux/action_type";
-import { addClient } from "redux/actions/client_manage";
 import form from "./schemas/form";
+import { getCameraByID, updateCamera } from "redux/actions/camera";
 import initialValues from "./schemas/initialValues";
 import validations from "./schemas/validations";
 
-function ClientAddComponent(props) {
+function CameraUpdateComponent({ camera_id }) {
     const { formId, formField } = form;
     const dispatch = useDispatch();
+    const selected_camera_data = useSelector((state) => state.cameraReducer.selectedCameraData);
+    const camera_update_modal_status = useSelector((state) => state.cameraReducer.cameraUpdateModalStatus);
     const userdata = useSelector((state) => state.auth.userData);
-
+    const access_token = userdata.access;
+    const toogleCameraModal = (id) => {
+        dispatch({ type: action_type.SELECT_FOR_UPDATE_CAMERA, status: id });
+        dispatch({ type: action_type.CAMERA_UPDATE_MODAL_STATUS, status: !camera_update_modal_status });
+    }
+    useEffect(() => {
+        dispatch(getCameraByID(access_token, camera_id));
+    }, [])
     const handleSubmit = async (values, actions) => {
-        values.customer_id = userdata.user_id;
-        values.tour_status = false;
-        const access_token = userdata.access;
-        dispatch(addClient(access_token, values));
-        props.toogleModal();
+        values.id = camera_id;
+        dispatch(updateCamera(access_token, values));
+        toogleCameraModal(-1);
     };
-
+    if (selected_camera_data.length != 0) {
+        initialValues.camera_name = selected_camera_data.camera_name
+        initialValues.camera_ip = selected_camera_data.camera_ip
+        initialValues.camera_port = selected_camera_data.camera_port
+        initialValues.camera_user_name = selected_camera_data.camera_user_name
+        initialValues.password = selected_camera_data.password
+    }
     return (
         <Formik
             initialValues={initialValues}
@@ -31,7 +45,7 @@ function ClientAddComponent(props) {
         >
             {({ values, errors, touched, isSubmitting }) => (
                 <Form id={formId} autoComplete="off">
-                    <ClientComponent formData={{ values, touched, formField, errors }} />
+                    <CameraComponent formData={{ values, touched, formField, errors }} />
                     <VuiBox
                         display="flex"
                         justifyContent="center"
@@ -45,7 +59,7 @@ function ClientAddComponent(props) {
                             disabled={isSubmitting}
                             type="submit"
                         >
-                            Register Client
+                            Update Camera
                         </VuiButton>
                     </VuiBox>
                 </Form>
@@ -55,4 +69,4 @@ function ClientAddComponent(props) {
 
 }
 
-export default ClientAddComponent
+export default CameraUpdateComponent

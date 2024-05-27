@@ -5,6 +5,10 @@ import { action_type } from "redux/action_type";
 const initialState = {
     cameraData: [],
     selectedCameraData: [],
+    selectCamera: -1,
+    cameraUpdateModalStatus: false,
+    cameraAddModalStatus: false,
+    selectForUpdateCamera: -1,
 }
 
 const cameraReducer = (state = initialState, action) => {
@@ -42,7 +46,12 @@ const cameraReducer = (state = initialState, action) => {
                 }
             }
             return { ...state, cameraData: allData }
-
+        case action_type.CAMERA_UPDATE_MODAL_STATUS:
+            return { ...state, cameraUpdateModalStatus: action.status }
+        case action_type.CAMERA_ADD_MODAL_STATUS:
+            return { ...state, cameraAddModalStatus: action.status }
+        case action_type.SELECT_FOR_UPDATE_CAMERA:
+            return { ...state, selectForUpdateCamera: action.camera_id }
         default:
             return state
     }

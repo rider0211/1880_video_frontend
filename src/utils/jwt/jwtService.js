@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { getBlobFromLocalForage } from 'utils/common'
 import jwtDefaultConfig from './jwtDefaultConfig'
+import qs from 'qs';
 
 export default class JwtService {
   // ** jwtConfig <= Will be used by this service
@@ -246,6 +247,7 @@ export default class JwtService {
   addCameraVoice(token, param) {
     return axios.post(this.jwtConfig.addCameraVoiceEndpoint, param, {
       headers: {
+        'Content-Type': 'multipart/form-data',
         Authorization: 'Bearer ' + token
       }
     })
@@ -359,6 +361,65 @@ export default class JwtService {
 
   getAllCamera(token) {
     return axios.get(this.jwtConfig.getAllCameraEndPoint, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  getCameraByID(token, id) {
+    return axios.get(`${this.jwtConfig.getCameraByIDEndpoint}?id=${id}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  addCamera(token, params) {
+    return axios.post(this.jwtConfig.addCameraEndPoint, params, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+
+  deleteCamera(id, token) {
+    return axios.post(this.jwtConfig.deleteCameraEndpoint, { id: id }, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  updateCamera(token, params) {
+    return axios.post(this.jwtConfig.updateCameraEndpoint, params, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+  checkCameraStatus(token, param) {
+    const params = {
+      'camera_ip': param.camera_ip,
+      'userName': param.camera_user_name,
+      'password': param.password
+    }
+
+    return axios.post(this.jwtConfig.checkCameraStatusEndPoint, params, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
+  }
+
+
+  sendColoringPDF(token, param) {
+    return axios.post(this.jwtConfig.sendColoringPDFEndPoint, param, {
       headers: {
         Authorization: 'Bearer ' + token
       }

@@ -17,17 +17,24 @@
 
 import * as Yup from "yup";
 
-import checkout from "pages/clientProgram/components/childAddComponent/schemas/form";
+import checkout from "pages/cameraProgram/components/cameraAddComponent/schemas/form";
 
 const {
-  formField: { children_name,
-    //  rfid_tag 
+  formField: {
+    camera_name,
+    camera_ip,
+    camera_port,
+    camera_user_name,
+    password,
   }
 } = checkout;
 
 export default [
   Yup.object().shape({
-    [children_name.name]: Yup.string().required(children_name.errorMsg),
-    // [rfid_tag.name]: Yup.string().required(rfid_tag.errorMsg),
+    [camera_name.name]: Yup.string().required(camera_name.errorMsg),
+    [camera_ip.name]: Yup.string().required(camera_ip.errorMsg),
+    [camera_port.name]: Yup.string().required(camera_port.errorMsg),
+    [camera_user_name.name]: Yup.string().required(camera_user_name.errorMsg),
+    [password.name]: Yup.string().required(password.errorMsg),
   })
 ];

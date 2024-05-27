@@ -60,6 +60,13 @@ export default {
 
 
   getAllCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getall`,
+  getCameraByIDEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/getbyid`,
+  addCameraEndPoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/add`,
+  deleteCameraEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/delete`,
+  updateCameraEndpoint: `${process.env.REACT_APP_BASE_API_URL}/admin/camera/update`,
+  checkCameraStatusEndPoint: `${process.env.REACT_APP_BASE_API_URL}/thirdparty/status`,
+
+  sendColoringPDFEndPoint: `${process.env.REACT_APP_BASE_API_URL}/coloringpages/sendColoringPDF`,
   // ** This will be prefixed in authorization header with token
   // ? e.g. Authorization: Bearer <token>
   tokenType: 'Bearer',

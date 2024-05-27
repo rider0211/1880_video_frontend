@@ -11,24 +11,27 @@ function ClientComponent({ formData }) {
     const {
         client_name,
         client_email,
-        rfid_tag,
+        // rfid_tag,
         get_same_video,
         appears_in_others_video,
         voice_can_be_recorded,
         be_shown_potential,
         be_shown_public_business,
-        be_shown_social_media, } = formField;
+        be_shown_social_media,
+        paid_status,
+    } = formField;
 
     const {
         client_name: client_name_V,
         client_email: client_email_V,
-        rfid_tag: rfid_tag_V,
+        // rfid_tag: rfid_tag_V,
         get_same_video: get_same_video_V,
         appears_in_others_video: appears_in_others_video_V,
         voice_can_be_recorded: voice_can_be_recorded_V,
         be_shown_potential: be_shown_potential_V,
         be_shown_public_business: be_shown_public_business_V,
         be_shown_social_media: be_shown_social_media_V,
+        paid_status: paid_status_V,
     } = values;
 
     return (
@@ -52,7 +55,7 @@ function ClientComponent({ formData }) {
                     error={errors.client_email && touched.client_email}
                     success={client_email_V.length > 0 && !errors.client_email}
                 />
-                <RFIDFormField
+                {/* <RFIDFormField
                     label={rfid_tag.label}
                     name={rfid_tag.name}
                     type={rfid_tag.type}
@@ -60,7 +63,7 @@ function ClientComponent({ formData }) {
                     placeholder={rfid_tag.placeholder}
                     error={errors.rfid_tag && touched.rfid_tag}
                     success={rfid_tag_V.length > 0 && !errors.rfid_tag}
-                />
+                /> */}
                 <OptionFormField
                     label={get_same_video.label}
                     name={get_same_video.name}
@@ -114,6 +117,15 @@ function ClientComponent({ formData }) {
                     placeholder={be_shown_social_media.placeholder}
                     error={errors.be_shown_social_media && touched.be_shown_social_media}
                     success={be_shown_social_media_V.length > 0 && !errors.be_shown_social_media}
+                />
+                <OptionFormField
+                    label={paid_status.label}
+                    name={paid_status.name}
+                    type={paid_status.type}
+                    value={paid_status_V}
+                    placeholder={paid_status.placeholder}
+                    error={errors.paid_status && touched.paid_status}
+                    success={paid_status_V.length > 0 && !errors.paid_status}
                 />
             </Grid>
         </Grid>
