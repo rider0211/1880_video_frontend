@@ -37,15 +37,31 @@ const cameraReducer = (state = initialState, action) => {
             return { ...state, cameraData: rCamera }
 
         case action_type.UPDATE_CAMERA:
-            let allData = [...state.cameraData];
-            for (let i = 0; i < allData.length; i++) {
-                const cameraDataTmp = allData[i];
-                if (cameraDataTmp.id == action.cameraData.id) {
-                    allData[i] = action.cameraData;
-                    break;
-                }
-            }
-            return { ...state, cameraData: allData }
+            return {
+                ...state,
+                cameraData: state.cameraData.map(cameraDataTmp =>
+                    cameraDataTmp.id === action.cameraData.id
+                        ? { ...cameraDataTmp, ...action.cameraData }
+                        : cameraDataTmp
+                )
+            };
+        case action_type.UPDATE_CAMERA_STATUS:
+            return {
+                ...state,
+                cameraData: state.cameraData.map(cameraDataTmp => {
+                    if (
+                        cameraDataTmp.id === action.cameraData.id &&
+                        cameraDataTmp.camera_name === action.cameraData.camera_name &&
+                        cameraDataTmp.camera_ip === action.cameraData.camera_ip &&
+                        cameraDataTmp.camera_port === action.cameraData.camera_port &&
+                        cameraDataTmp.camera_user_name === action.cameraData.camera_user_name &&
+                        cameraDataTmp.password === action.cameraData.password
+                    ) {
+                        return { ...cameraDataTmp, ...action.cameraData };
+                    }
+                    return cameraDataTmp;
+                })
+            };
         case action_type.CAMERA_UPDATE_MODAL_STATUS:
             return { ...state, cameraUpdateModalStatus: action.status }
         case action_type.CAMERA_ADD_MODAL_STATUS:

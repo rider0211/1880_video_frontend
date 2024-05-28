@@ -21,7 +21,6 @@ const {
   formField: {
     client_name,
     client_email,
-    // rfid_tag,
     get_same_video,
     appears_in_others_video,
     voice_can_be_recorded,
@@ -35,7 +34,6 @@ const {
 export default {
   [client_name.name]: "",
   [client_email.name]: "",
-  // [rfid_tag.name]: "",
   [get_same_video.name]: true,
   [appears_in_others_video.name]: true,
   [voice_can_be_recorded.name]: true,

@@ -11,7 +11,6 @@ function ChildComponent({ formData }) {
 
     const {
         children_name: children_name_V,
-        // rfid_tag: rfid_tag_V
     } = values;
 
     return (
@@ -26,15 +25,6 @@ function ChildComponent({ formData }) {
                     error={errors.children_name && touched.children_name}
                     success={children_name_V.length > 0 && !errors.children_name}
                 />
-                {/* <RFIDFormField
-                    label={rfid_tag.label}
-                    name={rfid_tag.name}
-                    type={rfid_tag.type}
-                    value={rfid_tag_V}
-                    placeholder={rfid_tag.placeholder}
-                    error={errors.rfid_tag && touched.rfid_tag}
-                    success={rfid_tag_V.length > 0 && !errors.rfid_tag}
-                /> */}
             </Grid>
         </Grid>
     );

@@ -2,7 +2,6 @@ import FormField from "pages/clientProgram/components/formField/index";
 import { Grid } from "@mui/material";
 import OptionFormField from "pages/clientProgram/components/formField/option_form_field";
 import PropTypes from "prop-types";
-import RFIDFormField from "pages/clientProgram/components/formField/rfid_form_field";
 
 function ClientComponent({ formData }) {
 
@@ -11,7 +10,6 @@ function ClientComponent({ formData }) {
     const {
         client_name,
         client_email,
-        // rfid_tag,
         get_same_video,
         appears_in_others_video,
         voice_can_be_recorded,
@@ -24,7 +22,6 @@ function ClientComponent({ formData }) {
     const {
         client_name: client_name_V,
         client_email: client_email_V,
-        // rfid_tag: rfid_tag_V,
         get_same_video: get_same_video_V,
         appears_in_others_video: appears_in_others_video_V,
         voice_can_be_recorded: voice_can_be_recorded_V,
@@ -55,15 +52,6 @@ function ClientComponent({ formData }) {
                     error={errors.client_email && touched.client_email}
                     success={client_email_V.length > 0 && !errors.client_email}
                 />
-                {/* <RFIDFormField
-                    label={rfid_tag.label}
-                    name={rfid_tag.name}
-                    type={rfid_tag.type}
-                    value={rfid_tag_V}
-                    placeholder={rfid_tag.placeholder}
-                    error={errors.rfid_tag && touched.rfid_tag}
-                    success={rfid_tag_V.length > 0 && !errors.rfid_tag}
-                /> */}
                 <OptionFormField
                     label={get_same_video.label}
                     name={get_same_video.name}

@@ -22,10 +22,10 @@ import { action_type } from "redux/action_type";
 const BadgeComponent = (flag) => {
   return flag.flag ?
     <VuiBox ml={-1.325}>
-      <VuiBadgeDot size="xs" badgeContent="Yes" />
+      <VuiBadgeDot size="xs" badgeContent="Connected" />
     </VuiBox> :
     <VuiBox ml={-1.325}>
-      <VuiBadgeDot size="xs" color="error" badgeContent="No" />
+      <VuiBadgeDot size="xs" color="error" badgeContent="Non-Connected" />
     </VuiBox>
 }
 
@@ -70,10 +70,10 @@ function CameraProgram() {
       password: (item.password),
       id: (item.id),
       action: (
-        <ActionComponent camera_id={item.id} />
+        <ActionComponent camera_id={item.id}/>
       ),
       status: (
-        item.status
+        <BadgeComponent flag={item.status}/>
       ),
     }
   })

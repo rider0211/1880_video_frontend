@@ -46,6 +46,7 @@ import ClientProgram from "pages/clientProgram";
 import CustomerManagement from "pages/customerProgram/customerProgramPage";
 import { FaPeopleGroup } from "react-icons/fa6";
 import FooterVideo from "pages/footer";
+import WebCamCapture from 'pages/webCamCapture';
 import Header from "pages/header";
 import ColoringProgram from 'pages/coloringProgram';
 import TourManagementProgram from "pages/tourManagementProgram";

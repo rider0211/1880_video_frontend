@@ -28,6 +28,5 @@ const {
 export default [
   Yup.object().shape({
     [children_name.name]: Yup.string().required(children_name.errorMsg),
-    // [rfid_tag.name]: Yup.string().required(rfid_tag.errorMsg),
   })
 ];

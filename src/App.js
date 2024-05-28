@@ -20,8 +20,7 @@ import { action_type } from "redux/action_type";
 import pageRoutes from "routes/page.routes";
 import routes from "routes/routes";
 import theme from "assets/theme";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function App() {
   const [controller, dispatch] = useVisionUIController();

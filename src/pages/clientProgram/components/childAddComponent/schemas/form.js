@@ -25,12 +25,5 @@ export default {
       placeholder: "eg. Steve Jeus",
       errorMsg: "Full Name is required.",
     },
-    // rfid_tag: {
-    //   name: "rfid_tag",
-    //   label: "Scan your RFID tag",
-    //   type: "text",
-    //   placeholder: "eg. 5246758151815",
-    //   errorMsg: "Scan your RFID tag.",
-    // },
   },
 };

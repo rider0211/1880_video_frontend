@@ -41,7 +41,7 @@ export const getAllCamera = (token) => async (dispatch) => {
       .getAllCamera(token)
       .then(res => {
         if (res.data.status) {
-          const data = res.data.data.map(item => ({ ...item, status: 'undefined' }))
+          const data = res.data.data.map(item => ({ ...item, status: false }))
           dispatch({ type: action_type.FETCH_ALL_CAMERA, cameraData: data });
         }
       })
@@ -116,9 +116,10 @@ export const updateCamera = (token, param) => async (dispatch) => {
     useJwt
       .updateCamera(token, param)
       .then(res => {
-        if (res.data.status)
+        if (res.data.status){
           dispatch({ type: action_type.UPDATE_CAMERA, cameraData: res.data.data });
-        dispatch(alert_update_success());
+          dispatch(alert_update_success());
+        }
       })
       .catch(err => {
         console.log(err)
@@ -141,9 +142,15 @@ export const checkCameraStatus = (token, param) => async (dispatch) => {
     useJwt.
       checkCameraStatus(token, param)
       .then(res => {
-        console.log(res);
+        if(res.data.status){
+          const updatedParam = { ...param, status: true };
+          dispatch({ type: action_type.UPDATE_CAMERA_STATUS, cameraData: updatedParam });
+        }
+      }).catch(err => {
+        const updatedParam = { ...param, status: false };
+        dispatch({ type: action_type.UPDATE_CAMERA_STATUS, cameraData: updatedParam });
       })
   } catch (error) {
-    console.error(error)
+    console.log(error)
   }
 }

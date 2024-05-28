@@ -20,11 +20,9 @@ import checkout from "pages/clientProgram/components/childAddComponent/schemas/f
 const {
   formField: {
     children_name,
-    // rfid_tag
   },
 } = checkout;
 
 export default {
   [children_name.name]: "",
-  // [rfid_tag.name]: "",
 };
