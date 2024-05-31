@@ -20,7 +20,6 @@ function UserInfo({ formData }) {
   const dispatch = useDispatch();
   const { formField, values, errors, touched } = formData;
   const { username, phonenumber, email, password, confirm_password } = formField;
-  const selected_user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const {
     username: usernameV,
     phonenumber: phonenumberV,
@@ -29,15 +28,11 @@ function UserInfo({ formData }) {
     confirm_password: confirm_passwordV,
   } = values;
 
-  const handleOnChange = (event) => {
-    dispatch({ type: action_type.SELECTED_USER_TYPE, data: event.target.value });
-  }
-
   return (
     <VuiBox>
       <VuiBox mt={3}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={4}>
             <FormField
               label={username.label}
               name={username.name}
@@ -48,27 +43,7 @@ function UserInfo({ formData }) {
               success={usernameV.length > 0 && !errors.username}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <VuiBox mb={1} ml={0.5} lineHeight={0} display="inline-block">
-              <VuiTypography
-                component="label"
-                variant="caption"
-                fontWeight="bold"
-                textTransform="capitalize"
-                color="white"
-              >
-                User Type
-              </VuiTypography>
-            </VuiBox>
-            <Select input={<VuiInput />} value={selected_user_type} onChange={handleOnChange}>
-              <MenuItem value='2'>Customer</MenuItem>
-              <MenuItem value='3'>Clerk</MenuItem>
-              <MenuItem value='4'>client</MenuItem>
-            </Select>
-          </Grid>
-        </Grid>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={4}>
             <FormField
               label={email.label}
               name={email.name}
@@ -79,7 +54,7 @@ function UserInfo({ formData }) {
               success={emailV.length > 0 && !errors.email}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={6} lg={4}>
             <FormField
               label={phonenumber.label}
               name={phonenumber.name}

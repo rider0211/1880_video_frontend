@@ -80,9 +80,9 @@ export default {
       name: "zipcode",
       label: "zipcode",
       type: "number",
-      placeholder: "7 letters",
+      placeholder: "78634",
       errorMsg: "zipcode is required.",
-      invalidMsg: "Zipcode is not valie (e.g. 12345).",
+      invalidMsg: "Zipcode is not valid (e.g. 12345).",
       invalidNumberMsg: "Must be only digit"
     },
     state: {

@@ -1,26 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import FormField from "pages/customerProgram/addCustomerPage/components/FormField";
 // @mui material components
 import Grid from "@mui/material/Grid";
-import MenuItem from "@mui/material/MenuItem";
 // prop-type is a library for typechecking of props
 import PropTypes from "prop-types";
-import Select from "@mui/material/Select";
 // Vision UI Dashboard PRO React components
 import VuiBox from "components/VuiBox";
-import VuiInput from "components/VuiInput";
 import VuiTypography from "components/VuiTypography";
-import { action_type } from 'redux/action_type';
 
 // NewUser page components
 
 function UserInfo({ formData }) {
 
-  const dispatch = useDispatch();
   const { formField, values, errors, touched } = formData;
   const { username, phonenumber, email, password, confirm_password } = formField;
-  const selected_user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const {
     username: usernameV,
     phonenumber: phonenumberV,
@@ -28,10 +22,6 @@ function UserInfo({ formData }) {
     password: passwordV,
     confirm_password: confirm_passwordV,
   } = values;
-
-  const handleOnChange = (event) => {
-    dispatch({ type: action_type.SELECTED_USER_TYPE, data: event.target.value });
-  }
 
   return (
     <VuiBox>

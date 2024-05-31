@@ -52,9 +52,7 @@ function NewUser() {
   const isLastStep = activeStep === steps.length - 1;
   const dispatch = useDispatch()
 
-  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   const handleBack = () => setActiveStep(activeStep - 1);
-  const user_type = useSelector((state) => state.selected_user_type.selected_user_type);
   const submitForm = async (values, actions) => {
     // eslint-disable-next-line no-alert
     values.user_type = 2;

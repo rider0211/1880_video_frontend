@@ -62,11 +62,12 @@ export default {
     },
     zipcode: {
       name: "zipcode",
-      label: "Zipcode",
-      type: "text",
-      placeholder: "7 letters",
+      label: "zipcode",
+      type: "string",
+      placeholder: "78634",
       errorMsg: "zipcode is required.",
-      invalidMsg: "Zipcode is not valie (e.g. 70000).",
+      invalidMsg: "Zipcode is not valid (e.g. 12345).",
+      invalidNumberMsg: "Must be only digit"
     },
     state: {
       name: "state",
